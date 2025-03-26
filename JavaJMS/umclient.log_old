@@ -1,0 +1,658 @@
+[Wed Sep 04 11:09:52.243 EDT 2024] [pool-1-thread-66] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.243 EDT 2024] [pool-1-thread-66] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.244 EDT 2024] [pool-1-thread-11] The connection failed to initialize. ID: 76
+[Wed Sep 04 11:09:52.244 EDT 2024] [pool-1-thread-13] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.244 EDT 2024] [pool-1-thread-13] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.244 EDT 2024] [pool-1-thread-82] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.244 EDT 2024] [pool-1-thread-82] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.244 EDT 2024] [pool-1-thread-67] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.244 EDT 2024] [pool-1-thread-67] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.244 EDT 2024] [pool-1-thread-16] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.244 EDT 2024] [pool-1-thread-16] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-90] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-90] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-71] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-71] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-20] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-20] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-14] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-14] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-26] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.245 EDT 2024] [pool-1-thread-26] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-87] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-87] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-95] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-95] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-96] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-96] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-77] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-77] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-21] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-21] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-9] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.246 EDT 2024] [pool-1-thread-9] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-83] The connection failed to initialize. ID: 70
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-70] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-70] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-61] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-61] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-45] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-45] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-12] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-12] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-99] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-99] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-5] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-5] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-79] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.247 EDT 2024] [pool-1-thread-79] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-72] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-72] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-98] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-98] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-57] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-57] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-1] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-1] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-24] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-24] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-41] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-41] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-52] The connection failed to initialize. ID: 44
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-25] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.248 EDT 2024] [pool-1-thread-25] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-15] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-15] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-84] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-84] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-64] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-64] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-44] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-44] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-92] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-92] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-32] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-32] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-62] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.249 EDT 2024] [pool-1-thread-62] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-2] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-2] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-30] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-30] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-35] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-35] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-65] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-65] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-7] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-7] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-19] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-19] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-48] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-48] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-91] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.250 EDT 2024] [pool-1-thread-91] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-34] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-34] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-36] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-36] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-93] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-93] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-69] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-69] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-22] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-22] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-37] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-37] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-89] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-89] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-74] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.251 EDT 2024] [pool-1-thread-74] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-23] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-23] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-3] The connection failed to initialize. ID: 89
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-88] Failed to connect to Realm on attempt 1 - nSessionAttributes:conns=1/[[nsp://localhost:9087]]
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-88] com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+com.pcbsys.nirvana.client.nRealmUnreachableException: Realm is currently not reachable:Retry count=0 exceeded attempting to connect to host - [[nsp://localhost:9087]]
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.establishConnection(ClientConnectionManagerImpl.java:850)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.connect(ClientConnectionManagerImpl.java:679)
+	at com.pcbsys.nirvana.base.clientimpl.singleconnection.ClientConnectionManagerImpl.initialise(ClientConnectionManagerImpl.java:413)
+	at com.pcbsys.nirvana.client.nSession.init(nSession.java:244)
+	at ConnectAndWait$1.run(ConnectAndWait.java:32)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-23] The connection failed to initialize. ID: 48
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-74] The connection failed to initialize. ID: 24
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-89] The connection failed to initialize. ID: 12
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-37] The connection failed to initialize. ID: 92
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-22] The connection failed to initialize. ID: 27
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-69] The connection failed to initialize. ID: 19
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-93] The connection failed to initialize. ID: 57
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-36] The connection failed to initialize. ID: 14
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-34] The connection failed to initialize. ID: 47
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-91] The connection failed to initialize. ID: 82
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-48] The connection failed to initialize. ID: 78
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-19] The connection failed to initialize. ID: 7
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-7] The connection failed to initialize. ID: 51
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-65] The connection failed to initialize. ID: 34
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-35] The connection failed to initialize. ID: 10
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-30] The connection failed to initialize. ID: 50
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-2] The connection failed to initialize. ID: 54
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-62] The connection failed to initialize. ID: 3
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-32] The connection failed to initialize. ID: 65
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-92] The connection failed to initialize. ID: 39
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-44] The connection failed to initialize. ID: 8
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-64] The connection failed to initialize. ID: 20
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-84] The connection failed to initialize. ID: 64
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-15] The connection failed to initialize. ID: 46
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-25] The connection failed to initialize. ID: 31
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-41] The connection failed to initialize. ID: 13
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-24] The connection failed to initialize. ID: 90
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-1] The connection failed to initialize. ID: 94
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-57] The connection failed to initialize. ID: 40
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-98] The connection failed to initialize. ID: 5
+[Wed Sep 04 11:09:52.252 EDT 2024] [pool-1-thread-72] The connection failed to initialize. ID: 29
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-79] The connection failed to initialize. ID: 83
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-5] The connection failed to initialize. ID: 53
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-99] The connection failed to initialize. ID: 80
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-12] The connection failed to initialize. ID: 56
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-45] The connection failed to initialize. ID: 74
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-61] The connection failed to initialize. ID: 42
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-70] The connection failed to initialize. ID: 23
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-9] The connection failed to initialize. ID: 68
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-21] The connection failed to initialize. ID: 77
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-77] The connection failed to initialize. ID: 30
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-96] The connection failed to initialize. ID: 52
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-95] The connection failed to initialize. ID: 79
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-87] The connection failed to initialize. ID: 6
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-26] The connection failed to initialize. ID: 38
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-14] The connection failed to initialize. ID: 2
+[Wed Sep 04 11:09:52.253 EDT 2024] [pool-1-thread-20] The connection failed to initialize. ID: 37
+
+<<<<<<<<<< Log has been closed and a new one created >>>>>>>>>>>>

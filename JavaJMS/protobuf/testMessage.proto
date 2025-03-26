@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package tutorial;
+
+option java_package = "messages";
+option java_outer_classname = "MyMessage";
+
+message mymessage {
+  required string name = 1;
+}
+
+
