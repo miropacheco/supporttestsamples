@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">heapDump</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">CS8vY29tLndtLmFwcC5iMmIuc2VydmVyLkludm9rZVN0YXRlLmRvVGhyZWFkSW52b2tlKCJoZWFw
+RHVtcEdlbmVyYXRpb24iLCJUZXN0IiwgbmV3IFZhbHVlcygpLC0xKTsNCiAgIC8vQ29udGV4dCBj
+ID0gbmV3IENvbnRleHQoKTsNCiAgIC8vdHJ5IHsNCgkvL2Muc2V0QXV0aGVudGljYXRpb24oIkFk
+bWluaXN0cmF0b3IiLCJtYW5hZ2UiKTsNCgkvL2MuY29ubmVjdCgibG9jYWxob3N0OjU1NTgiKTsN
+CgkvL2MuaW52b2tlVGhyZWFkZWQoIndtLnNlcnZlci5hZG1pbiIsImdldERpYWdub3N0aWNEYXRh
+IiwgbmV3IFZhbHVlcygpKTsNCiAgICAvLyBjaGFuZ2UgdG8gbWF0Y2ggeW91ciBwYXRoDQoJY29t
+LndtLmFwcC5iMmIuc2VydmVyLmRpYWdub3N0aWMuRGF0YUNvbGxlY3Rvci5nZXREaWFnbm9zdGlj
+RGF0YShuZXcgVmFsdWVzKCkpOw0KCQ0KCVN0cmluZyBmaWxlID0iL3RtcC9oZWFwLmhwcm9mIjsN
+CglkdW1wSGVhcChmaWxlLCB0cnVlKTsNCgkNCgkNCgkNCgk=</value>
+</Values>

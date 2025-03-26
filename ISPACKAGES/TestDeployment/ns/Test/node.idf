@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">interface</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">Test</value>
+  <value name="node_pkg">TestDeployment</value>
+  <value name="is_public">false</value>
+  <value name="encodeutf8">true</value>
+  <value name="shared"></value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+    <value>java.text.SimpleDateFormat</value>
+    <value>java.util.ArrayList</value>
+    <value>java.util.Date</value>
+    <value>java.util.Enumeration</value>
+    <value>java.util.List</value>
+    <value>java.util.Locale</value>
+    <value>java.util.TimeZone</value>
+    <value>com.pcbsys.foundation.utils.StringUtils</value>
+    <value>com.pcbsys.nirvana.client.nQueue</value>
+    <value>com.pcbsys.nirvana.client.nSessionAttributes</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nContainer</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nDurableNode</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nLeafNode</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nNode</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nQueueNode</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nRealmNode</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nTopicNode</value>
+  </array>
+</Values>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="shared">c3RhdGljIGJvb2xlYW4ga2VlcFJ1bm5pbmc9dHJ1ZTsKCQ==</value>
+  <value name="encodeutf8">true</value>
+  <array name="imports" type="value" depth="1">
+    <value>com.wm.app.b2b.server.dispatcher.Configurator</value>
+    <value>java.io.IOException</value>
+    <value>java.util.concurrent.ExecutorService</value>
+    <value>java.util.concurrent.Executors</value>
+    <value>java.util.concurrent.TimeUnit</value>
+    <value>com.wm.data.IData</value>
+  </array>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+</Values>

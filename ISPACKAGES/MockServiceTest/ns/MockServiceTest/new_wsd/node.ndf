@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">webServiceDescriptor</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">MockServiceTest:new_wsd</value>
+  <value name="node_pkg">MockServiceTest</value>
+  <value name="is_public">false</value>
+  <Boolean name="inbound">false</Boolean>
+  <Boolean name="WSICompliant">false</Boolean>
+  <value name="SOAPProtocol">SOAP 1.1 Protocol</value>
+  <value name="targetNamespace">http://SAG-5RT9L63/WSFolder</value>
+  <Boolean name="attachmentEnabled">false</Boolean>
+  <number name="mtomThreshold" type="Integer">0</number>
+  <array name="externalWSDLSources" type="record" depth="1">
+    <record javaclass="com.wm.util.Values">
+      <value name="contextURI">http://localhost:5558/</value>
+      <value name="locationURI">MockServiceTest.new_wsd?wsdl=wsdl0</value>
+      <null name="source"/>
+      <number name="type" type="Integer">1</number>
+    </record>
+  </array>
+  <value name="externalWSDLURL">file:/C:/Users/CLPA/Downloads/WSFolder_Test_WSD.xml</value>
+  <value name="WSDLURL">http://SAG-5RT9L63:5558/ws/MockServiceTest:new_wsd?WSDL</value>
+  <value name="definitionName">Test_WSD</value>
+  <value name="version">V_10_7</value>
+  <value name="schemaDomain">7b6a6358a9be4237b4bee95de1f11a90</value>
+  <Boolean name="rawArray">true</Boolean>
+  <array name="handlerList" type="record" depth="1">
+  </array>
+  <array name="binderList" type="record" depth="1">
+    <record javaclass="com.wm.util.Values">
+      <value name="binderName">WSFolder_Test_WSD_Binder</value>
+      <value name="portAddress">http://SAG-5RT9L63:5558/ws/WSFolder:Test_WSD/WSFolder_Test_WSD_Port</value>
+      <value name="bindingName">WSFolder_Test_WSD_Binder</value>
+      <value name="bindingStyle">document</value>
+      <value name="bindingUse">literal</value>
+      <value name="bindingType">SOAP</value>
+      <value name="portName">WSFolder_Test_WSD_Port</value>
+      <value name="portTypeName">Test_WSD_PortType</value>
+      <value name="bindingTransport">http://schemas.xmlsoap.org/soap/http</value>
+      <value name="transportType">http</value>
+      <record name="operationMap" javaclass="com.wm.util.Values">
+        <value name="WSFolder_Test_WSD_Binder_Test">Test</value>
+      </record>
+      <value name="SOAPProtocol">SOAP 1.1 Protocol</value>
+      <value name="SOAPDirective">ws</value>
+      <Boolean name="useCSQ">false</Boolean>
+    </record>
+  </array>
+  <array name="operationList" type="record" depth="1">
+    <record javaclass="com.wm.util.Values">
+      <value name="operationName">Test</value>
+      <value name="serviceName">MockServiceTest.new_wsd_.connectors:Test_WSD_PortType_Test</value>
+      <value name="originalMEPType">MEP_URI_IN_OUT</value>
+      <record name="requestElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">http://SAG-5RT9L63/WSFolder:Test_WSD_PortType_Test_Input</value>
+          <value name="docType">MockServiceTest.new_wsd_.docTypes:Test_WSD_PortType_Test_Input</value>
+          <value name="nsOwner">MockServiceTest.new_wsd_.docTypes:Test_WSD_PortType_Test_Input</value>
+          <number name="nsOwnerType" type="Integer">3</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <null name="originalDocName"/>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+      <record name="responseElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">http://SAG-5RT9L63/WSFolder:Test_WSD_PortType_Test_Output</value>
+          <value name="docType">MockServiceTest.new_wsd_.docTypes:Test_WSD_PortType_Test_Output</value>
+          <value name="nsOwner">MockServiceTest.new_wsd_.docTypes:Test_WSD_PortType_Test_Output</value>
+          <number name="nsOwnerType" type="Integer">3</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <null name="originalDocName"/>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+    </record>
+  </array>
+  <record name="namespaces" javaclass="com.wm.util.Values">
+    <value name="wsdl">http://schemas.xmlsoap.org/wsdl/</value>
+    <value name="soapjms">http://www.w3.org/2010/soapjms/</value>
+    <value name="mime">http://schemas.xmlsoap.org/wsdl/mime/</value>
+    <value name="tns">http://SAG-5RT9L63/WSFolder</value>
+    <value name="xsd">http://www.w3.org/2001/XMLSchema</value>
+    <value name="http">http://schemas.xmlsoap.org/wsdl/http/</value>
+    <value name="soap12">http://schemas.xmlsoap.org/wsdl/soap12/</value>
+    <value name="soap">http://schemas.xmlsoap.org/wsdl/soap/</value>
+    <value name="soapenc">http://schemas.xmlsoap.org/soap/encoding/</value>
+  </record>
+  <Boolean name="HeadersInPipelineEnabled">false</Boolean>
+  <Boolean name="validateSOAPResponse">true</Boolean>
+  <Boolean name="validateSchemaUsingXerces">true</Boolean>
+  <Boolean name="enableCompatibility">false</Boolean>
+  <Boolean name="omitXSDAny">true</Boolean>
+  <record name="userDefinedURIReferencePrefixes" javaclass="com.wm.util.Values">
+    <value name="http://SAG-5RT9L63/WSFolder">tns</value>
+  </record>
+  <Boolean name="registerDoctypes">true</Boolean>
+  <Boolean name="allTypes">false</Boolean>
+  <Boolean name="generateXOPObjectForBase64Binary">false</Boolean>
+  <value name="originURI">file://C:\Users\CLPA\Downloads\WSFolder_Test_WSD.xml</value>
+  <value name="modifiable">false</value>
+  <value name="externalServiceName">{http://SAG-5RT9L63/WSFolder}WSFolder.Test_WSD</value>
+  <null name="policyAttachmentList"/>
+  <Boolean name="filterLoginCredentials">false</Boolean>
+</Values>

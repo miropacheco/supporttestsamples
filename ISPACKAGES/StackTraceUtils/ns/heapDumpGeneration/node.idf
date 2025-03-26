@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">interface</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">heapDumpGeneration</value>
+  <value name="is_public">false</value>
+  <value name="shared">cHVibGljIHN0YXRpYyBib29sZWFuIGtlZXBSdW5uaW5nID0gdHJ1ZTsKcHVibGljIHN0YXRpYyBi
+b29sZWFuIGlzUnVubmluZyA9IGZhbHNlOwpwdWJsaWMgc3RhdGljIGxvbmcgbWVtb3J5ID0gMjAw
+OwogLy8gVGhpcyBpcyB0aGUgbmFtZSBvZiB0aGUgSG90U3BvdCBEaWFnbm9zdGljIE1CZWFuCnBy
+aXZhdGUgc3RhdGljIGZpbmFsIFN0cmluZyBIT1RTUE9UX0JFQU5fTkFNRSA9CiAgICAgImNvbS5z
+dW4ubWFuYWdlbWVudDp0eXBlPUhvdFNwb3REaWFnbm9zdGljIjsKLy8gZmllbGQgdG8gc3RvcmUg
+dGhlIGhvdHNwb3QgZGlhZ25vc3RpYyBNQmVhbiAKcHJpdmF0ZSBzdGF0aWMgdm9sYXRpbGUgSG90
+U3BvdERpYWdub3N0aWNNWEJlYW4gaG90c3BvdE1CZWFuOwpzdGF0aWMgdm9pZCBkdW1wSGVhcChT
+dHJpbmcgZmlsZU5hbWUsIGJvb2xlYW4gbGl2ZSkgewogICAgLy8gaW5pdGlhbGl6ZSBob3RzcG90
+IGRpYWdub3N0aWMgTUJlYW4KICAgIGluaXRIb3RzcG90TUJlYW4oKTsKICAgIHRyeSB7CiAgICAg
+ICAgaG90c3BvdE1CZWFuLmR1bXBIZWFwKGZpbGVOYW1lLCBsaXZlKTsKICAgIH0gY2F0Y2ggKFJ1
+bnRpbWVFeGNlcHRpb24gcmUpIHsKICAgICAgICB0aHJvdyByZTsKICAgIH0gY2F0Y2ggKEV4Y2Vw
+dGlvbiBleHApIHsKICAgICAgICB0aHJvdyBuZXcgUnVudGltZUV4Y2VwdGlvbihleHApOwogICAg
+fQp9Ci8vIGluaXRpYWxpemUgdGhlIGhvdHNwb3QgZGlhZ25vc3RpYyBNQmVhbiBmaWVsZApwcml2
+YXRlIHN0YXRpYyB2b2lkIGluaXRIb3RzcG90TUJlYW4oKSB7CiAgICBpZiAoaG90c3BvdE1CZWFu
+ID09IG51bGwpIHsKICAgICAgICBzeW5jaHJvbml6ZWQgKGhlYXBEdW1wR2VuZXJhdGlvbi5jbGFz
+cykgewogICAgICAgICAgICBpZiAoaG90c3BvdE1CZWFuID09IG51bGwpIHsKICAgICAgICAgICAg
+ICAgIGhvdHNwb3RNQmVhbiA9IGdldEhvdHNwb3RNQmVhbigpOwogICAgICAgICAgICB9CiAgICAg
+ICAgfQogICAgfQp9Ci8vIGdldCB0aGUgaG90c3BvdCBkaWFnbm9zdGljIE1CZWFuIGZyb20gdGhl
+Ci8vIHBsYXRmb3JtIE1CZWFuIHNlcnZlcgpwcml2YXRlIHN0YXRpYyBIb3RTcG90RGlhZ25vc3Rp
+Y01YQmVhbiBnZXRIb3RzcG90TUJlYW4oKSB7CiAgICB0cnkgewogICAgICAgIE1CZWFuU2VydmVy
+IHNlcnZlciA9IE1hbmFnZW1lbnRGYWN0b3J5LmdldFBsYXRmb3JtTUJlYW5TZXJ2ZXIoKTsKICAg
+ICAgICBIb3RTcG90RGlhZ25vc3RpY01YQmVhbiBiZWFuID0gCiAgICAgICAgICAgIE1hbmFnZW1l
+bnRGYWN0b3J5Lm5ld1BsYXRmb3JtTVhCZWFuUHJveHkoc2VydmVyLAogICAgICAgICAgICBIT1RT
+UE9UX0JFQU5fTkFNRSwgSG90U3BvdERpYWdub3N0aWNNWEJlYW4uY2xhc3MpOwogICAgICAgIHJl
+dHVybiBiZWFuOwogICAgfSBjYXRjaCAoUnVudGltZUV4Y2VwdGlvbiByZSkgewogICAgICAgIHRo
+cm93IHJlOwogICAgfSBjYXRjaCAoRXhjZXB0aW9uIGV4cCkgewogICAgICAgIHRocm93IG5ldyBS
+dW50aW1lRXhjZXB0aW9uKGV4cCk7CiAgICB9Cn0J</value>
+  <value name="encodeutf8">true</value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+    <value>com.wm.app.b2b.client.Context</value>
+    <value>com.wm.lang.ns.NSName</value>
+    <value>java.lang.management.ManagementFactory</value>
+    <value>javax.management.MBeanServer</value>
+    <value>javax.management.ObjectName</value>
+    <value>com.sun.management.HotSpotDiagnosticMXBean</value>
+    <value>com.wm.app.b2b.server.diagnostic.RuntimeDataCollector</value>
+  </array>
+</Values>

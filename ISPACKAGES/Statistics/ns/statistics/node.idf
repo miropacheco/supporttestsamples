@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="shared">c3RhdGljIFRocmVhZExvY2FsPExvbmc+IHN0YXJ0VGltZSA9IFRocmVhZExvY2FsLndpdGhJbml0
+aWFsKCgpIC0+IDBsKTsgDQpzdGF0aWMgQ29uY3VycmVudEhhc2hNYXA8U3RyaW5nLCBXcmFwcGVk
+U3RhdHM+IG15TWFwID0gbmV3IENvbmN1cnJlbnRIYXNoTWFwPFN0cmluZywgV3JhcHBlZFN0YXRz
+PigpOw0K</value>
+  <value name="encodeutf8">true</value>
+  <array name="imports" type="value" depth="1">
+    <value>java.util.HashMap</value>
+    <value>java.util.Hashtable</value>
+    <value>java.util.concurrent.ConcurrentHashMap</value>
+  </array>
+</Values>

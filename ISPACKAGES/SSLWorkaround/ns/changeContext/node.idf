@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="shared">IA0K</value>
+  <value name="encodeutf8">true</value>
+  <array name="imports" type="value" depth="1">
+    <value>java.io.FileInputStream</value>
+    <value>java.io.FileNotFoundException</value>
+    <value>java.io.IOException</value>
+    <value>java.security.KeyManagementException</value>
+    <value>java.security.KeyStore</value>
+    <value>java.security.KeyStoreException</value>
+    <value>java.security.NoSuchAlgorithmException</value>
+    <value>java.security.UnrecoverableKeyException</value>
+    <value>java.security.cert.CertificateException</value>
+    <value>javax.net.ssl.KeyManagerFactory</value>
+    <value>javax.net.ssl.SSLContext</value>
+  </array>
+</Values>

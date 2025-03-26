@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="shared">c3RhdGljIGJvb2xlYW4ga2VlcFJ1bm5pbmc9dHJ1ZTsNCg==</value>
+  <value name="encodeutf8">true</value>
+  <array name="imports" type="value" depth="1">
+    <value>com.pcbsys.nirvana.client.nChannel</value>
+    <value>com.pcbsys.nirvana.client.nChannelAttributes</value>
+    <value>com.pcbsys.nirvana.client.nConsumeEvent</value>
+    <value>com.pcbsys.nirvana.client.nDurable</value>
+    <value>com.pcbsys.nirvana.client.nDurableAttributes</value>
+    <value>com.pcbsys.nirvana.client.nEventListener</value>
+    <value>com.pcbsys.nirvana.client.nDurableAttributes.nDurableType</value>
+    <value>com.pcbsys.nirvana.client.nSession</value>
+    <value>com.pcbsys.nirvana.client.nSessionAttributes</value>
+    <value>com.pcbsys.nirvana.client.nSessionFactory</value>
+    <value>java.security.NoSuchAlgorithmException</value>
+    <value>java.util.Random</value>
+    <value>java.util.concurrent.ExecutorService</value>
+    <value>java.util.concurrent.Executors</value>
+    <value>java.util.concurrent.TimeUnit</value>
+    <value>javax.net.ssl.SSLContext</value>
+    <value>org.apache.commons.lang.RandomStringUtils</value>
+    <value>com.wm.lang.ns.NSName</value>
+    <value>com.wm.app.b2b.server.ServiceThread</value>
+  </array>
+</Values>

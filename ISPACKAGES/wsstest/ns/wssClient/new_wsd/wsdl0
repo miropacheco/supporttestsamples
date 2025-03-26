@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="new_wsd" targetNamespace="http://SAG-5RT9L63/wssTest:new_wsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapjms="http://www.w3.org/2010/soapjms/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://SAG-5RT9L63/wssTest:new_wsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://SAG-5RT9L63/wssTest:new_wsd" xmlns:tns="http://SAG-5RT9L63/wssTest:new_wsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <xsd:element name="new_flowservice" type="tns:new_flowservice"/>
+          <xsd:element name="new_flowserviceResponse" type="tns:new_flowserviceResponse"/>
+          <xsd:complexType name="new_flowservice">
+            <xsd:sequence>
+              <xsd:element name="in" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="new_flowserviceResponse">
+            <xsd:sequence>
+              <xsd:element name="out" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        	</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="new_wsd_PortType_new_flowserviceResponse">
+    <wsdl:part name="parameters" element="tns:new_flowserviceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="new_wsd_PortType_new_flowservice">
+    <wsdl:part name="parameters" element="tns:new_flowservice">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="new_wsd_PortType">
+    <wsdl:operation name="new_flowservice">
+      <wsdl:input message="tns:new_wsd_PortType_new_flowservice">
+    </wsdl:input>
+      <wsdl:output message="tns:new_wsd_PortType_new_flowserviceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wssTest_new_wsd_Binder" type="tns:new_wsd_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="new_flowservice">
+      <soap:operation soapAction="wssTest_new_wsd_Binder_new_flowservice" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+    <wsp:PolicyReference URI="Username and Encryption" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wssTest.new_wsd">
+    <wsdl:port name="wssTest_new_wsd_Port" binding="tns:wssTest_new_wsd_Binder">
+      <soap:address location="http://SAG-5RT9L63:5558/ws/wssTest:new_wsd/wssTest_new_wsd_Port"/>
+    </wsdl:port>
+  </wsdl:service>
+    <wsp:Policy Name="Username and Encryption" wsu:Id="Username_Encryption" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsp:ExactlyOne><wsp:All><sp:SymmetricBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"><wsp:Policy><sp:ProtectionToken><wsp:Policy><sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient"><wsp:Policy><sp:WssX509PkiPathV1Token10/></wsp:Policy></sp:X509Token></wsp:Policy></sp:ProtectionToken><sp:AlgorithmSuite><wsp:Policy><sp:TripleDesRsa15/></wsp:Policy></sp:AlgorithmSuite><sp:Layout><wsp:Policy><sp:Strict/></wsp:Policy></sp:Layout><sp:IncludeTimestamp/><sp:OnlySignEntireHeadersAndBody/></wsp:Policy></sp:SymmetricBinding><sp:Wss11 xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"><wsp:Policy><sp:MustSupportRefIssuerSerial/><sp:MustSupportRefThumbprint/><sp:RequireSignatureConfirmation/></wsp:Policy></sp:Wss11><sp:Wss10 xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"><wsp:Policy><sp:MustSupportRefIssuerSerial/></wsp:Policy></sp:Wss10><sp:SignedSupportingTokens xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"><wsp:Policy><sp:UsernameToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient"/></wsp:Policy></sp:SignedSupportingTokens><sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"><sp:Body/></sp:EncryptedParts></wsp:All></wsp:ExactlyOne></wsp:Policy>
+</wsdl:definitions>

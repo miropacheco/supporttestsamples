@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Test_WSD" targetNamespace="http://SAG-5RT9L63/WSFolder" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapjms="http://www.w3.org/2010/soapjms/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://SAG-5RT9L63/WSFolder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://SAG-5RT9L63/WSFolder" xmlns:tns="http://SAG-5RT9L63/WSFolder" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <xsd:element name="Test" type="tns:Test"/>
+          <xsd:element name="TestResponse" type="tns:TestResponse"/>
+          <xsd:complexType name="Test">
+            <xsd:sequence>
+              <xsd:element name="F1" nillable="true" type="xsd:string"/>
+              <xsd:element name="F2" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="TestResponse">
+            <xsd:sequence>
+              <xsd:element name="Out1" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        	</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Test_WSD_PortType_TestResponse">
+    <wsdl:part name="parameters" element="tns:TestResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Test_WSD_PortType_Test">
+    <wsdl:part name="parameters" element="tns:Test">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Test_WSD_PortType">
+    <wsdl:operation name="Test">
+      <wsdl:input message="tns:Test_WSD_PortType_Test">
+    </wsdl:input>
+      <wsdl:output message="tns:Test_WSD_PortType_TestResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSFolder_Test_WSD_Binder" type="tns:Test_WSD_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="WSFolder_Test_WSD_Binder_Test" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSFolder.Test_WSD">
+    <wsdl:port name="WSFolder_Test_WSD_Port" binding="tns:WSFolder_Test_WSD_Binder">
+      <soap:address location="http://SAG-5RT9L63:5558/ws/WSFolder:Test_WSD/WSFolder_Test_WSD_Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

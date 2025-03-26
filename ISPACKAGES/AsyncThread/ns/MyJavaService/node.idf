@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="shared">c3RhdGljIEFycmF5TGlzdDxuTm9kZT4gY2hhbm5lbHMgPSBuZXcgQXJyYXlMaXN0KCk7DQpwdWJs
+aWMgc3RhdGljIHZvaWQgc2VhcmNoTm9kZXMobkNvbnRhaW5lciBjb250YWluZXIpIHsNCg0KICBF
+bnVtZXJhdGlvbiBjaGlsZHJlbiA9IGNvbnRhaW5lci5nZXROb2RlcygpOw0KICB3aGlsZSAoY2hp
+bGRyZW4uaGFzTW9yZUVsZW1lbnRzKCkpIHsNCiAgICBuTm9kZSBjaGlsZCA9IChuTm9kZSljaGls
+ZHJlbi5uZXh0RWxlbWVudCgpOw0KICAgIGlmIChjaGlsZCBpbnN0YW5jZW9mIG5Db250YWluZXIp
+IHsNCiAgICAgIHNlYXJjaE5vZGVzKChuQ29udGFpbmVyKWNoaWxkKTsNCiAgICB9IGVsc2UgaWYg
+KGNoaWxkIGluc3RhbmNlb2YgbkxlYWZOb2RlKSB7DQogICAgICBuTGVhZk5vZGUgbGVhZiA9IChu
+TGVhZk5vZGUpY2hpbGQ7DQogICAgICBpZiAobGVhZi5pc0NoYW5uZWwoKSkgew0KICAgICAgICAg
+Y2hhbm5lbHMuYWRkKGxlYWYpOw0KICAgICAgfSANCiAgICAgIA0KICAgIH0NCiAgfQ0KfQ0KCQ0K
+</value>
+  <value name="encodeutf8">true</value>
+  <array name="imports" type="value" depth="1">
+    <value>java.text.SimpleDateFormat</value>
+    <value>java.util.ArrayList</value>
+    <value>java.util.Date</value>
+    <value>java.util.Enumeration</value>
+    <value>java.util.List</value>
+    <value>java.util.Locale</value>
+    <value>java.util.TimeZone</value>
+    <value>com.pcbsys.foundation.utils.StringUtils</value>
+    <value>com.pcbsys.nirvana.client.nSessionAttributes</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nContainer</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nDurableNode</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nLeafNode</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nNode</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nRealmNode</value>
+    <value>com.pcbsys.nirvana.nAdminAPI.nTopicNode</value>
+  </array>
+</Values>

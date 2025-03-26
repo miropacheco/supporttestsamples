@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="encodeutf8">true</value>
+  <array name="imports" type="value" depth="1">
+    <value>java.io.File</value>
+    <value>java.io.FileInputStream</value>
+    <value>java.io.IOException</value>
+    <value>java.security.KeyManagementException</value>
+    <value>java.security.KeyStore</value>
+    <value>java.security.KeyStoreException</value>
+    <value>java.security.NoSuchAlgorithmException</value>
+    <value>java.security.cert.CertificateException</value>
+    <value>java.util.concurrent.TimeUnit</value>
+    <value>javax.net.ssl.SSLContext</value>
+    <value>javax.net.ssl.SSLSocket</value>
+    <value>javax.net.ssl.SSLSocketFactory</value>
+    <value>javax.net.ssl.TrustManager</value>
+    <value>javax.net.ssl.TrustManagerFactory</value>
+    <value>com.wm.data.IData</value>
+  </array>
+</Values>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FLOW VERSION="3.0" CLEANUP="true">
+
+  <!-- nodes -->
+
+<INVOKE SERVICE="pub.xml:xmlNodeToDocument">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP MODE="INPUT">
+
+  <!-- nodes -->
+
+<MAPSET OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/makeArrays;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">false</value>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPSET OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/documentTypeName;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">HistoryDemo:docType_new_flowservice_1</value>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPSET OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/nsDecls;2;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="http://www.w3.org/2001/XMLSchema">xs</value>
+    <value name="urn:uuid:C2F41010-65B3-11d1-A29F-00AA00C14882/">dt</value>
+    <value name="http://www.w3.org/XML/1998/namespace">xml</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
+</MAP>
+
+<MAP MODE="OUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/document;2;0" TO="/docType_new_flowservice_1;4;0;HistoryDemo:docType_new_flowservice_1">
+</MAPCOPY>
+
+<MAPDELETE FIELD="/document;2;0">
+</MAPDELETE>
+</MAP>
+</INVOKE>
+</FLOW>

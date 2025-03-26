@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">FixContentType</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">SURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5nZXRDdXJzb3IoKTsNCk9iamVj
+dCBvYmogPSAoSURhdGFVdGlsLmdldChwaXBlbGluZUN1cnNvciwgInN0cmVhbUJ5dGVzIikpOzsN
+CmJ5dGVbXSBiID0gKGJ5dGUgW10pIG9iajsNClN0cmluZyBzdHIgPSBuZXcgU3RyaW5nKGIsMCwz
+MDApOw0KU3RyaW5nIG1pbWU9IHN0cjsNClN5c3RlbS5vdXQucHJpbnRsbigibXkgY2xhc3M6IiAr
+IG9iai5nZXRDbGFzcygpLmdldE5hbWUoKSk7DQogDQovL1N5c3RlbS5vdXQucHJpbnRsbihtaW1l
+KTsNCmludCBib3VuZGFyeVBvcyA9IG1pbWUuaW5kZXhPZigiYm91bmRhcnk9IikrMTA7DQovL1N5
+c3RlbS5vdXQucHJpbnRsbihib3VuZGFyeVBvcyk7DQpTdHJpbmcgYm91bmRhcnkgPSBtaW1lLnN1
+YnN0cmluZyggYm91bmRhcnlQb3MgLCBtaW1lLmluZGV4T2YoJyInLGJvdW5kYXJ5UG9zICsxKSk7
+DQpwaXBlbGluZS5nZXRDdXJzb3IoKS5pbnNlcnRBZnRlcigiQm91bmRhcnkiLCBib3VuZGFyeSk7
+DQoNCg0KCQ==</value>
+</Values>
