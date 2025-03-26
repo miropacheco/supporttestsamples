@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+	<Properties>
+		<Property name="logfileName">ils</Property>
+		<Property name="logDir">logs</Property>
+		<Property name="maxFileSize">100 MB</Property>
+		<Property name="pattern">%d{HH:mm:ss.SSS} [%X{UUID}] [%t] [%X{user}:%X{session}]  %-5level [%marker] %logger{1.} - %msg%n</Property>
+	</Properties>
+	<Filters>
+		<MarkerFilter marker="AUDIT" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+		<MarkerFilter marker="STARTUP" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+	</Filters>
+	<Appenders>
+		<RollingFile name="mainAppender2" fileName="${logDir}/${logfileName2}.log" filePattern="${logDir}/${date:yyyy-MM}/${logfileName}-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<pattern>${pattern}</pattern>
+			</PatternLayout>
+			<Policies>
+				<OnStartupTriggeringPolicy/>
+				<TimeBasedTriggeringPolicy/>
+				<!-- Rotated everyday -->
+				<SizeBasedTriggeringPolicy size="${maxFileSize}"/>
+				<!-- Or every 100 MB -->
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="ERROR">
+			<AppenderRef ref="mainAppender"/>
+		</Root>
+		<!--  support for logging jdbc queries  refer https://code.google.com/p/log4jdbc-log4j2/ -->
+		<Logger name="log4jdbc.log4j2" level="ERROR"/>
+		<Logger name="com.manh.integration" additivity="false">
+			<AppenderRef ref="mainAppender2"/>
+		</Logger>
+		<Logger name="com.logistics.messaging" additivity="false">
+			<AppenderRef ref="mainAppender"/>
+		</Logger>
+		<Logger name="com.manh.integration" additivity="false">
+			<AppenderRef ref="mainAppender"/>
+		</Logger>
+		<Logger name="com.manh.lif" additivity="false">
+			<AppenderRef ref="mainAppender"/>
+		</Logger>
+		<Logger name="com.manh.scpp.statistics" additivity="false">
+			<AppenderRef ref="mainAppender"/>
+		</Logger>
+	</Loggers>
+</Configuration>

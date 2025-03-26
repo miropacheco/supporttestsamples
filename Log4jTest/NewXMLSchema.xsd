@@ -1,0 +1,37 @@
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.abcd.com/2001/xsdInstancev1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="name" type="xs:string" />
+	<xs:element name="id" type="xs:short" />
+	<xs:element name="student">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="xsd:name"
+					xmlns:xsd="http://xml.abcd.com/2001/xsdInstancev1" />
+				<xs:element ref="xsd:id"
+					xmlns:xsd="http://xml.abcd.com/2001/xsdInstancev1" />
+				<xs1:element ref="xs:Address"
+					xmlns:xs="http://www.w3.org/2001/XMLSchema-instance-1"
+					xmlns:xs1="http://www.w3.org/2001/XMLSchema" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Students">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="xsd:student"
+					xmlns:xsd="http://xml.abcd.com/2001/xsdInstancev1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StudentRecords">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="xsd:Students"
+					xmlns:xsd="http://xml.abcd.com/2001/xsdInstancev1" />
+			</xs:sequence>
+			<xs:attribute type="xs:string" name="Version" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

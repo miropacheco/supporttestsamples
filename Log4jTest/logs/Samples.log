@@ -1,0 +1,9 @@
+2022-Oct-17 14:59:44 PM [main] INFO  logger1 - Logger1
+2022-Oct-17 14:59:44 PM [main] INFO  logger2 - Logger2
+2023-Jul-25 14:51:58 PM [main] INFO  logger1 - From standalone
+2023-Jul-25 14:52:18 PM [main] INFO  logger3 - From standalone
+2023-Jul-25 14:55:55 PM [main] INFO  logger3 - From standalone
+2023-Jul-25 14:56:24 PM [main] INFO  logger3 - From standalone
+2023-Jul-25 14:56:38 PM [main] INFO  com.foo.Bar - From standalone
+2023-Jul-25 14:57:31 PM [main] INFO  com.foo.Bar - From standalone
+2023-Jul-25 16:26:33 PM [main] INFO  logger1 - From standalone
