@@ -1,0 +1,1907 @@
+Ignoring unavailable cipher suite: TLS_DHE_DSS_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_DH_anon_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_DH_anon_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_anon_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_DH_anon_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_DHE_DSS_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_DHE_DSS_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384
+Ignoring unavailable cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+Ignoring unavailable cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+Ignoring unavailable cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+Ignoring unavailable cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+trustStore is: C:\Program Files\Java\jre1.8.0_131\lib\security\cacerts
+trustStore type is : jks
+trustStore provider is : 
+init truststore
+adding as trusted cert:
+  Subject: CN=Equifax Secure Global eBusiness CA-1, O=Equifax Secure Inc., C=US
+  Issuer:  CN=Equifax Secure Global eBusiness CA-1, O=Equifax Secure Inc., C=US
+  Algorithm: RSA; Serial number: 0xc3517
+  Valid from Mon Jun 21 00:00:00 EDT 1999 until Mon Jun 22 00:00:00 EDT 2020
+
+adding as trusted cert:
+  Subject: CN=Entrust Root Certification Authority - EC1, OU="(c) 2012 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US
+  Issuer:  CN=Entrust Root Certification Authority - EC1, OU="(c) 2012 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US
+  Algorithm: EC; Serial number: 0xa68b79290000000050d091f9
+  Valid from Tue Dec 18 10:25:36 EST 2012 until Fri Dec 18 10:55:36 EST 2037
+
+adding as trusted cert:
+  Subject: CN=SecureTrust CA, O=SecureTrust Corporation, C=US
+  Issuer:  CN=SecureTrust CA, O=SecureTrust Corporation, C=US
+  Algorithm: RSA; Serial number: 0xcf08e5c0816a5ad427ff0eb271859d0
+  Valid from Tue Nov 07 14:31:18 EST 2006 until Mon Dec 31 14:40:55 EST 2029
+
+adding as trusted cert:
+  Subject: OU=Security Communication RootCA1, O=SECOM Trust.net, C=JP
+  Issuer:  OU=Security Communication RootCA1, O=SECOM Trust.net, C=JP
+  Algorithm: RSA; Serial number: 0x0
+  Valid from Tue Sep 30 00:20:49 EDT 2003 until Sat Sep 30 00:20:49 EDT 2023
+
+adding as trusted cert:
+  Subject: CN=DigiCert Global Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Issuer:  CN=DigiCert Global Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Algorithm: RSA; Serial number: 0x83be056904246b1a1756ac95991c74a
+  Valid from Thu Nov 09 19:00:00 EST 2006 until Sun Nov 09 19:00:00 EST 2031
+
+adding as trusted cert:
+  Subject: CN=QuoVadis Root CA 2 G3, O=QuoVadis Limited, C=BM
+  Issuer:  CN=QuoVadis Root CA 2 G3, O=QuoVadis Limited, C=BM
+  Algorithm: RSA; Serial number: 0x445734245b81899b35f2ceb82b3b5ba726f07528
+  Valid from Thu Jan 12 13:59:32 EST 2012 until Sun Jan 12 13:59:32 EST 2042
+
+adding as trusted cert:
+  Subject: CN=DigiCert Trusted Root G4, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Issuer:  CN=DigiCert Trusted Root G4, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Algorithm: RSA; Serial number: 0x59b1b579e8e2132e23907bda777755c
+  Valid from Thu Aug 01 08:00:00 EDT 2013 until Fri Jan 15 07:00:00 EST 2038
+
+adding as trusted cert:
+  Subject: CN=GeoTrust Primary Certification Authority, O=GeoTrust Inc., C=US
+  Issuer:  CN=GeoTrust Primary Certification Authority, O=GeoTrust Inc., C=US
+  Algorithm: RSA; Serial number: 0x18acb56afd69b6153a636cafdafac4a1
+  Valid from Sun Nov 26 19:00:00 EST 2006 until Wed Jul 16 19:59:59 EDT 2036
+
+adding as trusted cert:
+  Subject: OU=Security Communication RootCA2, O="SECOM Trust Systems CO.,LTD.", C=JP
+  Issuer:  OU=Security Communication RootCA2, O="SECOM Trust Systems CO.,LTD.", C=JP
+  Algorithm: RSA; Serial number: 0x0
+  Valid from Fri May 29 01:00:39 EDT 2009 until Tue May 29 01:00:39 EDT 2029
+
+adding as trusted cert:
+  Subject: OU=VeriSign Trust Network, OU="(c) 1998 VeriSign, Inc. - For authorized use only", OU=Class 3 Public Primary Certification Authority - G2, O="VeriSign, Inc.", C=US
+  Issuer:  OU=VeriSign Trust Network, OU="(c) 1998 VeriSign, Inc. - For authorized use only", OU=Class 3 Public Primary Certification Authority - G2, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x7dd9fe07cfa81eb7107967fba78934c6
+  Valid from Sun May 17 20:00:00 EDT 1998 until Tue Aug 01 19:59:59 EDT 2028
+
+adding as trusted cert:
+  Subject: OU=ePKI Root Certification Authority, O="Chunghwa Telecom Co., Ltd.", C=TW
+  Issuer:  OU=ePKI Root Certification Authority, O="Chunghwa Telecom Co., Ltd.", C=TW
+  Algorithm: RSA; Serial number: 0x15c8bd65475cafb897005ee406d2bc9d
+  Valid from Sun Dec 19 21:31:27 EST 2004 until Tue Dec 19 21:31:27 EST 2034
+
+adding as trusted cert:
+  Subject: CN=AffirmTrust Commercial, O=AffirmTrust, C=US
+  Issuer:  CN=AffirmTrust Commercial, O=AffirmTrust, C=US
+  Algorithm: RSA; Serial number: 0x7777062726a9b17c
+  Valid from Fri Jan 29 09:06:06 EST 2010 until Tue Dec 31 09:06:06 EST 2030
+
+adding as trusted cert:
+  Subject: CN=Certum Trusted Network CA, OU=Certum Certification Authority, O=Unizeto Technologies S.A., C=PL
+  Issuer:  CN=Certum Trusted Network CA, OU=Certum Certification Authority, O=Unizeto Technologies S.A., C=PL
+  Algorithm: RSA; Serial number: 0x444c0
+  Valid from Wed Oct 22 08:07:37 EDT 2008 until Mon Dec 31 07:07:37 EST 2029
+
+adding as trusted cert:
+  Subject: CN=XRamp Global Certification Authority, O=XRamp Security Services Inc, OU=www.xrampsecurity.com, C=US
+  Issuer:  CN=XRamp Global Certification Authority, O=XRamp Security Services Inc, OU=www.xrampsecurity.com, C=US
+  Algorithm: RSA; Serial number: 0x50946cec18ead59c4dd597ef758fa0ad
+  Valid from Mon Nov 01 12:14:04 EST 2004 until Mon Jan 01 00:37:19 EST 2035
+
+adding as trusted cert:
+  Subject: CN=Sonera Class2 CA, O=Sonera, C=FI
+  Issuer:  CN=Sonera Class2 CA, O=Sonera, C=FI
+  Algorithm: RSA; Serial number: 0x1d
+  Valid from Fri Apr 06 03:29:40 EDT 2001 until Tue Apr 06 03:29:40 EDT 2021
+
+adding as trusted cert:
+  Subject: CN=America Online Root Certification Authority 1, O=America Online Inc., C=US
+  Issuer:  CN=America Online Root Certification Authority 1, O=America Online Inc., C=US
+  Algorithm: RSA; Serial number: 0x1
+  Valid from Tue May 28 02:00:00 EDT 2002 until Thu Nov 19 15:43:00 EST 2037
+
+adding as trusted cert:
+  Subject: CN=GeoTrust Primary Certification Authority - G2, OU=(c) 2007 GeoTrust Inc. - For authorized use only, O=GeoTrust Inc., C=US
+  Issuer:  CN=GeoTrust Primary Certification Authority - G2, OU=(c) 2007 GeoTrust Inc. - For authorized use only, O=GeoTrust Inc., C=US
+  Algorithm: EC; Serial number: 0x3cb2f4480a00e2feeb243b5e603ec36b
+  Valid from Sun Nov 04 19:00:00 EST 2007 until Mon Jan 18 18:59:59 EST 2038
+
+adding as trusted cert:
+  Subject: OU=Equifax Secure Certificate Authority, O=Equifax, C=US
+  Issuer:  OU=Equifax Secure Certificate Authority, O=Equifax, C=US
+  Algorithm: RSA; Serial number: 0x35def4cf
+  Valid from Sat Aug 22 12:41:51 EDT 1998 until Wed Aug 22 12:41:51 EDT 2018
+
+adding as trusted cert:
+  Subject: CN=COMODO ECC Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Issuer:  CN=COMODO ECC Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Algorithm: EC; Serial number: 0x1f47afaa62007050544c019e9b63992a
+  Valid from Wed Mar 05 19:00:00 EST 2008 until Mon Jan 18 18:59:59 EST 2038
+
+adding as trusted cert:
+  Subject: CN=DigiCert High Assurance EV Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Issuer:  CN=DigiCert High Assurance EV Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Algorithm: RSA; Serial number: 0x2ac5c266a0b409b8f0b79f2ae462577
+  Valid from Thu Nov 09 19:00:00 EST 2006 until Sun Nov 09 19:00:00 EST 2031
+
+adding as trusted cert:
+  Subject: CN=GeoTrust Universal CA, O=GeoTrust Inc., C=US
+  Issuer:  CN=GeoTrust Universal CA, O=GeoTrust Inc., C=US
+  Algorithm: RSA; Serial number: 0x1
+  Valid from Thu Mar 04 00:00:00 EST 2004 until Sun Mar 04 00:00:00 EST 2029
+
+adding as trusted cert:
+  Subject: CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R3
+  Issuer:  CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R3
+  Algorithm: RSA; Serial number: 0x4000000000121585308a2
+  Valid from Wed Mar 18 06:00:00 EDT 2009 until Sun Mar 18 06:00:00 EDT 2029
+
+adding as trusted cert:
+  Subject: CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE
+  Issuer:  CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE
+  Algorithm: RSA; Serial number: 0x20000b9
+  Valid from Fri May 12 14:46:00 EDT 2000 until Mon May 12 19:59:00 EDT 2025
+
+adding as trusted cert:
+  Subject: CN=Thawte Timestamping CA, OU=Thawte Certification, O=Thawte, L=Durbanville, ST=Western Cape, C=ZA
+  Issuer:  CN=Thawte Timestamping CA, OU=Thawte Certification, O=Thawte, L=Durbanville, ST=Western Cape, C=ZA
+  Algorithm: RSA; Serial number: 0x67c8e1e8e3be1cbdfc913b8ea6238749
+  Valid from Tue Dec 31 19:00:00 EST 1996 until Fri Jan 01 18:59:59 EST 2021
+
+adding as trusted cert:
+  Subject: CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Issuer:  CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Algorithm: RSA; Serial number: 0x1
+  Valid from Wed Dec 31 19:00:00 EST 2003 until Sun Dec 31 18:59:59 EST 2028
+
+adding as trusted cert:
+  Subject: OU=Starfield Class 2 Certification Authority, O="Starfield Technologies, Inc.", C=US
+  Issuer:  OU=Starfield Class 2 Certification Authority, O="Starfield Technologies, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x0
+  Valid from Tue Jun 29 13:39:16 EDT 2004 until Thu Jun 29 13:39:16 EDT 2034
+
+adding as trusted cert:
+  Subject: CN=Chambers of Commerce Root, OU=http://www.chambersign.org, O=AC Camerfirma SA CIF A82743287, C=EU
+  Issuer:  CN=Chambers of Commerce Root, OU=http://www.chambersign.org, O=AC Camerfirma SA CIF A82743287, C=EU
+  Algorithm: RSA; Serial number: 0x0
+  Valid from Tue Sep 30 12:13:43 EDT 2003 until Wed Sep 30 12:13:44 EDT 2037
+
+adding as trusted cert:
+  Subject: CN=UTN-USERFirst-Hardware, OU=http://www.usertrust.com, O=The USERTRUST Network, L=Salt Lake City, ST=UT, C=US
+  Issuer:  CN=UTN-USERFirst-Hardware, OU=http://www.usertrust.com, O=The USERTRUST Network, L=Salt Lake City, ST=UT, C=US
+  Algorithm: RSA; Serial number: 0x44be0c8b500024b411d3362afe650afd
+  Valid from Fri Jul 09 14:10:42 EDT 1999 until Tue Jul 09 14:19:22 EDT 2019
+
+adding as trusted cert:
+  Subject: CN=VeriSign Class 3 Public Primary Certification Authority - G3, OU="(c) 1999 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Issuer:  CN=VeriSign Class 3 Public Primary Certification Authority - G3, OU="(c) 1999 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x9b7e0649a33e62b9d5ee90487129ef57
+  Valid from Thu Sep 30 20:00:00 EDT 1999 until Wed Jul 16 19:59:59 EDT 2036
+
+adding as trusted cert:
+  Subject: CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE
+  Issuer:  CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE
+  Algorithm: RSA; Serial number: 0x40000000001154b5ac394
+  Valid from Tue Sep 01 08:00:00 EDT 1998 until Fri Jan 28 07:00:00 EST 2028
+
+adding as trusted cert:
+  Subject: CN=UTN-USERFirst-Object, OU=http://www.usertrust.com, O=The USERTRUST Network, L=Salt Lake City, ST=UT, C=US
+  Issuer:  CN=UTN-USERFirst-Object, OU=http://www.usertrust.com, O=The USERTRUST Network, L=Salt Lake City, ST=UT, C=US
+  Algorithm: RSA; Serial number: 0x44be0c8b500024b411d3362de0b35f1b
+  Valid from Fri Jul 09 14:31:20 EDT 1999 until Tue Jul 09 14:40:36 EDT 2019
+
+adding as trusted cert:
+  Subject: CN=AffirmTrust Networking, O=AffirmTrust, C=US
+  Issuer:  CN=AffirmTrust Networking, O=AffirmTrust, C=US
+  Algorithm: RSA; Serial number: 0x7c4f04391cd4992d
+  Valid from Fri Jan 29 09:08:24 EST 2010 until Tue Dec 31 09:08:24 EST 2030
+
+adding as trusted cert:
+  Subject: CN=AffirmTrust Premium, O=AffirmTrust, C=US
+  Issuer:  CN=AffirmTrust Premium, O=AffirmTrust, C=US
+  Algorithm: RSA; Serial number: 0x6d8c1446b1a60aee
+  Valid from Fri Jan 29 09:10:36 EST 2010 until Mon Dec 31 09:10:36 EST 2040
+
+adding as trusted cert:
+  Subject: CN=Baltimore CyberTrust Code Signing Root, OU=CyberTrust, O=Baltimore, C=IE
+  Issuer:  CN=Baltimore CyberTrust Code Signing Root, OU=CyberTrust, O=Baltimore, C=IE
+  Algorithm: RSA; Serial number: 0x20000bf
+  Valid from Wed May 17 10:01:00 EDT 2000 until Sat May 17 19:59:00 EDT 2025
+
+adding as trusted cert:
+  Subject: CN=America Online Root Certification Authority 2, O=America Online Inc., C=US
+  Issuer:  CN=America Online Root Certification Authority 2, O=America Online Inc., C=US
+  Algorithm: RSA; Serial number: 0x1
+  Valid from Tue May 28 02:00:00 EDT 2002 until Tue Sep 29 10:08:00 EDT 2037
+
+adding as trusted cert:
+  Subject: CN=LuxTrust Global Root, O=LuxTrust s.a., C=LU
+  Issuer:  CN=LuxTrust Global Root, O=LuxTrust s.a., C=LU
+  Algorithm: RSA; Serial number: 0xbb8
+  Valid from Thu Mar 17 05:51:37 EDT 2011 until Wed Mar 17 05:51:37 EDT 2021
+
+adding as trusted cert:
+  Subject: CN=GeoTrust Primary Certification Authority - G3, OU=(c) 2008 GeoTrust Inc. - For authorized use only, O=GeoTrust Inc., C=US
+  Issuer:  CN=GeoTrust Primary Certification Authority - G3, OU=(c) 2008 GeoTrust Inc. - For authorized use only, O=GeoTrust Inc., C=US
+  Algorithm: RSA; Serial number: 0x15ac6e9419b2794b41f627a9c3180f1f
+  Valid from Tue Apr 01 20:00:00 EDT 2008 until Tue Dec 01 18:59:59 EST 2037
+
+adding as trusted cert:
+  Subject: CN=Chambers of Commerce Root - 2008, O=AC Camerfirma S.A., SERIALNUMBER=A82743287, L=Madrid (see current address at www.camerfirma.com/address), C=EU
+  Issuer:  CN=Chambers of Commerce Root - 2008, O=AC Camerfirma S.A., SERIALNUMBER=A82743287, L=Madrid (see current address at www.camerfirma.com/address), C=EU
+  Algorithm: RSA; Serial number: 0xa3da427ea4b1aeda
+  Valid from Fri Aug 01 08:29:50 EDT 2008 until Sat Jul 31 08:29:50 EDT 2038
+
+adding as trusted cert:
+  Subject: CN=SwissSign Silver CA - G2, O=SwissSign AG, C=CH
+  Issuer:  CN=SwissSign Silver CA - G2, O=SwissSign AG, C=CH
+  Algorithm: RSA; Serial number: 0x4f1bd42f54bb2f4b
+  Valid from Wed Oct 25 04:32:46 EDT 2006 until Sat Oct 25 04:32:46 EDT 2036
+
+adding as trusted cert:
+  Subject: CN=Entrust Root Certification Authority - G2, OU="(c) 2009 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US
+  Issuer:  CN=Entrust Root Certification Authority - G2, OU="(c) 2009 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x4a538c28
+  Valid from Tue Jul 07 13:25:54 EDT 2009 until Sat Dec 07 12:55:54 EST 2030
+
+adding as trusted cert:
+  Subject: CN=DigiCert Assured ID Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Issuer:  CN=DigiCert Assured ID Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Algorithm: RSA; Serial number: 0xce7e0e517d846fe8fe560fc1bf03039
+  Valid from Thu Nov 09 19:00:00 EST 2006 until Sun Nov 09 19:00:00 EST 2031
+
+adding as trusted cert:
+  Subject: OU=Go Daddy Class 2 Certification Authority, O="The Go Daddy Group, Inc.", C=US
+  Issuer:  OU=Go Daddy Class 2 Certification Authority, O="The Go Daddy Group, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x0
+  Valid from Tue Jun 29 13:06:20 EDT 2004 until Thu Jun 29 13:06:20 EDT 2034
+
+adding as trusted cert:
+  Subject: CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE
+  Issuer:  CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE
+  Algorithm: RSA; Serial number: 0x1
+  Valid from Tue May 30 06:48:38 EDT 2000 until Sat May 30 06:48:38 EDT 2020
+
+adding as trusted cert:
+  Subject: CN=T-TeleSec GlobalRoot Class 3, OU=T-Systems Trust Center, O=T-Systems Enterprise Services GmbH, C=DE
+  Issuer:  CN=T-TeleSec GlobalRoot Class 3, OU=T-Systems Trust Center, O=T-Systems Enterprise Services GmbH, C=DE
+  Algorithm: RSA; Serial number: 0x1
+  Valid from Wed Oct 01 06:29:56 EDT 2008 until Sat Oct 01 19:59:59 EDT 2033
+
+adding as trusted cert:
+  Subject: CN=DigiCert Global Root G3, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Issuer:  CN=DigiCert Global Root G3, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Algorithm: EC; Serial number: 0x55556bcf25ea43535c3a40fd5ab4572
+  Valid from Thu Aug 01 08:00:00 EDT 2013 until Fri Jan 15 07:00:00 EST 2038
+
+adding as trusted cert:
+  Subject: CN=UTN-USERFirst-Client Authentication and Email, OU=http://www.usertrust.com, O=The USERTRUST Network, L=Salt Lake City, ST=UT, C=US
+  Issuer:  CN=UTN-USERFirst-Client Authentication and Email, OU=http://www.usertrust.com, O=The USERTRUST Network, L=Salt Lake City, ST=UT, C=US
+  Algorithm: RSA; Serial number: 0x44be0c8b500024b411d336252567c989
+  Valid from Fri Jul 09 13:28:50 EDT 1999 until Tue Jul 09 13:36:58 EDT 2019
+
+adding as trusted cert:
+  Subject: CN=Class 2 Primary CA, O=Certplus, C=FR
+  Issuer:  CN=Class 2 Primary CA, O=Certplus, C=FR
+  Algorithm: RSA; Serial number: 0x85bd4bf3d8dae369f694d75fc3a54423
+  Valid from Wed Jul 07 13:05:00 EDT 1999 until Sat Jul 06 19:59:59 EDT 2019
+
+adding as trusted cert:
+  Subject: CN=GeoTrust Global CA, O=GeoTrust Inc., C=US
+  Issuer:  CN=GeoTrust Global CA, O=GeoTrust Inc., C=US
+  Algorithm: RSA; Serial number: 0x23456
+  Valid from Tue May 21 00:00:00 EDT 2002 until Sat May 21 00:00:00 EDT 2022
+
+adding as trusted cert:
+  Subject: CN=SwissSign Platinum CA - G2, O=SwissSign AG, C=CH
+  Issuer:  CN=SwissSign Platinum CA - G2, O=SwissSign AG, C=CH
+  Algorithm: RSA; Serial number: 0x4eb200670c035d4f
+  Valid from Wed Oct 25 04:36:00 EDT 2006 until Sat Oct 25 04:36:00 EDT 2036
+
+adding as trusted cert:
+  Subject: CN=GlobalSign, O=GlobalSign, OU=GlobalSign ECC Root CA - R5
+  Issuer:  CN=GlobalSign, O=GlobalSign, OU=GlobalSign ECC Root CA - R5
+  Algorithm: EC; Serial number: 0x605949e0262ebb55f90a778a71f94ad86c
+  Valid from Mon Nov 12 19:00:00 EST 2012 until Mon Jan 18 22:14:07 EST 2038
+
+adding as trusted cert:
+  Subject: CN=VeriSign Class 2 Public Primary Certification Authority - G3, OU="(c) 1999 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Issuer:  CN=VeriSign Class 2 Public Primary Certification Authority - G3, OU="(c) 1999 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x6170cb498c5f984529e7b0a6d9505b7a
+  Valid from Thu Sep 30 20:00:00 EDT 1999 until Wed Jul 16 19:59:59 EDT 2036
+
+adding as trusted cert:
+  Subject: CN=Starfield Root Certificate Authority - G2, O="Starfield Technologies, Inc.", L=Scottsdale, ST=Arizona, C=US
+  Issuer:  CN=Starfield Root Certificate Authority - G2, O="Starfield Technologies, Inc.", L=Scottsdale, ST=Arizona, C=US
+  Algorithm: RSA; Serial number: 0x0
+  Valid from Mon Aug 31 20:00:00 EDT 2009 until Thu Dec 31 18:59:59 EST 2037
+
+adding as trusted cert:
+  Subject: CN=IdenTrust Public Sector Root CA 1, O=IdenTrust, C=US
+  Issuer:  CN=IdenTrust Public Sector Root CA 1, O=IdenTrust, C=US
+  Algorithm: RSA; Serial number: 0xa0142800000014523cf467c00000002
+  Valid from Thu Jan 16 12:53:32 EST 2014 until Mon Jan 16 12:53:32 EST 2034
+
+adding as trusted cert:
+  Subject: CN=Entrust.net Certification Authority (2048), OU=(c) 1999 Entrust.net Limited, OU=www.entrust.net/CPS_2048 incorp. by ref. (limits liab.), O=Entrust.net
+  Issuer:  CN=Entrust.net Certification Authority (2048), OU=(c) 1999 Entrust.net Limited, OU=www.entrust.net/CPS_2048 incorp. by ref. (limits liab.), O=Entrust.net
+  Algorithm: RSA; Serial number: 0x3863def8
+  Valid from Fri Dec 24 12:50:51 EST 1999 until Tue Jul 24 10:15:12 EDT 2029
+
+adding as trusted cert:
+  Subject: CN=thawte Primary Root CA, OU="(c) 2006 thawte, Inc. - For authorized use only", OU=Certification Services Division, O="thawte, Inc.", C=US
+  Issuer:  CN=thawte Primary Root CA, OU="(c) 2006 thawte, Inc. - For authorized use only", OU=Certification Services Division, O="thawte, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x344ed55720d5edec49f42fce37db2b6d
+  Valid from Thu Nov 16 19:00:00 EST 2006 until Wed Jul 16 19:59:59 EDT 2036
+
+adding as trusted cert:
+  Subject: CN=Go Daddy Root Certificate Authority - G2, O="GoDaddy.com, Inc.", L=Scottsdale, ST=Arizona, C=US
+  Issuer:  CN=Go Daddy Root Certificate Authority - G2, O="GoDaddy.com, Inc.", L=Scottsdale, ST=Arizona, C=US
+  Algorithm: RSA; Serial number: 0x0
+  Valid from Mon Aug 31 20:00:00 EDT 2009 until Thu Dec 31 18:59:59 EST 2037
+
+adding as trusted cert:
+  Subject: CN=VeriSign Class 1 Public Primary Certification Authority - G3, OU="(c) 1999 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Issuer:  CN=VeriSign Class 1 Public Primary Certification Authority - G3, OU="(c) 1999 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x8b5b75568454850b00cfaf3848ceb1a4
+  Valid from Thu Sep 30 20:00:00 EDT 1999 until Wed Jul 16 19:59:59 EDT 2036
+
+adding as trusted cert:
+  Subject: CN=VeriSign Class 3 Public Primary Certification Authority - G4, OU="(c) 2007 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Issuer:  CN=VeriSign Class 3 Public Primary Certification Authority - G4, OU="(c) 2007 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Algorithm: EC; Serial number: 0x2f80fe238c0e220f486712289187acb3
+  Valid from Sun Nov 04 19:00:00 EST 2007 until Mon Jan 18 18:59:59 EST 2038
+
+adding as trusted cert:
+  Subject: CN=Entrust Root Certification Authority, OU="(c) 2006 Entrust, Inc.", OU=www.entrust.net/CPS is incorporated by reference, O="Entrust, Inc.", C=US
+  Issuer:  CN=Entrust Root Certification Authority, OU="(c) 2006 Entrust, Inc.", OU=www.entrust.net/CPS is incorporated by reference, O="Entrust, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x456b5054
+  Valid from Mon Nov 27 15:23:42 EST 2006 until Fri Nov 27 15:53:42 EST 2026
+
+adding as trusted cert:
+  Subject: CN=DigiCert Assured ID Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Issuer:  CN=DigiCert Assured ID Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Algorithm: RSA; Serial number: 0xb931c3ad63967ea6723bfc3af9af44b
+  Valid from Thu Aug 01 08:00:00 EDT 2013 until Fri Jan 15 07:00:00 EST 2038
+
+adding as trusted cert:
+  Subject: CN=Certum CA, O=Unizeto Sp. z o.o., C=PL
+  Issuer:  CN=Certum CA, O=Unizeto Sp. z o.o., C=PL
+  Algorithm: RSA; Serial number: 0x10020
+  Valid from Tue Jun 11 06:46:39 EDT 2002 until Fri Jun 11 06:46:39 EDT 2027
+
+adding as trusted cert:
+  Subject: CN=AddTrust Qualified CA Root, OU=AddTrust TTP Network, O=AddTrust AB, C=SE
+  Issuer:  CN=AddTrust Qualified CA Root, OU=AddTrust TTP Network, O=AddTrust AB, C=SE
+  Algorithm: RSA; Serial number: 0x1
+  Valid from Tue May 30 06:44:50 EDT 2000 until Sat May 30 06:44:50 EDT 2020
+
+adding as trusted cert:
+  Subject: CN=DST Root CA X3, O=Digital Signature Trust Co.
+  Issuer:  CN=DST Root CA X3, O=Digital Signature Trust Co.
+  Algorithm: RSA; Serial number: 0x44afb080d6a327ba893039862ef8406b
+  Valid from Sat Sep 30 17:12:19 EDT 2000 until Thu Sep 30 10:01:15 EDT 2021
+
+adding as trusted cert:
+  Subject: CN=Buypass Class 2 Root CA, O=Buypass AS-983163327, C=NO
+  Issuer:  CN=Buypass Class 2 Root CA, O=Buypass AS-983163327, C=NO
+  Algorithm: RSA; Serial number: 0x2
+  Valid from Tue Oct 26 04:38:03 EDT 2010 until Fri Oct 26 04:38:03 EDT 2040
+
+adding as trusted cert:
+  Subject: CN=D-TRUST Root Class 3 CA 2 EV 2009, O=D-Trust GmbH, C=DE
+  Issuer:  CN=D-TRUST Root Class 3 CA 2 EV 2009, O=D-Trust GmbH, C=DE
+  Algorithm: RSA; Serial number: 0x983f4
+  Valid from Thu Nov 05 03:50:46 EST 2009 until Mon Nov 05 03:50:46 EST 2029
+
+adding as trusted cert:
+  Subject: CN=DigiCert Assured ID Root G3, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Issuer:  CN=DigiCert Assured ID Root G3, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Algorithm: EC; Serial number: 0xba15afa1ddfa0b54944afcd24a06cec
+  Valid from Thu Aug 01 08:00:00 EDT 2013 until Fri Jan 15 07:00:00 EST 2038
+
+adding as trusted cert:
+  Subject: CN=SwissSign Gold CA - G2, O=SwissSign AG, C=CH
+  Issuer:  CN=SwissSign Gold CA - G2, O=SwissSign AG, C=CH
+  Algorithm: RSA; Serial number: 0xbb401c43f55e4fb0
+  Valid from Wed Oct 25 04:30:35 EDT 2006 until Sat Oct 25 04:30:35 EDT 2036
+
+adding as trusted cert:
+  Subject: CN=USERTrust ECC Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US
+  Issuer:  CN=USERTrust ECC Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US
+  Algorithm: EC; Serial number: 0x5c8b99c55a94c5d27156decd8980cc26
+  Valid from Sun Jan 31 19:00:00 EST 2010 until Mon Jan 18 18:59:59 EST 2038
+
+adding as trusted cert:
+  Subject: CN=IdenTrust Commercial Root CA 1, O=IdenTrust, C=US
+  Issuer:  CN=IdenTrust Commercial Root CA 1, O=IdenTrust, C=US
+  Algorithm: RSA; Serial number: 0xa0142800000014523c844b500000002
+  Valid from Thu Jan 16 13:12:23 EST 2014 until Mon Jan 16 13:12:23 EST 2034
+
+adding as trusted cert:
+  Subject: CN=QuoVadis Root CA 2, O=QuoVadis Limited, C=BM
+  Issuer:  CN=QuoVadis Root CA 2, O=QuoVadis Limited, C=BM
+  Algorithm: RSA; Serial number: 0x509
+  Valid from Fri Nov 24 13:27:00 EST 2006 until Mon Nov 24 13:23:33 EST 2031
+
+adding as trusted cert:
+  Subject: CN=Deutsche Telekom Root CA 2, OU=T-TeleSec Trust Center, O=Deutsche Telekom AG, C=DE
+  Issuer:  CN=Deutsche Telekom Root CA 2, OU=T-TeleSec Trust Center, O=Deutsche Telekom AG, C=DE
+  Algorithm: RSA; Serial number: 0x26
+  Valid from Fri Jul 09 08:11:00 EDT 1999 until Tue Jul 09 19:59:00 EDT 2019
+
+adding as trusted cert:
+  Subject: CN=D-TRUST Root Class 3 CA 2 2009, O=D-Trust GmbH, C=DE
+  Issuer:  CN=D-TRUST Root Class 3 CA 2 2009, O=D-Trust GmbH, C=DE
+  Algorithm: RSA; Serial number: 0x983f3
+  Valid from Thu Nov 05 03:35:58 EST 2009 until Mon Nov 05 03:35:58 EST 2029
+
+adding as trusted cert:
+  Subject: CN=QuoVadis Root CA 1 G3, O=QuoVadis Limited, C=BM
+  Issuer:  CN=QuoVadis Root CA 1 G3, O=QuoVadis Limited, C=BM
+  Algorithm: RSA; Serial number: 0x78585f2ead2c194be3370735341328b596d46593
+  Valid from Thu Jan 12 12:27:44 EST 2012 until Sun Jan 12 12:27:44 EST 2042
+
+adding as trusted cert:
+  Subject: OU=Class 1 Public Primary Certification Authority, O="VeriSign, Inc.", C=US
+  Issuer:  OU=Class 1 Public Primary Certification Authority, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x3f691e819cf09a4af373ffb948a2e4dd
+  Valid from Sun Jan 28 19:00:00 EST 1996 until Wed Aug 02 19:59:59 EDT 2028
+
+adding as trusted cert:
+  Subject: CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US
+  Issuer:  CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US
+  Algorithm: RSA; Serial number: 0x1fd6d30fca3ca51a81bbc640e35032d
+  Valid from Sun Jan 31 19:00:00 EST 2010 until Mon Jan 18 18:59:59 EST 2038
+
+adding as trusted cert:
+  Subject: OU=VeriSign Trust Network, OU="(c) 1998 VeriSign, Inc. - For authorized use only", OU=Class 2 Public Primary Certification Authority - G2, O="VeriSign, Inc.", C=US
+  Issuer:  OU=VeriSign Trust Network, OU="(c) 1998 VeriSign, Inc. - For authorized use only", OU=Class 2 Public Primary Certification Authority - G2, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0xb92f60cc889fa17a4609b85b706c8aaf
+  Valid from Sun May 17 20:00:00 EDT 1998 until Tue Aug 01 19:59:59 EDT 2028
+
+adding as trusted cert:
+  Subject: CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R2
+  Issuer:  CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R2
+  Algorithm: RSA; Serial number: 0x400000000010f8626e60d
+  Valid from Fri Dec 15 03:00:00 EST 2006 until Wed Dec 15 03:00:00 EST 2021
+
+adding as trusted cert:
+  Subject: CN=VeriSign Class 3 Public Primary Certification Authority - G5, OU="(c) 2006 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Issuer:  CN=VeriSign Class 3 Public Primary Certification Authority - G5, OU="(c) 2006 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x18dad19e267de8bb4a2158cdcc6b3b4a
+  Valid from Tue Nov 07 19:00:00 EST 2006 until Wed Jul 16 19:59:59 EDT 2036
+
+adding as trusted cert:
+  Subject: CN=QuoVadis Root CA 3, O=QuoVadis Limited, C=BM
+  Issuer:  CN=QuoVadis Root CA 3, O=QuoVadis Limited, C=BM
+  Algorithm: RSA; Serial number: 0x5c6
+  Valid from Fri Nov 24 14:11:23 EST 2006 until Mon Nov 24 14:06:44 EST 2031
+
+adding as trusted cert:
+  Subject: CN=Starfield Services Root Certificate Authority - G2, O="Starfield Technologies, Inc.", L=Scottsdale, ST=Arizona, C=US
+  Issuer:  CN=Starfield Services Root Certificate Authority - G2, O="Starfield Technologies, Inc.", L=Scottsdale, ST=Arizona, C=US
+  Algorithm: RSA; Serial number: 0x0
+  Valid from Mon Aug 31 20:00:00 EDT 2009 until Thu Dec 31 18:59:59 EST 2037
+
+adding as trusted cert:
+  Subject: CN=Swisscom Root CA 2, OU=Digital Certificate Services, O=Swisscom, C=ch
+  Issuer:  CN=Swisscom Root CA 2, OU=Digital Certificate Services, O=Swisscom, C=ch
+  Algorithm: RSA; Serial number: 0x1e9e28e848f2e5efc37c4a1e5a1867b6
+  Valid from Fri Jun 24 04:38:14 EDT 2011 until Wed Jun 25 03:38:14 EDT 2031
+
+adding as trusted cert:
+  Subject: CN=QuoVadis Root CA 3 G3, O=QuoVadis Limited, C=BM
+  Issuer:  CN=QuoVadis Root CA 3 G3, O=QuoVadis Limited, C=BM
+  Algorithm: RSA; Serial number: 0x2ef59b0228a7db7affd5a3a9eebd03a0cf126a1d
+  Valid from Thu Jan 12 15:26:32 EST 2012 until Sun Jan 12 15:26:32 EST 2042
+
+adding as trusted cert:
+  Subject: CN=Actalis Authentication Root CA, O=Actalis S.p.A./03358520967, L=Milan, C=IT
+  Issuer:  CN=Actalis Authentication Root CA, O=Actalis S.p.A./03358520967, L=Milan, C=IT
+  Algorithm: RSA; Serial number: 0x570a119742c4e3cc
+  Valid from Thu Sep 22 07:22:02 EDT 2011 until Sun Sep 22 07:22:02 EDT 2030
+
+adding as trusted cert:
+  Subject: OU=Class 3 Public Primary Certification Authority, O="VeriSign, Inc.", C=US
+  Issuer:  OU=Class 3 Public Primary Certification Authority, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x3c9131cb1ff6d01b0e9ab8d044bf12be
+  Valid from Sun Jan 28 19:00:00 EST 1996 until Wed Aug 02 19:59:59 EDT 2028
+
+adding as trusted cert:
+  Subject: CN=QuoVadis Root Certification Authority, OU=Root Certification Authority, O=QuoVadis Limited, C=BM
+  Issuer:  CN=QuoVadis Root Certification Authority, OU=Root Certification Authority, O=QuoVadis Limited, C=BM
+  Algorithm: RSA; Serial number: 0x3ab6508b
+  Valid from Mon Mar 19 13:33:33 EST 2001 until Wed Mar 17 14:33:33 EDT 2021
+
+adding as trusted cert:
+  Subject: CN=Class 3P Primary CA, O=Certplus, C=FR
+  Issuer:  CN=Class 3P Primary CA, O=Certplus, C=FR
+  Algorithm: RSA; Serial number: 0xbf5cdbb6f21c6ec04deb7a023b36e879
+  Valid from Wed Jul 07 13:10:00 EDT 1999 until Sat Jul 06 19:59:59 EDT 2019
+
+adding as trusted cert:
+  Subject: CN=Buypass Class 3 Root CA, O=Buypass AS-983163327, C=NO
+  Issuer:  CN=Buypass Class 3 Root CA, O=Buypass AS-983163327, C=NO
+  Algorithm: RSA; Serial number: 0x2
+  Valid from Tue Oct 26 04:28:58 EDT 2010 until Fri Oct 26 04:28:58 EDT 2040
+
+adding as trusted cert:
+  Subject: OU=Security Communication EV RootCA1, O="SECOM Trust Systems CO.,LTD.", C=JP
+  Issuer:  OU=Security Communication EV RootCA1, O="SECOM Trust Systems CO.,LTD.", C=JP
+  Algorithm: RSA; Serial number: 0x0
+  Valid from Tue Jun 05 22:12:32 EDT 2007 until Fri Jun 05 22:12:32 EDT 2037
+
+adding as trusted cert:
+  Subject: CN=Equifax Secure eBusiness CA-1, O=Equifax Secure Inc., C=US
+  Issuer:  CN=Equifax Secure eBusiness CA-1, O=Equifax Secure Inc., C=US
+  Algorithm: RSA; Serial number: 0x59e3
+  Valid from Mon Jun 21 00:00:00 EDT 1999 until Mon Jun 22 00:00:00 EDT 2020
+
+adding as trusted cert:
+  Subject: CN=thawte Primary Root CA - G2, OU="(c) 2007 thawte, Inc. - For authorized use only", O="thawte, Inc.", C=US
+  Issuer:  CN=thawte Primary Root CA - G2, OU="(c) 2007 thawte, Inc. - For authorized use only", O="thawte, Inc.", C=US
+  Algorithm: EC; Serial number: 0x35fc265cd9844fc93d263d579baed756
+  Valid from Sun Nov 04 19:00:00 EST 2007 until Mon Jan 18 18:59:59 EST 2038
+
+adding as trusted cert:
+  Subject: CN=Swisscom Root EV CA 2, OU=Digital Certificate Services, O=Swisscom, C=ch
+  Issuer:  CN=Swisscom Root EV CA 2, OU=Digital Certificate Services, O=Swisscom, C=ch
+  Algorithm: RSA; Serial number: 0xf2fa64e27463d38dfd101d041f76ca58
+  Valid from Fri Jun 24 05:45:08 EDT 2011 until Wed Jun 25 04:45:08 EDT 2031
+
+adding as trusted cert:
+  Subject: CN=VeriSign Universal Root Certification Authority, OU="(c) 2008 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Issuer:  CN=VeriSign Universal Root Certification Authority, OU="(c) 2008 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x401ac46421b31321030ebbe4121ac51d
+  Valid from Tue Apr 01 20:00:00 EDT 2008 until Tue Dec 01 18:59:59 EST 2037
+
+adding as trusted cert:
+  Subject: CN=AddTrust Class 1 CA Root, OU=AddTrust TTP Network, O=AddTrust AB, C=SE
+  Issuer:  CN=AddTrust Class 1 CA Root, OU=AddTrust TTP Network, O=AddTrust AB, C=SE
+  Algorithm: RSA; Serial number: 0x1
+  Valid from Tue May 30 06:38:31 EDT 2000 until Sat May 30 06:38:31 EDT 2020
+
+adding as trusted cert:
+  Subject: CN=GlobalSign, O=GlobalSign, OU=GlobalSign ECC Root CA - R4
+  Issuer:  CN=GlobalSign, O=GlobalSign, OU=GlobalSign ECC Root CA - R4
+  Algorithm: EC; Serial number: 0x2a38a41c960a04de42b228a50be8349802
+  Valid from Mon Nov 12 19:00:00 EST 2012 until Mon Jan 18 22:14:07 EST 2038
+
+adding as trusted cert:
+  Subject: CN=Global Chambersign Root - 2008, O=AC Camerfirma S.A., SERIALNUMBER=A82743287, L=Madrid (see current address at www.camerfirma.com/address), C=EU
+  Issuer:  CN=Global Chambersign Root - 2008, O=AC Camerfirma S.A., SERIALNUMBER=A82743287, L=Madrid (see current address at www.camerfirma.com/address), C=EU
+  Algorithm: RSA; Serial number: 0xc9cdd3e9d57d23ce
+  Valid from Fri Aug 01 08:31:40 EDT 2008 until Sat Jul 31 08:31:40 EDT 2038
+
+adding as trusted cert:
+  Subject: CN=thawte Primary Root CA - G3, OU="(c) 2008 thawte, Inc. - For authorized use only", OU=Certification Services Division, O="thawte, Inc.", C=US
+  Issuer:  CN=thawte Primary Root CA - G3, OU="(c) 2008 thawte, Inc. - For authorized use only", OU=Certification Services Division, O="thawte, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x600197b746a7eab4b49ad64b2ff790fb
+  Valid from Tue Apr 01 20:00:00 EDT 2008 until Tue Dec 01 18:59:59 EST 2037
+
+adding as trusted cert:
+  Subject: CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Issuer:  CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Algorithm: RSA; Serial number: 0x4caaf9cadb636fe01ff74ed85b03869d
+  Valid from Mon Jan 18 19:00:00 EST 2010 until Mon Jan 18 18:59:59 EST 2038
+
+adding as trusted cert:
+  Subject: CN=GTE CyberTrust Global Root, OU="GTE CyberTrust Solutions, Inc.", O=GTE Corporation, C=US
+  Issuer:  CN=GTE CyberTrust Global Root, OU="GTE CyberTrust Solutions, Inc.", O=GTE Corporation, C=US
+  Algorithm: RSA; Serial number: 0x1a5
+  Valid from Wed Aug 12 20:29:00 EDT 1998 until Mon Aug 13 19:59:00 EDT 2018
+
+adding as trusted cert:
+  Subject: EMAILADDRESS=premium-server@thawte.com, CN=Thawte Premium Server CA, OU=Certification Services Division, O=Thawte Consulting cc, L=Cape Town, ST=Western Cape, C=ZA
+  Issuer:  EMAILADDRESS=premium-server@thawte.com, CN=Thawte Premium Server CA, OU=Certification Services Division, O=Thawte Consulting cc, L=Cape Town, ST=Western Cape, C=ZA
+  Algorithm: RSA; Serial number: 0x36122296c5e338a520a1d25f4cd70954
+  Valid from Wed Jul 31 20:00:00 EDT 1996 until Fri Jan 01 18:59:59 EST 2021
+
+adding as trusted cert:
+  Subject: CN=AffirmTrust Premium ECC, O=AffirmTrust, C=US
+  Issuer:  CN=AffirmTrust Premium ECC, O=AffirmTrust, C=US
+  Algorithm: EC; Serial number: 0x7497258ac73f7a54
+  Valid from Fri Jan 29 09:20:24 EST 2010 until Mon Dec 31 09:20:24 EST 2040
+
+adding as trusted cert:
+  Subject: CN=T-TeleSec GlobalRoot Class 2, OU=T-Systems Trust Center, O=T-Systems Enterprise Services GmbH, C=DE
+  Issuer:  CN=T-TeleSec GlobalRoot Class 2, OU=T-Systems Trust Center, O=T-Systems Enterprise Services GmbH, C=DE
+  Algorithm: RSA; Serial number: 0x1
+  Valid from Wed Oct 01 06:40:14 EDT 2008 until Sat Oct 01 19:59:59 EDT 2033
+
+adding as trusted cert:
+  Subject: OU=VeriSign Trust Network, OU="(c) 1998 VeriSign, Inc. - For authorized use only", OU=Class 1 Public Primary Certification Authority - G2, O="VeriSign, Inc.", C=US
+  Issuer:  OU=VeriSign Trust Network, OU="(c) 1998 VeriSign, Inc. - For authorized use only", OU=Class 1 Public Primary Certification Authority - G2, O="VeriSign, Inc.", C=US
+  Algorithm: RSA; Serial number: 0x4cc7eaaa983e71d39310f83d3a899192
+  Valid from Sun May 17 20:00:00 EDT 1998 until Tue Aug 01 19:59:59 EDT 2028
+
+adding as trusted cert:
+  Subject: CN=KEYNECTIS ROOT CA, OU=ROOT, O=KEYNECTIS, C=FR
+  Issuer:  CN=KEYNECTIS ROOT CA, OU=ROOT, O=KEYNECTIS, C=FR
+  Algorithm: RSA; Serial number: 0x1121bc276c5547af584eefd4ced629b2a285
+  Valid from Mon May 25 20:00:00 EDT 2009 until Mon May 25 20:00:00 EDT 2020
+
+adding as trusted cert:
+  Subject: CN=DigiCert Global Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Issuer:  CN=DigiCert Global Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US
+  Algorithm: RSA; Serial number: 0x33af1e6a711a9a0bb2864b11d09fae5
+  Valid from Thu Aug 01 08:00:00 EDT 2013 until Fri Jan 15 07:00:00 EST 2038
+
+keyStore is : c:\temp\PU023_Concourse_keystore.jks
+keyStore type is : jks
+keyStore provider is : 
+init keystore
+init keymanager of type SunX509
+***
+found key for : ems_pn_dev.jnj.com
+chain [0] = [
+[
+  Version: V3
+  Subject: CN=ems_pn_dev.jnj.com, OU=EliteSSL, OU=WebMethods, O=Johnson and Johnson, STREET=1003 US Rte 202 N, L=Raritan, ST=New Jersey, OID.2.5.4.17=08869, C=US
+  Signature Algorithm: SHA256withRSA, OID = 1.2.840.113549.1.1.11
+
+  Key:  Sun RSA public key, 2048 bits
+  modulus: 17646183552043667060443165327792405870614498238814704196575956127892178762920061459542729502653702078466886717160512350272213314438684843827053583082662104657622081655596419490575198661110107603348460703759240269639540741631878754594317017778487882036567771323708237573429912508840584156743149300938183969380583812380251287731363714699187577948108914657761111534732548202591916757968833689113941878539007364115904773023094590349953971377175449259064293437608863930671418555788883957116451180857843759040029506547013501757263552422754300209231544554181657666019514002836763066591615396332472250357567645251139441623661
+  public exponent: 65537
+  Validity: [From: Sun Feb 12 19:00:00 EST 2017,
+               To: Thu Feb 13 18:59:59 EST 2020]
+  Issuer: CN=COMODO RSA Organization Validation Secure Server CA, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  SerialNumber: [    99409474 865aa5e6 3a360842 1126a1f0]
+
+Certificate Extensions: 9
+[1]: ObjectId: 1.3.6.1.5.5.7.1.1 Criticality=false
+AuthorityInfoAccess [
+  [
+   accessMethod: caIssuers
+   accessLocation: URIName: http://crt.comodoca.com/COMODORSAOrganizationValidationSecureServerCA.crt
+, 
+   accessMethod: ocsp
+   accessLocation: URIName: http://ocsp.comodoca.com
+]
+]
+
+[2]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: 9A F3 2B DA CF AD 4F B6   2F BB 2A 48 48 2A 12 B7  ..+...O./.*HH*..
+0010: 1B 42 C1 24                                        .B.$
+]
+]
+
+[3]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:false
+  PathLen: undefined
+]
+
+[4]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [URIName: http://crl.comodoca.com/COMODORSAOrganizationValidationSecureServerCA.crl]
+]]
+
+[5]: ObjectId: 2.5.29.32 Criticality=false
+CertificatePolicies [
+  [CertificatePolicyId: [1.3.6.1.4.1.6449.1.2.1.3.4]
+[PolicyQualifierInfo: [
+  qualifierID: 1.3.6.1.5.5.7.2.1
+  qualifier: 0000: 16 1D 68 74 74 70 73 3A   2F 2F 73 65 63 75 72 65  ..https://secure
+0010: 2E 63 6F 6D 6F 64 6F 2E   63 6F 6D 2F 43 50 53     .comodo.com/CPS
+
+]]  ]
+  [CertificatePolicyId: [2.23.140.1.2.2]
+[]  ]
+]
+
+[6]: ObjectId: 2.5.29.37 Criticality=false
+ExtendedKeyUsages [
+  serverAuth
+  clientAuth
+]
+
+[7]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  DigitalSignature
+  Key_Encipherment
+]
+
+[8]: ObjectId: 2.5.29.17 Criticality=false
+SubjectAlternativeName [
+  DNSName: ems_pn_dev.jnj.com
+  DNSName: www.ems_pn_dev.jnj.com
+]
+
+[9]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: A4 26 71 92 42 AD 2A 99   E6 09 4A 37 F3 09 B8 D3  .&q.B.*...J7....
+0010: C2 9E AB 10                                        ....
+]
+]
+
+]
+  Algorithm: [SHA256withRSA]
+  Signature:
+0000: 1D 76 53 DF 9E AF 4F C7   76 F3 52 49 67 F5 CD AA  .vS...O.v.RIg...
+0010: CE 6A 03 43 00 3E DD C2   68 09 EA 05 15 96 12 8F  .j.C.>..h.......
+0020: 42 4F BB 2A E0 CC A2 D9   A8 B2 9E 84 20 95 0F FB  BO.*........ ...
+0030: AB E0 61 3E 3C CF 60 0C   E4 A0 33 78 AE 4F E4 D0  ..a><.`...3x.O..
+0040: 30 43 BE FE 13 4C 04 C3   FD CC 05 7D B7 A7 73 34  0C...L........s4
+0050: 5C FA 25 C1 29 21 AB 57   4C DD EC C2 85 46 4C 59  \.%.)!.WL....FLY
+0060: 99 FE 18 7F 83 1A B3 E2   52 FE D5 8A F3 30 B2 D1  ........R....0..
+0070: CD EE 99 55 C1 C0 A2 CA   47 86 CC 9D FA 13 BC A1  ...U....G.......
+0080: 26 38 F9 0C 42 64 6C C9   2B 33 F8 33 36 EB 09 BE  &8..Bdl.+3.36...
+0090: 77 34 C4 94 7E 10 54 C8   E5 01 F5 A7 71 F9 46 33  w4....T.....q.F3
+00A0: BB 3F BE 5D F0 C3 E3 70   A3 DD 3F 41 EC 01 55 68  .?.]...p..?A..Uh
+00B0: B8 E5 E3 DB 36 D3 7E 08   AB 0F 18 33 EF E9 02 13  ....6......3....
+00C0: 24 E2 3D F1 3C 3E 95 6F   29 40 43 C5 2E 0B 19 BF  $.=.<>.o)@C.....
+00D0: 9F 3C F4 B5 6D 96 FC DF   75 3E 58 6D 4E 89 DB 8F  .<..m...u>XmN...
+00E0: 82 16 B7 DF 94 25 C1 08   0B D3 9E 2B 3A 9B F2 B4  .....%.....+:...
+00F0: AD CD 9B E7 F2 10 5A CC   10 CF EF 02 6F E3 33 56  ......Z.....o.3V
+
+]
+chain [1] = [
+[
+  Version: V3
+  Subject: CN=COMODO RSA Organization Validation Secure Server CA, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Signature Algorithm: SHA384withRSA, OID = 1.2.840.113549.1.1.12
+
+  Key:  Sun RSA public key, 2048 bits
+  modulus: 23364367789036248764590828559588945800909566501163552850831319026372050621561141974867931129224289911597268001113115319922107502170172386798023552044795591961279900983716424910423503821711700982244292822879352157001097904621813115928692278219697856090754314902955943857790735148714110025435709131947757760267515265061518866212636001729393009489201641719809777246465916057529290521495765725771731634778646123645562584934347526131342668094157399273643290137423132170132315316173819420457265551254978415915289520899948162548523911781373038947884090061597540073867393017150592856570521601968313241771358805248224596500073
+  public exponent: 65537
+  Validity: [From: Tue Feb 11 19:00:00 EST 2014,
+               To: Sun Feb 11 18:59:59 EST 2029]
+  Issuer: CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  SerialNumber: [    36825e7f b5a48193 7ef6d173 6bb93ca6]
+
+Certificate Extensions: 8
+[1]: ObjectId: 1.3.6.1.5.5.7.1.1 Criticality=false
+AuthorityInfoAccess [
+  [
+   accessMethod: caIssuers
+   accessLocation: URIName: http://crt.comodoca.com/COMODORSAAddTrustCA.crt
+, 
+   accessMethod: ocsp
+   accessLocation: URIName: http://ocsp.comodoca.com
+]
+]
+
+[2]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: BB AF 7E 02 3D FA A6 F1   3C 84 8E AD EE 38 98 EC  ....=...<....8..
+0010: D9 32 32 D4                                        .22.
+]
+]
+
+[3]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:0
+]
+
+[4]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [URIName: http://crl.comodoca.com/COMODORSACertificationAuthority.crl]
+]]
+
+[5]: ObjectId: 2.5.29.32 Criticality=false
+CertificatePolicies [
+  [CertificatePolicyId: [2.5.29.32.0]
+[]  ]
+  [CertificatePolicyId: [2.23.140.1.2.2]
+[]  ]
+]
+
+[6]: ObjectId: 2.5.29.37 Criticality=false
+ExtendedKeyUsages [
+  serverAuth
+  clientAuth
+]
+
+[7]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  DigitalSignature
+  Key_CertSign
+  Crl_Sign
+]
+
+[8]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 9A F3 2B DA CF AD 4F B6   2F BB 2A 48 48 2A 12 B7  ..+...O./.*HH*..
+0010: 1B 42 C1 24                                        .B.$
+]
+]
+
+]
+  Algorithm: [SHA384withRSA]
+  Signature:
+0000: 69 8A 36 68 9A 1E 3B 65   0B E0 7C CF A6 AB 71 3B  i.6h..;e......q;
+0010: AF 61 A4 3F E4 64 01 49   10 D3 1D 8F E2 D5 ED 67  .a.?.d.I.......g
+0020: D3 9E 5B 97 BD 42 1E 07   F9 D0 BB 6D F7 32 95 5A  ..[..B.....m.2.Z
+0030: 22 29 62 F8 0C 9C 59 56   27 36 A0 22 12 11 FA 47  ")b...YV'6."...G
+0040: F4 51 C9 59 7B 29 4A A5   48 35 7C C5 97 66 E0 27  .Q.Y.)J.H5...f.'
+0050: 25 3B 15 7A 32 75 4A 91   FB A6 6B 9E E2 53 FA 0D  %;.z2uJ...k..S..
+0060: 8C 13 FB 23 B8 0B 12 2C   AE ED DB 1D 47 90 D5 D0  ...#...,....G...
+0070: 93 69 76 91 38 15 34 D7   18 EA 7E BC 6B 58 DE 2A  .iv.8.4.....kX.*
+0080: 39 90 03 44 04 4A 56 D8   68 E5 F5 7C 69 7E 9E 7D  9..D.JV.h...i...
+0090: 54 4B D0 D8 86 AB 67 66   13 57 5E 89 2A 17 AD 2D  TK....gf.W^.*..-
+00A0: AE BD 40 0E 66 ED 8A FF   54 B4 C1 01 CB A9 E0 47  ..@.f...T......G
+00B0: BA 11 61 8F AD AE 23 48   2A C6 25 79 89 1C 41 04  ..a...#H*.%y..A.
+00C0: 95 C0 11 EA 57 2B D6 B4   97 FA B1 E9 15 62 EC 4A  ....W+.......b.J
+00D0: 71 77 FD F3 A1 9C DA F6   6B 00 29 C5 32 E7 FA 4E  qw......k.).2..N
+00E0: EA B3 2A A7 18 97 1C 58   A7 42 36 5F EC 14 CF F8  ..*....X.B6_....
+00F0: 7B 0E F7 DD CC 88 15 9A   9A 5C C8 F1 20 C7 D1 86  .........\.. ...
+0100: 72 A1 17 9B AE BA FE 6C   A8 32 D1 00 76 49 73 F7  r......l.2..vIs.
+0110: 3F 27 87 3C B6 C9 2D FA   AA 90 90 C9 0A 09 9F C9  ?'.<..-.........
+0120: 69 1F 07 19 A9 BF DE BA   F8 0B 88 82 44 16 10 7F  i...........D...
+0130: 07 C0 80 22 5F 7F BC 30   DE BA CD 07 79 64 56 D8  ..."_..0....ydV.
+0140: FF F3 4F 9C 30 BB 6E 1E   51 4B E6 CD BD 17 C4 C5  ..O.0.n.QK......
+0150: BF C8 3F 8E B1 1F 8A 46   B7 06 43 6F 62 2D CF 51  ..?....F..Cob-.Q
+0160: 9D 45 CA 8A E9 13 8B C0   C7 91 BE 5B B6 FA 37 4A  .E.........[..7J
+0170: 89 FE F0 9D DA 13 26 22   2C 06 90 3E 8B 13 98 A0  ......&",..>....
+0180: 19 D6 DD DA 4A 48 7F 3D   0F 89 9D 24 72 4B 0E 7B  ....JH.=...$rK..
+0190: 44 FF D4 36 B6 83 76 23   58 8B 14 6C B8 5D F7 61  D..6..v#X..l.].a
+01A0: 6D 39 76 ED DD 12 3D 6B   87 88 97 91 BE C0 46 02  m9v...=k......F.
+01B0: 1E 76 1C DD B6 AF 5C 4F   F5 00 D6 9C 4D A9 E0 9E  .v....\O....M...
+01C0: A2 8E FC B1 16 79 5C 21   D3 45 81 9A 0C 39 6C 6D  .....y\!.E...9lm
+01D0: 28 D7 25 D2 B7 11 90 D0   F6 DE 6F 5E F4 FA A4 8B  (.%.......o^....
+01E0: 66 77 72 2F 9B 90 40 2C   52 12 60 F9 FF B5 70 2E  fwr/..@,R.`...p.
+01F0: 89 9A 79 09 89 81 2D EC   5C 78 6F 81 87 F1 FC 55  ..y...-.\xo....U
+
+]
+chain [2] = [
+[
+  Version: V3
+  Subject: CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Signature Algorithm: SHA384withRSA, OID = 1.2.840.113549.1.1.12
+
+  Key:  Sun RSA public key, 4096 bits
+  modulus: 595250832037245141724642107398533641144111340640849154810839512193646804439589382557795096048235159392412856809181253983148280442751106836828767077478502910675291715965426418324395462826337195608826159904332409833532414343087397304684051488024083060971973988667565926401713702437407307790551210783180012029671811979458976709742365579736599681150756374332129237698142054260771585540729412505699671993111094681722253786369180597052805125225748672266569013967025850135765598233721214965171040686884703517711864518647963618102322884373894861238464186441528415873877499307554355231373646804211013770034465627350166153734933786011622475019872581027516832913754790596939102532587063612068091625752995700206528059096165261547017202283116886060219954285939324476288744352486373249118864714420341870384243932900936553074796547571643358129426474424573956572670213304441994994142333208766235762328926816055054634905252931414737971249889745696283503174642385591131856834241724878687870772321902051261453524679758731747154638983677185705464969589189761598154153383380395065347776922242683529305823609958629983678843126221186204478003285765580771286537570893899006127941280337699169761047271395591258462580922460487748761665926731923248227868312659
+  public exponent: 65537
+  Validity: [From: Tue May 30 06:48:38 EDT 2000,
+               To: Sat May 30 06:48:38 EDT 2020]
+  Issuer: CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE
+  SerialNumber: [    2766ee56 eb49f38e abd770a2 fc84de22]
+
+Certificate Extensions: 7
+[1]: ObjectId: 1.3.6.1.5.5.7.1.1 Criticality=false
+AuthorityInfoAccess [
+  [
+   accessMethod: ocsp
+   accessLocation: URIName: http://ocsp.usertrust.com
+]
+]
+
+[2]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: AD BD 98 7A 34 B4 26 F7   FA C4 26 54 EF 03 BD E0  ...z4.&...&T....
+0010: 24 CB 54 1A                                        $.T.
+]
+]
+
+[3]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+[4]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [URIName: http://crl.usertrust.com/AddTrustExternalCARoot.crl]
+]]
+
+[5]: ObjectId: 2.5.29.32 Criticality=false
+CertificatePolicies [
+  [CertificatePolicyId: [2.5.29.32.0]
+[]  ]
+]
+
+[6]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  DigitalSignature
+  Key_CertSign
+  Crl_Sign
+]
+
+[7]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: BB AF 7E 02 3D FA A6 F1   3C 84 8E AD EE 38 98 EC  ....=...<....8..
+0010: D9 32 32 D4                                        .22.
+]
+]
+
+]
+  Algorithm: [SHA384withRSA]
+  Signature:
+0000: 64 BF 83 F1 5F 9A 85 D0   CD B8 A1 29 57 0D E8 5A  d..._......)W..Z
+0010: F7 D1 E9 3E F2 76 04 6E   F1 52 70 BB 1E 3C FF 4D  ...>.v.n.Rp..<.M
+0020: 0D 74 6A CC 81 82 25 D3   C3 A0 2A 5D 4C F5 BA 8B  .tj...%...*]L...
+0030: A1 6D C4 54 09 75 C7 E3   27 0E 5D 84 79 37 40 13  .m.T.u..'.].y7@.
+0040: 77 F5 B4 AC 1C D0 3B AB   17 12 D6 EF 34 18 7E 2B  w.....;.....4..+
+0050: E9 79 D3 AB 57 45 0C AF   28 FA D0 DB E5 50 95 88  .y..WE..(....P..
+0060: BB DF 85 57 69 7D 92 D8   52 CA 73 81 BF 1C F3 E6  ...Wi...R.s.....
+0070: B8 6E 66 11 05 B3 1E 94   2D 7F 91 95 92 59 F1 4C  .nf.....-....Y.L
+0080: CE A3 91 71 4C 7C 47 0C   3B 0B 19 F6 A1 B1 6C 86  ...qL.G.;.....l.
+0090: 3E 5C AA C4 2E 82 CB F9   07 96 BA 48 4D 90 F2 94  >\.........HM...
+00A0: C8 A9 73 A2 EB 06 7B 23   9D DE A2 F3 4D 55 9F 7A  ..s....#....MU.z
+00B0: 61 45 98 18 68 C7 5E 40   6B 23 F5 79 7A EF 8C B5  aE..h.^@k#.yz...
+00C0: 6B 8B B7 6F 46 F4 7B F1   3D 4B 04 D8 93 80 59 5A  k..oF...=K....YZ
+00D0: E0 41 24 1D B2 8F 15 60   58 47 DB EF 6E 46 FD 15  .A$....`XG..nF..
+00E0: F5 D9 5F 9A B3 DB D8 B8   E4 40 B3 CD 97 39 AE 85  .._......@...9..
+00F0: BB 1D 8E BC DC 87 9B D1   A6 EF F1 3B 6F 10 38 6F  ...........;o.8o
+
+]
+chain [3] = [
+[
+  Version: V3
+  Subject: CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE
+  Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
+
+  Key:  Sun RSA public key, 2048 bits
+  modulus: 23223460521213001555387570833114089730860753895612098652836669980305042236333373520864248457295413309113206184129614795458813002793321404739348347239478157361314575018921060208560207337879261682185633570259454980009323505955755478574737771466443477069914070664457159874562246026231674202013525055051064032749275350905982802892471956172353456348747163465303302884619908731908096753154575131719129358212869729511062189039464751904900614685539733488960803754548627928530841064764065036079799777523666592044408376641702595881456975606363374738747468052431570879657918206353629078434589859560212766197636528957975011023399
+  public exponent: 65537
+  Validity: [From: Tue May 30 06:48:38 EDT 2000,
+               To: Sat May 30 06:48:38 EDT 2020]
+  Issuer: CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE
+  SerialNumber: [    01]
+
+Certificate Extensions: 4
+[1]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: AD BD 98 7A 34 B4 26 F7   FA C4 26 54 EF 03 BD E0  ...z4.&...&T....
+0010: 24 CB 54 1A                                        $.T.
+]
+[CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE]
+SerialNumber: [    01]
+]
+
+[2]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+[3]: ObjectId: 2.5.29.15 Criticality=false
+KeyUsage [
+  Key_CertSign
+  Crl_Sign
+]
+
+[4]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: AD BD 98 7A 34 B4 26 F7   FA C4 26 54 EF 03 BD E0  ...z4.&...&T....
+0010: 24 CB 54 1A                                        $.T.
+]
+]
+
+]
+  Algorithm: [SHA1withRSA]
+  Signature:
+0000: B0 9B E0 85 25 C2 D6 23   E2 0F 96 06 92 9D 41 98  ....%..#......A.
+0010: 9C D9 84 79 81 D9 1E 5B   14 07 23 36 65 8F B0 D8  ...y...[..#6e...
+0020: 77 BB AC 41 6C 47 60 83   51 B0 F9 32 3D E7 FC F6  w..AlG`.Q..2=...
+0030: 26 13 C7 80 16 A5 BF 5A   FC 87 CF 78 79 89 21 9A  &......Z...xy.!.
+0040: E2 4C 07 0A 86 35 BC F2   DE 51 C4 D2 96 B7 DC 7E  .L...5...Q......
+0050: 4E EE 70 FD 1C 39 EB 0C   02 51 14 2D 8E BD 16 E0  N.p..9...Q.-....
+0060: C1 DF 46 75 E7 24 AD EC   F4 42 B4 85 93 70 10 67  ..Fu.$...B...p.g
+0070: BA 9D 06 35 4A 18 D3 2B   7A CC 51 42 A1 7A 63 D1  ...5J..+z.QB.zc.
+0080: E6 BB A1 C5 2B C2 36 BE   13 0D E6 BD 63 7E 79 7B  ....+.6.....c.y.
+0090: A7 09 0D 40 AB 6A DD 8F   8A C3 F6 F6 8C 1A 42 05  ...@.j........B.
+00A0: 51 D4 45 F5 9F A7 62 21   68 15 20 43 3C 99 E7 7C  Q.E...b!h. C<...
+00B0: BD 24 D8 A9 91 17 73 88   3F 56 1B 31 38 18 B4 71  .$....s.?V.18..q
+00C0: 0F 9A CD C8 0E 9E 8E 2E   1B E1 8C 98 83 CB 1F 31  ...............1
+00D0: F1 44 4C C6 04 73 49 76   60 0F C7 F8 BD 17 80 6B  .DL..sIv`......k
+00E0: 2E E9 CC 4C 0E 5A 9A 79   0F 20 0A 2E D5 9E 63 26  ...L.Z.y. ....c&
+00F0: 1E 55 92 94 D8 82 17 5A   7B D0 BC C7 8F 4E 86 04  .U.....Z.....N..
+
+]
+***
+trigger seeding of SecureRandom
+done seeding SecureRandom
+Allow unsafe renegotiation: false
+Allow legacy hello messages: true
+Is initial handshake: true
+Is secure renegotiation: false
+Socket class: class sun.security.ssl.SSLSocketImpl
+   Remote address = m0522-ifl.fmst.us2.hana.ondemand.com/64.95.110.226
+   Remote port = 443
+   Local socket address = /10.137.2.37:53397
+   Local address = /10.137.2.37
+   Local port = 53397
+   Need client authentication = true
+Ignoring disabled protocol: SSLv3
+Ignoring unsupported cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 for TLSv1.1
+%% No cached client session
+*** ClientHello, TLSv1.2
+RandomCookie:  GMT: 1501178056 bytes = { 120, 244, 119, 247, 177, 12, 13, 210, 88, 39, 248, 23, 232, 146, 65, 33, 80, 99, 57, 41, 79, 61, 88, 171, 58, 190, 20, 150 }
+Session ID:  {}
+Cipher Suites: [TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+Compression Methods:  { 0 }
+Extension elliptic_curves, curve names: {secp256r1, secp384r1, secp521r1, sect283k1, sect283r1, sect409k1, sect409r1, sect571k1, sect571r1, secp256k1}
+Extension ec_point_formats, formats: [uncompressed]
+Extension signature_algorithms, signature_algorithms: SHA512withECDSA, SHA512withRSA, SHA384withECDSA, SHA384withRSA, SHA256withECDSA, SHA256withRSA, SHA256withDSA, SHA1withECDSA, SHA1withRSA, SHA1withDSA
+Extension server_name, server_name: [type=host_name (0), value=m0522-ifl.fmst.us2.hana.ondemand.com]
+***
+main, WRITE: TLSv1.2 Handshake, length = 206
+main, READ: TLSv1.2 Handshake, length = 87
+*** ServerHello, TLSv1.2
+RandomCookie:  GMT: -33217727 bytes = { 191, 193, 151, 57, 253, 39, 234, 91, 83, 96, 76, 98, 251, 33, 69, 135, 32, 173, 101, 150, 228, 251, 89, 145, 70, 171, 80, 25 }
+Session ID:  {154, 227, 215, 63, 115, 186, 64, 129, 204, 101, 179, 225, 129, 188, 202, 108, 81, 76, 65, 180, 77, 45, 224, 213, 224, 215, 43, 185, 96, 231, 174, 68}
+Cipher Suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+Compression Method: 0
+Extension renegotiation_info, renegotiated_connection: <empty>
+Extension ec_point_formats, formats: [uncompressed]
+***
+%% Initialized:  [Session-1, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256]
+** TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+main, READ: TLSv1.2 Handshake, length = 3168
+*** Certificate chain
+chain [0] = [
+[
+  Version: V3
+  Subject: CN=*.fm.us2.hana.ondemand.com, OU=SAP Trust Community, O=SAP SE, L=Walldorf, ST=Baden-Wurttemberg, C=DE
+  Signature Algorithm: SHA256withRSA, OID = 1.2.840.113549.1.1.11
+
+  Key:  Sun RSA public key, 2048 bits
+  modulus: 16223198043756115001103838166457330673636106149038439930119745416066523579763252080214185331336047608732239905229123806101130695244183565755305524838376697214494387369613933551900783292360290598028686063642534819312618354611983661373152238545232819205202196903345002030454360714331775072499452163326821145020999064397713768971172816932664775110618795312341820095913683176929235223483186616408147262037394060977268314668806277580568670504415220579364971131730741823505050937922014631476562480012314569611416355030994160293136567699666632952924126740948520962993738121382551834231476800202001997577578588921880778675763
+  public exponent: 65537
+  Validity: [From: Mon Aug 15 03:54:30 EDT 2016,
+               To: Thu Aug 15 03:54:30 EDT 2019]
+  Issuer: CN=Verizon Public SureServer CA G14-SHA2, OU=Cybertrust, O=Verizon Enterprise Solutions, L=Amsterdam, C=NL
+  SerialNumber: [    2d7cee9e 42b361c1 21146c88 156c0bec 1e3e6221]
+
+Certificate Extensions: 10
+[1]: ObjectId: 1.3.6.1.4.1.11129.2.4.2 Criticality=false
+Extension unknown: DER encoded OCTET string =
+0000: 04 81 F4 04 81 F1 00 EF   00 75 00 68 F6 98 F8 1F  .........u.h....
+0010: 64 82 BE 3A 8C EE B9 28   1D 4C FC 71 51 5D 67 93  d..:...(.L.qQ]g.
+0020: D4 44 D1 0A 67 AC BB 4F   4F FB C4 00 00 01 56 8D  .D..g..OO.....V.
+0030: 31 E0 8C 00 00 04 03 00   46 30 44 02 20 36 24 4C  1.......F0D. 6$L
+0040: 89 67 DD C4 88 0B 2A BC   E8 46 2E 4C 07 B1 1C 4D  .g....*..F.L...M
+0050: 5E 2B 90 86 A3 09 15 45   B5 D6 17 6F A4 02 20 35  ^+.....E...o.. 5
+0060: EA B6 28 FE 4A E8 3D B4   58 07 FD 14 B6 1E 35 D2  ..(.J.=.X.....5.
+0070: DC 52 13 AC 51 5E E2 1F   A9 CF 84 AA 5E 97 22 00  .R..Q^......^.".
+0080: 76 00 56 14 06 9A 2F D7   C2 EC D3 F5 E1 BD 44 B2  v.V.../.......D.
+0090: 3E C7 46 76 B9 BC 99 11   5C C0 EF 94 98 55 D6 89  >.Fv....\....U..
+00A0: D0 DD 00 00 01 56 8D 31   E4 B3 00 00 04 03 00 47  .....V.1.......G
+00B0: 30 45 02 20 67 A3 C7 FF   32 31 88 13 4E 9B 24 26  0E. g...21..N.$&
+00C0: D1 86 A9 D2 A4 B7 2E D7   F3 D6 57 6F 94 43 80 9A  ..........Wo.C..
+00D0: 31 CC FE 4B 02 21 00 A1   79 E8 4B 28 EF 94 2E F0  1..K.!..y.K(....
+00E0: 47 42 87 01 AA 0B 34 D4   FC 2D D2 E5 27 56 0E C2  GB....4..-..'V..
+00F0: 0B 5C FA FC D4 24 77                               .\...$w
+
+
+[2]: ObjectId: 1.3.6.1.5.5.7.1.1 Criticality=false
+AuthorityInfoAccess [
+  [
+   accessMethod: ocsp
+   accessLocation: URIName: http://vpssg142.ocsp.omniroot.com
+, 
+   accessMethod: caIssuers
+   accessLocation: URIName: http://cacert.omniroot.com/vpssg142.crt
+, 
+   accessMethod: caIssuers
+   accessLocation: URIName: http://cacert.omniroot.com/vpssg142.der
+]
+]
+
+[3]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: E4 2D BB 91 01 65 26 1F   B4 7A 3F A3 15 25 A4 CE  .-...e&..z?..%..
+0010: 8C 44 33 3B                                        .D3;
+]
+]
+
+[4]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:false
+  PathLen: undefined
+]
+
+[5]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [URIName: http://vpssg142.crl.omniroot.com/vpssg142.crl]
+]]
+
+[6]: ObjectId: 2.5.29.32 Criticality=false
+CertificatePolicies [
+  [CertificatePolicyId: [1.3.6.1.4.1.6334.1.50]
+[PolicyQualifierInfo: [
+  qualifierID: 1.3.6.1.5.5.7.2.1
+  qualifier: 0000: 16 26 68 74 74 70 73 3A   2F 2F 73 65 63 75 72 65  .&https://secure
+0010: 2E 6F 6D 6E 69 72 6F 6F   74 2E 63 6F 6D 2F 72 65  .omniroot.com/re
+0020: 70 6F 73 69 74 6F 72 79                            pository
+
+]]  ]
+]
+
+[7]: ObjectId: 2.5.29.37 Criticality=false
+ExtendedKeyUsages [
+  serverAuth
+  clientAuth
+]
+
+[8]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  DigitalSignature
+  Key_Encipherment
+]
+
+[9]: ObjectId: 2.5.29.17 Criticality=false
+SubjectAlternativeName [
+  DNSName: *.fm.us2.hana.ondemand.com
+  DNSName: *.fmst.us2.hana.ondemand.com
+  DNSName: *.fmsp.us2.hana.ondemand.com
+  DNSName: *.fm.us.hana.ondemand.com
+  DNSName: *.fmst.us.hana.ondemand.com
+  DNSName: *.fmsp.us.hana.ondemand.com
+]
+
+[10]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 81 D5 38 2F A2 1E BD D2   E9 E9 C7 2F 77 2D 22 EB  ..8/......./w-".
+0010: BF 8B 63 D6                                        ..c.
+]
+]
+
+]
+  Algorithm: [SHA256withRSA]
+  Signature:
+0000: 9F CC 7C 00 EC 1D 95 D2   1D 36 53 07 06 B1 D0 D7  .........6S.....
+0010: AD 32 DE FD 56 AA 59 3A   C1 25 1C 7A 29 D8 73 BE  .2..V.Y:.%.z).s.
+0020: B0 43 B3 85 8A C3 97 F1   2B 82 D9 37 B5 D1 C6 88  .C......+..7....
+0030: 2E 73 33 0B 91 53 46 A4   7F BC 1A 27 88 0C DD 46  .s3..SF....'...F
+0040: 15 B3 CF 28 F4 0E 62 E6   96 44 23 A6 85 60 61 7B  ...(..b..D#..`a.
+0050: A4 9A 13 23 27 6B 14 ED   EB 9F 58 FE C4 05 B8 52  ...#'k....X....R
+0060: D9 D8 39 70 9E D4 74 8A   8E 5B E6 61 02 0C 30 EF  ..9p..t..[.a..0.
+0070: 49 C6 1B 3F FE C7 AF CF   19 A4 F0 5F 9F 14 8C 05  I..?......._....
+0080: A5 12 A1 96 BA F2 9E 70   C2 90 08 E1 EC AD 82 D6  .......p........
+0090: FA BA FC C7 54 1B F1 11   C4 EB 06 28 33 87 20 15  ....T......(3. .
+00A0: 0F B3 F7 8F A6 01 5E A6   2C 1B D1 A8 97 36 E2 78  ......^.,....6.x
+00B0: 0C 2B 3A 94 83 8F ED 71   A5 00 9F 58 34 AE 81 50  .+:....q...X4..P
+00C0: 9F 56 84 3C F4 C2 F9 F7   3F D2 FA 48 8F E8 82 48  .V.<....?..H...H
+00D0: 18 89 80 2A 19 9B 1E B1   0D CD 34 20 44 EA 3F A6  ...*......4 D.?.
+00E0: F4 2E 1E 80 E3 85 09 98   37 69 BD 7C F4 9A C0 DD  ........7i......
+00F0: 9F 8B 4F 5C 86 4F AF 00   BE CD 6A D3 9C A6 0E C7  ..O\.O....j.....
+
+]
+chain [1] = [
+[
+  Version: V3
+  Subject: CN=Verizon Public SureServer CA G14-SHA2, OU=Cybertrust, O=Verizon Enterprise Solutions, L=Amsterdam, C=NL
+  Signature Algorithm: SHA256withRSA, OID = 1.2.840.113549.1.1.11
+
+  Key:  Sun RSA public key, 2048 bits
+  modulus: 29316391395503437911759872997495912644587588660909855278764577288702228767919153852934152275607716024985156647125370402255460038804312180850359037699984532778024231709519916025137153326085542681335009624142067763876346187428536527396954789784922709178227853542526917937399172518102608414147779371886835552306748711097529731689369963572733472427396155066211375958501607732142002523197398281268985073725368215744212297570663476815914129745574336758572880235111245309828203012599505697093857533943222394259619064440288643677773620566840319386577749147161965676903023848371873751281850108687219184414454372817056127950881
+  public exponent: 65537
+  Validity: [From: Wed Apr 09 12:03:06 EDT 2014,
+               To: Fri Apr 09 12:02:10 EDT 2021]
+  Issuer: CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE
+  SerialNumber: [    0727a661]
+
+Certificate Extensions: 7
+[1]: ObjectId: 1.3.6.1.5.5.7.1.1 Criticality=false
+AuthorityInfoAccess [
+  [
+   accessMethod: ocsp
+   accessLocation: URIName: http://ocsp.omniroot.com/baltimoreroot
+, 
+   accessMethod: caIssuers
+   accessLocation: URIName: https://cacert.omniroot.com/baltimoreroot.crt
+, 
+   accessMethod: caIssuers
+   accessLocation: URIName: https://cacert.omniroot.com/baltimoreroot.der
+]
+]
+
+[2]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: E5 9D 59 30 82 47 58 CC   AC FA 08 54 36 86 7B 3A  ..Y0.GX....T6..:
+0010: B5 04 4D F0                                        ..M.
+]
+]
+
+[3]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:0
+]
+
+[4]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [URIName: http://cdp1.public-trust.com/CRL/Omniroot2025.crl]
+]]
+
+[5]: ObjectId: 2.5.29.32 Criticality=false
+CertificatePolicies [
+  [CertificatePolicyId: [1.3.6.1.4.1.6334.1.50]
+[PolicyQualifierInfo: [
+  qualifierID: 1.3.6.1.5.5.7.2.1
+  qualifier: 0000: 16 26 68 74 74 70 73 3A   2F 2F 73 65 63 75 72 65  .&https://secure
+0010: 2E 6F 6D 6E 69 72 6F 6F   74 2E 63 6F 6D 2F 72 65  .omniroot.com/re
+0020: 70 6F 73 69 74 6F 72 79                            pository
+
+]]  ]
+]
+
+[6]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  DigitalSignature
+  Non_repudiation
+  Key_CertSign
+  Crl_Sign
+]
+
+[7]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: E4 2D BB 91 01 65 26 1F   B4 7A 3F A3 15 25 A4 CE  .-...e&..z?..%..
+0010: 8C 44 33 3B                                        .D3;
+]
+]
+
+]
+  Algorithm: [SHA256withRSA]
+  Signature:
+0000: 74 0F 17 03 94 2F 8B 82   D3 B8 1F C8 78 2B B8 E0  t..../......x+..
+0010: 1B FF 74 5A EF BA 1B 54   61 49 AB 9B 56 71 41 C6  ..tZ...TaI..VqA.
+0020: C9 D1 9F 15 AB 29 79 E0   04 F4 B4 DF 1D 3E 6B C1  .....)y......>k.
+0030: 42 4F 8E 45 61 76 35 CA   1A ED DB D5 5F 75 01 4F  BO.Eav5....._u.O
+0040: 41 E7 BB 69 48 4D 61 29   AB BB A5 EA A1 69 E9 05  A..iHMa).....i..
+0050: B0 9D EB F6 4F C2 65 28   9E A8 78 20 96 AA 6B BB  ....O.e(..x ..k.
+0060: D7 F1 28 ED 87 D8 B3 19   A1 77 0C 8F 31 9A 70 8D  ..(......w..1.p.
+0070: 88 72 19 70 5D 06 1A 28   12 EA 09 2E 0F 52 DA 15  .r.p]..(.....R..
+0080: 22 C8 F7 71 1B 9D 8F AF   5A 59 26 D8 B9 03 D7 44  "..q....ZY&....D
+0090: 60 97 D9 E5 EB 72 7D 0C   9D F9 A3 B9 D6 B0 3C 8E  `....r........<.
+00A0: 97 B7 AE 93 12 F1 B9 52   06 47 E2 77 C1 AB 49 AC  .......R.G.w..I.
+00B0: 30 48 3B D4 4C 61 42 D7   CA 26 E0 AE F4 BC F1 D3  0H;.LaB..&......
+00C0: 4A DC CA 34 07 22 50 A4   9D 00 46 3A 54 DC F1 90  J..4."P...F:T...
+00D0: 93 AE E8 89 11 E4 7D DF   E9 2C 3F 32 AF 44 38 AF  .........,?2.D8.
+00E0: 63 83 AB 74 A8 65 B0 BB   6E 16 BA 79 0E F4 A9 60  c..t.e..n..y...`
+00F0: 2B EF 83 74 12 E6 D7 76   AB AA 49 2F 49 E6 E2 B1  +..t...v..I/I...
+
+]
+***
+Found trusted certificate:
+[
+[
+  Version: V3
+  Subject: CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE
+  Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
+
+  Key:  Sun RSA public key, 2048 bits
+  modulus: 20579176651421167987106471718888186309534186253587759121109122482694167416584428920295678216035822449451639581023765122994089008826314029843654807108803739729565431642116323937940944378450034252354609020536286175863324156219063038927409933070688727356676027216359532593504366119272034244698731524943132462329205729047681997715455240148827523651706429854757422624117805863121520494307655271426986078917217383478420381375139154341613794371303682232583316393601620034638044186782252195438345309455714637508276892061355357785328168602107026282695945834955006612147350315937204256563720794300123948598669913435346712336953
+  public exponent: 65537
+  Validity: [From: Fri May 12 14:46:00 EDT 2000,
+               To: Mon May 12 19:59:00 EDT 2025]
+  Issuer: CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE
+  SerialNumber: [    020000b9]
+
+Certificate Extensions: 3
+[1]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:3
+]
+
+[2]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  Key_CertSign
+  Crl_Sign
+]
+
+[3]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: E5 9D 59 30 82 47 58 CC   AC FA 08 54 36 86 7B 3A  ..Y0.GX....T6..:
+0010: B5 04 4D F0                                        ..M.
+]
+]
+
+]
+  Algorithm: [SHA1withRSA]
+  Signature:
+0000: 85 0C 5D 8E E4 6F 51 68   42 05 A0 DD BB 4F 27 25  ..]..oQhB....O'%
+0010: 84 03 BD F7 64 FD 2D D7   30 E3 A4 10 17 EB DA 29  ....d.-.0......)
+0020: 29 B6 79 3F 76 F6 19 13   23 B8 10 0A F9 58 A4 D4  ).y?v...#....X..
+0030: 61 70 BD 04 61 6A 12 8A   17 D5 0A BD C5 BC 30 7C  ap..aj........0.
+0040: D6 E9 0C 25 8D 86 40 4F   EC CC A3 7E 38 C6 37 11  ...%..@O....8.7.
+0050: 4F ED DD 68 31 8E 4C D2   B3 01 74 EE BE 75 5E 07  O..h1.L...t..u^.
+0060: 48 1A 7F 70 FF 16 5C 84   C0 79 85 B8 05 FD 7F BE  H..p..\..y......
+0070: 65 11 A3 0F C0 02 B4 F8   52 37 39 04 D5 A9 31 7A  e.......R79...1z
+0080: 18 BF A0 2A F4 12 99 F7   A3 45 82 E3 3C 5E F5 9D  ...*.....E..<^..
+0090: 9E B5 C8 9E 7C 2E C8 A4   9E 4E 08 14 4B 6D FD 70  .........N..Km.p
+00A0: 6D 6B 1A 63 BD 64 E6 1F   B7 CE F0 F2 9F 2E BB 1B  mk.c.d..........
+00B0: B7 F2 50 88 73 92 C2 E2   E3 16 8D 9A 32 02 AB 8E  ..P.s.......2...
+00C0: 18 DD E9 10 11 EE 7E 35   AB 90 AF 3E 30 94 7A D0  .......5...>0.z.
+00D0: 33 3D A7 65 0F F5 FC 8E   9E 62 CF 47 44 2C 01 5D  3=.e.....b.GD,.]
+00E0: BB 1D B5 32 D2 47 D2 38   2E D0 FE 81 DC 32 6A 1E  ...2.G.8.....2j.
+00F0: B5 EE 3C D5 FC E7 81 1D   19 C3 24 42 EA 63 39 A9  ..<.......$B.c9.
+
+]
+main, READ: TLSv1.2 Handshake, length = 333
+*** ECDH ServerKeyExchange
+Signature Algorithm SHA1withRSA
+Server key: Sun EC public key, 256 bits
+  public x coord: 52801260690430255436807214580191590472165018628883858590350103878366744066390
+  public y coord: 12459607647658827324444908903916423580748363379220743180702538845746353587953
+  parameters: secp256r1 [NIST P-256, X9.62 prime256v1] (1.2.840.10045.3.1.7)
+main, READ: TLSv1.2 Handshake, length = 3489
+*** CertificateRequest
+Cert Types: RSA, DSS, ECDSA
+Supported Signature Algorithms: SHA1withRSA, SHA1withDSA, SHA1withECDSA, SHA256withRSA, SHA256withDSA, SHA256withECDSA, SHA384withRSA, Unknown (hash:0x5, signature:0x2), SHA384withECDSA
+Cert Authorities:
+<CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE>
+<CN=Cybertrust Public SureServer SV CA, O=Cybertrust Inc>
+<CN=Cybertrust SureServer Standard Validation CA, O=Cybertrust Inc>
+<CN=Entrust Certification Authority - L1C, OU="(c) 2009 Entrust, Inc.", OU=www.entrust.net/rpa is incorporated by reference, O="Entrust, Inc.", C=US>
+<CN=Entrust Class 1 Client CA, OU="(c) 2010 Entrust, Inc.", OU=www.entrust.net/CPS is incorporated by reference, O="Entrust, Inc.", C=US>
+<CN=Entrust Root Certification Authority, OU="(c) 2006 Entrust, Inc.", OU=www.entrust.net/CPS is incorporated by reference, O="Entrust, Inc.", C=US>
+<CN=Entrust.net Certification Authority (2048), OU=(c) 1999 Entrust.net Limited, OU=www.entrust.net/CPS_2048 incorp. by ref. (limits liab.), O=Entrust.net>
+<CN=GeoTrust Global CA, O=GeoTrust Inc., C=US>
+<CN=GTE CyberTrust Global Root, OU="GTE CyberTrust Solutions, Inc.", O=GTE Corporation, C=US>
+<CN=SAP Passport CA, O=SAP Trust Community, C=DE>
+<CN=TC TrustCenter Class 2 CA II, OU=TC TrustCenter Class 2 CA, O=TC TrustCenter GmbH, C=DE>
+<CN=TC TrustCenter Class 2 L1 CA XI, OU=TC TrustCenter Class 2 L1 CA, O=TC TrustCenter GmbH, C=DE>
+<CN=VeriSign Class 1 Public Primary Certification Authority - G3, OU="(c) 1999 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US>
+<CN=VeriSign Class 3 International Server CA - G3, OU=Terms of use at https://www.verisign.com/rpa (c)10, OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US>
+<CN=VeriSign Class 3 Public Primary Certification Authority - G5, OU="(c) 2006 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US>
+<CN=VeriSign Class 3 Secure Server CA - G3, OU=Terms of use at https://www.verisign.com/rpa (c)10, OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US>
+<CN=Entrust Certification Authority - L1K, OU="(c) 2012 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US>
+<CN=Entrust Root Certification Authority - G2, OU="(c) 2009 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US>
+<CN=Go Daddy Root Certificate Authority - G2, O="GoDaddy.com, Inc.", L=Scottsdale, ST=Arizona, C=US>
+<CN=DigiCert Global Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US>
+<CN=DigiCert High Assurance EV Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US>
+<CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE>
+<CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB>
+<CN=VeriSign Universal Root Certification Authority, OU="(c) 2008 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US>
+main, READ: TLSv1.2 Handshake, length = 4
+*** ServerHelloDone
+matching alias: ems_pn_dev.jnj.com
+*** Certificate chain
+chain [0] = [
+[
+  Version: V3
+  Subject: CN=ems_pn_dev.jnj.com, OU=EliteSSL, OU=WebMethods, O=Johnson and Johnson, STREET=1003 US Rte 202 N, L=Raritan, ST=New Jersey, OID.2.5.4.17=08869, C=US
+  Signature Algorithm: SHA256withRSA, OID = 1.2.840.113549.1.1.11
+
+  Key:  Sun RSA public key, 2048 bits
+  modulus: 17646183552043667060443165327792405870614498238814704196575956127892178762920061459542729502653702078466886717160512350272213314438684843827053583082662104657622081655596419490575198661110107603348460703759240269639540741631878754594317017778487882036567771323708237573429912508840584156743149300938183969380583812380251287731363714699187577948108914657761111534732548202591916757968833689113941878539007364115904773023094590349953971377175449259064293437608863930671418555788883957116451180857843759040029506547013501757263552422754300209231544554181657666019514002836763066591615396332472250357567645251139441623661
+  public exponent: 65537
+  Validity: [From: Sun Feb 12 19:00:00 EST 2017,
+               To: Thu Feb 13 18:59:59 EST 2020]
+  Issuer: CN=COMODO RSA Organization Validation Secure Server CA, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  SerialNumber: [    99409474 865aa5e6 3a360842 1126a1f0]
+
+Certificate Extensions: 9
+[1]: ObjectId: 1.3.6.1.5.5.7.1.1 Criticality=false
+AuthorityInfoAccess [
+  [
+   accessMethod: caIssuers
+   accessLocation: URIName: http://crt.comodoca.com/COMODORSAOrganizationValidationSecureServerCA.crt
+, 
+   accessMethod: ocsp
+   accessLocation: URIName: http://ocsp.comodoca.com
+]
+]
+
+[2]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: 9A F3 2B DA CF AD 4F B6   2F BB 2A 48 48 2A 12 B7  ..+...O./.*HH*..
+0010: 1B 42 C1 24                                        .B.$
+]
+]
+
+[3]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:false
+  PathLen: undefined
+]
+
+[4]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [URIName: http://crl.comodoca.com/COMODORSAOrganizationValidationSecureServerCA.crl]
+]]
+
+[5]: ObjectId: 2.5.29.32 Criticality=false
+CertificatePolicies [
+  [CertificatePolicyId: [1.3.6.1.4.1.6449.1.2.1.3.4]
+[PolicyQualifierInfo: [
+  qualifierID: 1.3.6.1.5.5.7.2.1
+  qualifier: 0000: 16 1D 68 74 74 70 73 3A   2F 2F 73 65 63 75 72 65  ..https://secure
+0010: 2E 63 6F 6D 6F 64 6F 2E   63 6F 6D 2F 43 50 53     .comodo.com/CPS
+
+]]  ]
+  [CertificatePolicyId: [2.23.140.1.2.2]
+[]  ]
+]
+
+[6]: ObjectId: 2.5.29.37 Criticality=false
+ExtendedKeyUsages [
+  serverAuth
+  clientAuth
+]
+
+[7]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  DigitalSignature
+  Key_Encipherment
+]
+
+[8]: ObjectId: 2.5.29.17 Criticality=false
+SubjectAlternativeName [
+  DNSName: ems_pn_dev.jnj.com
+  DNSName: www.ems_pn_dev.jnj.com
+]
+
+[9]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: A4 26 71 92 42 AD 2A 99   E6 09 4A 37 F3 09 B8 D3  .&q.B.*...J7....
+0010: C2 9E AB 10                                        ....
+]
+]
+
+]
+  Algorithm: [SHA256withRSA]
+  Signature:
+0000: 1D 76 53 DF 9E AF 4F C7   76 F3 52 49 67 F5 CD AA  .vS...O.v.RIg...
+0010: CE 6A 03 43 00 3E DD C2   68 09 EA 05 15 96 12 8F  .j.C.>..h.......
+0020: 42 4F BB 2A E0 CC A2 D9   A8 B2 9E 84 20 95 0F FB  BO.*........ ...
+0030: AB E0 61 3E 3C CF 60 0C   E4 A0 33 78 AE 4F E4 D0  ..a><.`...3x.O..
+0040: 30 43 BE FE 13 4C 04 C3   FD CC 05 7D B7 A7 73 34  0C...L........s4
+0050: 5C FA 25 C1 29 21 AB 57   4C DD EC C2 85 46 4C 59  \.%.)!.WL....FLY
+0060: 99 FE 18 7F 83 1A B3 E2   52 FE D5 8A F3 30 B2 D1  ........R....0..
+0070: CD EE 99 55 C1 C0 A2 CA   47 86 CC 9D FA 13 BC A1  ...U....G.......
+0080: 26 38 F9 0C 42 64 6C C9   2B 33 F8 33 36 EB 09 BE  &8..Bdl.+3.36...
+0090: 77 34 C4 94 7E 10 54 C8   E5 01 F5 A7 71 F9 46 33  w4....T.....q.F3
+00A0: BB 3F BE 5D F0 C3 E3 70   A3 DD 3F 41 EC 01 55 68  .?.]...p..?A..Uh
+00B0: B8 E5 E3 DB 36 D3 7E 08   AB 0F 18 33 EF E9 02 13  ....6......3....
+00C0: 24 E2 3D F1 3C 3E 95 6F   29 40 43 C5 2E 0B 19 BF  $.=.<>.o)@C.....
+00D0: 9F 3C F4 B5 6D 96 FC DF   75 3E 58 6D 4E 89 DB 8F  .<..m...u>XmN...
+00E0: 82 16 B7 DF 94 25 C1 08   0B D3 9E 2B 3A 9B F2 B4  .....%.....+:...
+00F0: AD CD 9B E7 F2 10 5A CC   10 CF EF 02 6F E3 33 56  ......Z.....o.3V
+
+]
+chain [1] = [
+[
+  Version: V3
+  Subject: CN=COMODO RSA Organization Validation Secure Server CA, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Signature Algorithm: SHA384withRSA, OID = 1.2.840.113549.1.1.12
+
+  Key:  Sun RSA public key, 2048 bits
+  modulus: 23364367789036248764590828559588945800909566501163552850831319026372050621561141974867931129224289911597268001113115319922107502170172386798023552044795591961279900983716424910423503821711700982244292822879352157001097904621813115928692278219697856090754314902955943857790735148714110025435709131947757760267515265061518866212636001729393009489201641719809777246465916057529290521495765725771731634778646123645562584934347526131342668094157399273643290137423132170132315316173819420457265551254978415915289520899948162548523911781373038947884090061597540073867393017150592856570521601968313241771358805248224596500073
+  public exponent: 65537
+  Validity: [From: Tue Feb 11 19:00:00 EST 2014,
+               To: Sun Feb 11 18:59:59 EST 2029]
+  Issuer: CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  SerialNumber: [    36825e7f b5a48193 7ef6d173 6bb93ca6]
+
+Certificate Extensions: 8
+[1]: ObjectId: 1.3.6.1.5.5.7.1.1 Criticality=false
+AuthorityInfoAccess [
+  [
+   accessMethod: caIssuers
+   accessLocation: URIName: http://crt.comodoca.com/COMODORSAAddTrustCA.crt
+, 
+   accessMethod: ocsp
+   accessLocation: URIName: http://ocsp.comodoca.com
+]
+]
+
+[2]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: BB AF 7E 02 3D FA A6 F1   3C 84 8E AD EE 38 98 EC  ....=...<....8..
+0010: D9 32 32 D4                                        .22.
+]
+]
+
+[3]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:0
+]
+
+[4]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [URIName: http://crl.comodoca.com/COMODORSACertificationAuthority.crl]
+]]
+
+[5]: ObjectId: 2.5.29.32 Criticality=false
+CertificatePolicies [
+  [CertificatePolicyId: [2.5.29.32.0]
+[]  ]
+  [CertificatePolicyId: [2.23.140.1.2.2]
+[]  ]
+]
+
+[6]: ObjectId: 2.5.29.37 Criticality=false
+ExtendedKeyUsages [
+  serverAuth
+  clientAuth
+]
+
+[7]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  DigitalSignature
+  Key_CertSign
+  Crl_Sign
+]
+
+[8]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 9A F3 2B DA CF AD 4F B6   2F BB 2A 48 48 2A 12 B7  ..+...O./.*HH*..
+0010: 1B 42 C1 24                                        .B.$
+]
+]
+
+]
+  Algorithm: [SHA384withRSA]
+  Signature:
+0000: 69 8A 36 68 9A 1E 3B 65   0B E0 7C CF A6 AB 71 3B  i.6h..;e......q;
+0010: AF 61 A4 3F E4 64 01 49   10 D3 1D 8F E2 D5 ED 67  .a.?.d.I.......g
+0020: D3 9E 5B 97 BD 42 1E 07   F9 D0 BB 6D F7 32 95 5A  ..[..B.....m.2.Z
+0030: 22 29 62 F8 0C 9C 59 56   27 36 A0 22 12 11 FA 47  ")b...YV'6."...G
+0040: F4 51 C9 59 7B 29 4A A5   48 35 7C C5 97 66 E0 27  .Q.Y.)J.H5...f.'
+0050: 25 3B 15 7A 32 75 4A 91   FB A6 6B 9E E2 53 FA 0D  %;.z2uJ...k..S..
+0060: 8C 13 FB 23 B8 0B 12 2C   AE ED DB 1D 47 90 D5 D0  ...#...,....G...
+0070: 93 69 76 91 38 15 34 D7   18 EA 7E BC 6B 58 DE 2A  .iv.8.4.....kX.*
+0080: 39 90 03 44 04 4A 56 D8   68 E5 F5 7C 69 7E 9E 7D  9..D.JV.h...i...
+0090: 54 4B D0 D8 86 AB 67 66   13 57 5E 89 2A 17 AD 2D  TK....gf.W^.*..-
+00A0: AE BD 40 0E 66 ED 8A FF   54 B4 C1 01 CB A9 E0 47  ..@.f...T......G
+00B0: BA 11 61 8F AD AE 23 48   2A C6 25 79 89 1C 41 04  ..a...#H*.%y..A.
+00C0: 95 C0 11 EA 57 2B D6 B4   97 FA B1 E9 15 62 EC 4A  ....W+.......b.J
+00D0: 71 77 FD F3 A1 9C DA F6   6B 00 29 C5 32 E7 FA 4E  qw......k.).2..N
+00E0: EA B3 2A A7 18 97 1C 58   A7 42 36 5F EC 14 CF F8  ..*....X.B6_....
+00F0: 7B 0E F7 DD CC 88 15 9A   9A 5C C8 F1 20 C7 D1 86  .........\.. ...
+0100: 72 A1 17 9B AE BA FE 6C   A8 32 D1 00 76 49 73 F7  r......l.2..vIs.
+0110: 3F 27 87 3C B6 C9 2D FA   AA 90 90 C9 0A 09 9F C9  ?'.<..-.........
+0120: 69 1F 07 19 A9 BF DE BA   F8 0B 88 82 44 16 10 7F  i...........D...
+0130: 07 C0 80 22 5F 7F BC 30   DE BA CD 07 79 64 56 D8  ..."_..0....ydV.
+0140: FF F3 4F 9C 30 BB 6E 1E   51 4B E6 CD BD 17 C4 C5  ..O.0.n.QK......
+0150: BF C8 3F 8E B1 1F 8A 46   B7 06 43 6F 62 2D CF 51  ..?....F..Cob-.Q
+0160: 9D 45 CA 8A E9 13 8B C0   C7 91 BE 5B B6 FA 37 4A  .E.........[..7J
+0170: 89 FE F0 9D DA 13 26 22   2C 06 90 3E 8B 13 98 A0  ......&",..>....
+0180: 19 D6 DD DA 4A 48 7F 3D   0F 89 9D 24 72 4B 0E 7B  ....JH.=...$rK..
+0190: 44 FF D4 36 B6 83 76 23   58 8B 14 6C B8 5D F7 61  D..6..v#X..l.].a
+01A0: 6D 39 76 ED DD 12 3D 6B   87 88 97 91 BE C0 46 02  m9v...=k......F.
+01B0: 1E 76 1C DD B6 AF 5C 4F   F5 00 D6 9C 4D A9 E0 9E  .v....\O....M...
+01C0: A2 8E FC B1 16 79 5C 21   D3 45 81 9A 0C 39 6C 6D  .....y\!.E...9lm
+01D0: 28 D7 25 D2 B7 11 90 D0   F6 DE 6F 5E F4 FA A4 8B  (.%.......o^....
+01E0: 66 77 72 2F 9B 90 40 2C   52 12 60 F9 FF B5 70 2E  fwr/..@,R.`...p.
+01F0: 89 9A 79 09 89 81 2D EC   5C 78 6F 81 87 F1 FC 55  ..y...-.\xo....U
+
+]
+chain [2] = [
+[
+  Version: V3
+  Subject: CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB
+  Signature Algorithm: SHA384withRSA, OID = 1.2.840.113549.1.1.12
+
+  Key:  Sun RSA public key, 4096 bits
+  modulus: 595250832037245141724642107398533641144111340640849154810839512193646804439589382557795096048235159392412856809181253983148280442751106836828767077478502910675291715965426418324395462826337195608826159904332409833532414343087397304684051488024083060971973988667565926401713702437407307790551210783180012029671811979458976709742365579736599681150756374332129237698142054260771585540729412505699671993111094681722253786369180597052805125225748672266569013967025850135765598233721214965171040686884703517711864518647963618102322884373894861238464186441528415873877499307554355231373646804211013770034465627350166153734933786011622475019872581027516832913754790596939102532587063612068091625752995700206528059096165261547017202283116886060219954285939324476288744352486373249118864714420341870384243932900936553074796547571643358129426474424573956572670213304441994994142333208766235762328926816055054634905252931414737971249889745696283503174642385591131856834241724878687870772321902051261453524679758731747154638983677185705464969589189761598154153383380395065347776922242683529305823609958629983678843126221186204478003285765580771286537570893899006127941280337699169761047271395591258462580922460487748761665926731923248227868312659
+  public exponent: 65537
+  Validity: [From: Tue May 30 06:48:38 EDT 2000,
+               To: Sat May 30 06:48:38 EDT 2020]
+  Issuer: CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE
+  SerialNumber: [    2766ee56 eb49f38e abd770a2 fc84de22]
+
+Certificate Extensions: 7
+[1]: ObjectId: 1.3.6.1.5.5.7.1.1 Criticality=false
+AuthorityInfoAccess [
+  [
+   accessMethod: ocsp
+   accessLocation: URIName: http://ocsp.usertrust.com
+]
+]
+
+[2]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: AD BD 98 7A 34 B4 26 F7   FA C4 26 54 EF 03 BD E0  ...z4.&...&T....
+0010: 24 CB 54 1A                                        $.T.
+]
+]
+
+[3]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+[4]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [URIName: http://crl.usertrust.com/AddTrustExternalCARoot.crl]
+]]
+
+[5]: ObjectId: 2.5.29.32 Criticality=false
+CertificatePolicies [
+  [CertificatePolicyId: [2.5.29.32.0]
+[]  ]
+]
+
+[6]: ObjectId: 2.5.29.15 Criticality=true
+KeyUsage [
+  DigitalSignature
+  Key_CertSign
+  Crl_Sign
+]
+
+[7]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: BB AF 7E 02 3D FA A6 F1   3C 84 8E AD EE 38 98 EC  ....=...<....8..
+0010: D9 32 32 D4                                        .22.
+]
+]
+
+]
+  Algorithm: [SHA384withRSA]
+  Signature:
+0000: 64 BF 83 F1 5F 9A 85 D0   CD B8 A1 29 57 0D E8 5A  d..._......)W..Z
+0010: F7 D1 E9 3E F2 76 04 6E   F1 52 70 BB 1E 3C FF 4D  ...>.v.n.Rp..<.M
+0020: 0D 74 6A CC 81 82 25 D3   C3 A0 2A 5D 4C F5 BA 8B  .tj...%...*]L...
+0030: A1 6D C4 54 09 75 C7 E3   27 0E 5D 84 79 37 40 13  .m.T.u..'.].y7@.
+0040: 77 F5 B4 AC 1C D0 3B AB   17 12 D6 EF 34 18 7E 2B  w.....;.....4..+
+0050: E9 79 D3 AB 57 45 0C AF   28 FA D0 DB E5 50 95 88  .y..WE..(....P..
+0060: BB DF 85 57 69 7D 92 D8   52 CA 73 81 BF 1C F3 E6  ...Wi...R.s.....
+0070: B8 6E 66 11 05 B3 1E 94   2D 7F 91 95 92 59 F1 4C  .nf.....-....Y.L
+0080: CE A3 91 71 4C 7C 47 0C   3B 0B 19 F6 A1 B1 6C 86  ...qL.G.;.....l.
+0090: 3E 5C AA C4 2E 82 CB F9   07 96 BA 48 4D 90 F2 94  >\.........HM...
+00A0: C8 A9 73 A2 EB 06 7B 23   9D DE A2 F3 4D 55 9F 7A  ..s....#....MU.z
+00B0: 61 45 98 18 68 C7 5E 40   6B 23 F5 79 7A EF 8C B5  aE..h.^@k#.yz...
+00C0: 6B 8B B7 6F 46 F4 7B F1   3D 4B 04 D8 93 80 59 5A  k..oF...=K....YZ
+00D0: E0 41 24 1D B2 8F 15 60   58 47 DB EF 6E 46 FD 15  .A$....`XG..nF..
+00E0: F5 D9 5F 9A B3 DB D8 B8   E4 40 B3 CD 97 39 AE 85  .._......@...9..
+00F0: BB 1D 8E BC DC 87 9B D1   A6 EF F1 3B 6F 10 38 6F  ...........;o.8o
+
+]
+chain [3] = [
+[
+  Version: V3
+  Subject: CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE
+  Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
+
+  Key:  Sun RSA public key, 2048 bits
+  modulus: 23223460521213001555387570833114089730860753895612098652836669980305042236333373520864248457295413309113206184129614795458813002793321404739348347239478157361314575018921060208560207337879261682185633570259454980009323505955755478574737771466443477069914070664457159874562246026231674202013525055051064032749275350905982802892471956172353456348747163465303302884619908731908096753154575131719129358212869729511062189039464751904900614685539733488960803754548627928530841064764065036079799777523666592044408376641702595881456975606363374738747468052431570879657918206353629078434589859560212766197636528957975011023399
+  public exponent: 65537
+  Validity: [From: Tue May 30 06:48:38 EDT 2000,
+               To: Sat May 30 06:48:38 EDT 2020]
+  Issuer: CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE
+  SerialNumber: [    01]
+
+Certificate Extensions: 4
+[1]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: AD BD 98 7A 34 B4 26 F7   FA C4 26 54 EF 03 BD E0  ...z4.&...&T....
+0010: 24 CB 54 1A                                        $.T.
+]
+[CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE]
+SerialNumber: [    01]
+]
+
+[2]: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+[3]: ObjectId: 2.5.29.15 Criticality=false
+KeyUsage [
+  Key_CertSign
+  Crl_Sign
+]
+
+[4]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: AD BD 98 7A 34 B4 26 F7   FA C4 26 54 EF 03 BD E0  ...z4.&...&T....
+0010: 24 CB 54 1A                                        $.T.
+]
+]
+
+]
+  Algorithm: [SHA1withRSA]
+  Signature:
+0000: B0 9B E0 85 25 C2 D6 23   E2 0F 96 06 92 9D 41 98  ....%..#......A.
+0010: 9C D9 84 79 81 D9 1E 5B   14 07 23 36 65 8F B0 D8  ...y...[..#6e...
+0020: 77 BB AC 41 6C 47 60 83   51 B0 F9 32 3D E7 FC F6  w..AlG`.Q..2=...
+0030: 26 13 C7 80 16 A5 BF 5A   FC 87 CF 78 79 89 21 9A  &......Z...xy.!.
+0040: E2 4C 07 0A 86 35 BC F2   DE 51 C4 D2 96 B7 DC 7E  .L...5...Q......
+0050: 4E EE 70 FD 1C 39 EB 0C   02 51 14 2D 8E BD 16 E0  N.p..9...Q.-....
+0060: C1 DF 46 75 E7 24 AD EC   F4 42 B4 85 93 70 10 67  ..Fu.$...B...p.g
+0070: BA 9D 06 35 4A 18 D3 2B   7A CC 51 42 A1 7A 63 D1  ...5J..+z.QB.zc.
+0080: E6 BB A1 C5 2B C2 36 BE   13 0D E6 BD 63 7E 79 7B  ....+.6.....c.y.
+0090: A7 09 0D 40 AB 6A DD 8F   8A C3 F6 F6 8C 1A 42 05  ...@.j........B.
+00A0: 51 D4 45 F5 9F A7 62 21   68 15 20 43 3C 99 E7 7C  Q.E...b!h. C<...
+00B0: BD 24 D8 A9 91 17 73 88   3F 56 1B 31 38 18 B4 71  .$....s.?V.18..q
+00C0: 0F 9A CD C8 0E 9E 8E 2E   1B E1 8C 98 83 CB 1F 31  ...............1
+00D0: F1 44 4C C6 04 73 49 76   60 0F C7 F8 BD 17 80 6B  .DL..sIv`......k
+00E0: 2E E9 CC 4C 0E 5A 9A 79   0F 20 0A 2E D5 9E 63 26  ...L.Z.y. ....c&
+00F0: 1E 55 92 94 D8 82 17 5A   7B D0 BC C7 8F 4E 86 04  .U.....Z.....N..
+
+]
+***
+*** ECDHClientKeyExchange
+ECDH Public value:  { 4, 36, 185, 5, 3, 161, 135, 146, 102, 189, 72, 208, 158, 223, 106, 168, 250, 235, 47, 59, 252, 231, 61, 20, 192, 64, 111, 48, 158, 91, 105, 119, 36, 75, 45, 149, 228, 233, 9, 71, 23, 68, 155, 247, 34, 75, 107, 45, 206, 72, 112, 79, 135, 240, 102, 29, 1, 163, 198, 158, 4, 50, 254, 89, 81 }
+main, WRITE: TLSv1.2 Handshake, length = 5629
+SESSION KEYGEN:
+PreMaster Secret:
+0000: EB 56 66 DE D3 3D 0A E0   F3 72 EB 3B F2 FD A3 FA  .Vf..=...r.;....
+0010: F3 21 CF 6E 3D 4E DC 7F   A4 93 F7 63 B9 85 5C 3D  .!.n=N.....c..\=
+CONNECTION KEYGEN:
+Client Nonce:
+0000: 59 7A 29 C8 78 F4 77 F7   B1 0C 0D D2 58 27 F8 17  Yz).x.w.....X'..
+0010: E8 92 41 21 50 63 39 29   4F 3D 58 AB 3A BE 14 96  ..A!Pc9)O=X.:...
+Server Nonce:
+0000: FE 05 23 41 BF C1 97 39   FD 27 EA 5B 53 60 4C 62  ..#A...9.'.[S`Lb
+0010: FB 21 45 87 20 AD 65 96   E4 FB 59 91 46 AB 50 19  .!E. .e...Y.F.P.
+Master Secret:
+0000: F6 1F CE EE B4 1D C6 D5   1D 02 2D 18 D0 E7 AD 5B  ..........-....[
+0010: E8 99 DD 32 AC 28 81 A7   64 D7 C3 14 40 B4 E3 AC  ...2.(..d...@...
+0020: 34 D9 A4 B9 7C 4D 7A AA   41 39 34 69 F6 54 47 86  4....Mz.A94i.TG.
+... no MAC keys used for this cipher
+Client write key:
+0000: 01 AE F1 62 67 7A 05 BB   EF 93 44 19 EA 89 02 1F  ...bgz....D.....
+Server write key:
+0000: 61 C9 E9 E8 F4 A3 34 EC   3E 52 56 8A 29 49 AD 6D  a.....4.>RV.)I.m
+Client write IV:
+0000: FD E8 CA 82                                        ....
+Server write IV:
+0000: 18 7C 8E 7C                                        ....
+*** CertificateVerify
+Signature Algorithm SHA1withRSA
+main, WRITE: TLSv1.2 Handshake, length = 264
+main, WRITE: TLSv1.2 Change Cipher Spec, length = 1
+*** Finished
+verify_data:  { 57, 127, 225, 23, 233, 159, 70, 174, 34, 111, 74, 118 }
+***
+main, WRITE: TLSv1.2 Handshake, length = 40
+main, READ: TLSv1.2 Change Cipher Spec, length = 1
+main, READ: TLSv1.2 Handshake, length = 40
+*** Finished
+verify_data:  { 65, 239, 85, 61, 247, 135, 203, 152, 19, 138, 241, 181 }
+***
+%% Cached client session: [Session-1, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256]
+   Cipher suite = TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+   Protocol = TLSv1.2
+Allow unsafe renegotiation: false
+Allow legacy hello messages: true
+Is initial handshake: false
+Is secure renegotiation: true
+Ignoring disabled protocol: SSLv3
+Ignoring unsupported cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 for TLSv1
+Ignoring unsupported cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 for TLSv1.1
+Ignoring unsupported cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 for TLSv1.1
+%% Client cached [Session-1, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256]
+%% Try resuming [Session-1, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256] from port 53397
+*** ClientHello, TLSv1.2
+RandomCookie:  GMT: 1501178062 bytes = { 1, 240, 19, 185, 245, 219, 197, 205, 33, 151, 215, 84, 133, 108, 114, 221, 34, 84, 164, 90, 121, 140, 127, 205, 215, 84, 131, 95 }
+Session ID:  {154, 227, 215, 63, 115, 186, 64, 129, 204, 101, 179, 225, 129, 188, 202, 108, 81, 76, 65, 180, 77, 45, 224, 213, 224, 215, 43, 185, 96, 231, 174, 68}
+Cipher Suites: [TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA]
+Compression Methods:  { 0 }
+Extension elliptic_curves, curve names: {secp256r1, secp384r1, secp521r1, sect283k1, sect283r1, sect409k1, sect409r1, sect571k1, sect571r1, secp256k1}
+Extension ec_point_formats, formats: [uncompressed]
+Extension signature_algorithms, signature_algorithms: SHA512withECDSA, SHA512withRSA, SHA384withECDSA, SHA384withRSA, SHA256withECDSA, SHA256withRSA, SHA256withDSA, SHA1withECDSA, SHA1withRSA, SHA1withDSA
+Extension server_name, server_name: [type=host_name (0), value=m0522-ifl.fmst.us2.hana.ondemand.com]
+Extension renegotiation_info, renegotiated_connection: 39:7f:e1:17:e9:9f:46:ae:22:6f:4a:76
+***
+main, WRITE: TLSv1.2 Handshake, length = 277
+Disabled algorithms:
+Disabled algorithms:SSLv3, RC4, MD5withRSA, DH keySize < 768, EC keySize < 224
+Disabled algorithms:MD2, MD5, RSA keySize < 1024, DSA keySize < 1024, EC keySize < 224
+main, READ: TLSv1.2 Alert, length = 26
+main, RECV TLSv1.2 ALERT:  fatal, handshake_failure
+%% Invalidated:  [Session-1, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256]
+main, called closeSocket()
+main, handling exception: javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure
