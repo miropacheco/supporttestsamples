@@ -1,0 +1,40 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> <Cluster clusterId="437448723" 
+	deploymentSymmetrical="false" distributedEventsEnabled="true" frontEndSecurePort="8586" 
+	frontEndUrl="http://localhost:8585"> <!-- lists all physical servers in the 
+	cluster -->
+<Category name="servers">
+	<Component
+		class="com.webmethods.portal.system.cluster.impl.Server"
+		enabled="true" name="912_Products">
+		<Properties host="SAG-FH4XMF2.eur.ad.sag" name="http"
+			port="8585" />
+		<Properties host="SAG-FH4XMF2.eur.ad.sag" name="https"
+			port="8586" />
+		<Role name="autodeploy" />
+		<Role name="search" />
+		<Role name="taskengine" />
+		<Role name="notification" />
+	</Component>
+</Category>
+</Cluster>
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<Cluster deploymentSymmetrical="false"
+	distributedEventsEnabled="true" frontEndSecurePort="9686"
+	frontEndUrl="https://b2b9ptdev01.isus.emc.com:9686">
+	<!-- lists all physical servers in the cluster -->
+	<Category name="servers">
+		<Component
+			class="com.webmethods.portal.system.cluster.impl.Server"
+			enabled="true" name="b2b9ptdev01.isus.emc.com-node54637">
+			<Properties host="b2b9ptdev01.isus.emc.com" name="http"
+				port="8585" />
+			<Properties host="b2b9ptdev01.isus.emc.com" name="https"
+				port="9686" />
+			<Role name="autodeploy" />
+			<Role name="search" />
+			<Role name="taskengine" />
+			<Role name="notification" />
+		</Component>
+	</Category>
+</Cluster>
