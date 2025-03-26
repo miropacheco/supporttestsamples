@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"     
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="messageListener" class="SpringMdp" />
+
+	<bean
+		class="org.springframework.jms.listener.endpoint.JmsMessageEndpointManager">
+		<property name="activationSpec">
+			<bean class="com.sun.genericra.inbound.ActivationSpec">
+				<property name="destinationJndiName" value="MyQueue" />
+				<property name="connectionFactoryJndiName" value="local_um" />
+				<property name="destinationType" value="javax.jms.Destination" />
+				<!-- <property name="supportXa" value="false" /> --> 
+				<property name="providerIntegrationMode" value="jndi" />
+				<property name="MaxPoolSize" value="40" />
+				<property name="JndiProperties" value="java.naming.provider.url=nsp://localhost:9050/,java.naming.factory.initial=com.pcbsys.nirvana.nSpace.NirvanaContextFactory" />  
+				<!-- <property name="reconnectAttempts" ref="wmICSConnectionMaxRetryRefId" />
+				<property name="reconnectInterval" ref="wmICSConnectionRetryIntervalRefId" /> -->
+				<property name="redeliveryAttempts" value="5" />
+				<property name="redeliveryInterval" value="1" />
+			</bean>
+		</property>
+		<property name="messageListener" ref="messageListener" />
+		<property name="resourceAdapter" ref="myResourceAdapterBean" />
+	</bean>
+
+	<bean id="myResourceAdapterBean"
+		class="org.springframework.jca.support.ResourceAdapterFactoryBean">
+		<property name="resourceAdapter" ref="wmGenericResourceAdapter" />
+		<property name="workManager">
+			<bean class="org.springframework.jca.work.SimpleTaskWorkManager" />
+		</property>
+	</bean>
+	<bean id="wmGenericResourceAdapter" class="com.sun.genericra.GenericJMSRA">
+		<property name="topicConnectionFactoryClassName"
+			value="com.pcbsys.nirvana.nJMS.TopicConnectionFactoryImpl" />
+		<property name="topicClassName" value="com.pcbsys.nirvana.nJMS.TopicFactoryImpl" />
+		<!--<property name="supportsXA" value="false" /> -->
+		<property name="queueConnectionFactoryClassName"
+			value="com.pcbsys.nirvana.nJMS.QueueConnectionFactoryImpl" />
+		<property name="queueClassName" value="com.pcbsys.nirvana.nJMS.QueueFactoryImpl" />
+		<property name="providerIntegrationMode" value="jndi" />
+		<property name="logLevel" value="INFO" />
+		<property name="connectionFactoryClassName"
+			value="com.pcbsys.nirvana.nJMS.ConnectionFactoryImpl" />
+		<property name="XATopicConnectionFactoryClassName"
+			value="com.pcbsys.nirvana.nJMS.XATopicConnectionFactoryImpl" />
+		<property name="XAQueueConnectionFactoryClassName"
+			value="com.pcbsys.nirvana.nJMS.XAQueueConnectionFactoryImpl" />
+		<property name="XAConnectionFactoryClassName"
+			value="com.pcbsys.nirvana.nJMS.XAConnectionFactoryImpl" />
+		<property name="jndiProperties" value="java.naming.provider.url=nsp://localhost:9004/,java.naming.factory.initial=com.pcbsys.nirvana.nSpace.NirvanaContextFactory" />
+		<property name="RMPolicy" value="OnePerPhysicalConnection" />
+		<property name="useFirstXAForRedelivery" value="true" />
+		<property name="mDBDeploymentRetryAttempt" value="2" />
+	</bean>
+	
+	
+</beans>
