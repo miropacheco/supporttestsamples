@@ -1,0 +1,1017 @@
+<root>
+	<div>
+		<table class='confluenceTable'>
+			<tbody>
+				<tr>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Release
+						<br class="atl-forced-newline" />
+						date
+					</td>
+					<td class='confluenceTd'>
+						<b>Apama</b>
+						<br class="atl-forced-newline" />
+						<b>Server</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>4.3</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>5.0</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>Apama</b>
+						<br class="atl-forced-newline" />
+						<b>Dashboard</b>
+						<br class="atl-forced-newline" />
+						<b>Client</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>4.3</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>5.0</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>Apama</b>
+						<br class="atl-forced-newline" />
+						<b>Developer</b>
+						<br class="atl-forced-newline" />
+						<b>Studio</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>4.3</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>5.0</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>Corticon</b>
+						<br class="atl-forced-newline" />
+						<b>Server</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>5.2</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>5.3</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>Corticon</b>
+						<br class="atl-forced-newline" />
+						<b>Developer</b>
+						<br class="atl-forced-newline" />
+						<b>Studio</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>5.2</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>5.3</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>Control</b>
+						<br class="atl-forced-newline" />
+						<b>Tower</b>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						<b>2.1</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>3.0</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>Analyst</b>
+						<br class="atl-forced-newline" />
+						<b>Studio</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>6.1.4</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>7.0.5</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>Analyst</b>
+						<br class="atl-forced-newline" />
+						<b>Server</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>N/A</b>
+					</td>
+					<td class='confluenceTd'>
+						<b>7.0.5</b>
+					</td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Win Server 2012 64-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Win 8 x86 64-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'>
+						<a href="http://en.wikipedia.org/wiki/Windows_Server_2008_R2"
+							class="external-link" rel="nofollow">Win Server2008 R2</a>
+						(SP1) 64-bit
+					</td>
+					<td class='confluenceTd'> 22 Jul 2009 </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'> Support </td>
+					<td class='confluenceTd'> Support </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Win 7 (SP1) 64-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Win 7 (SP1) 32-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'> Support </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'> Support </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'> Support </td>
+					<td class='confluenceTd'> Support </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#000000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'> Support </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#000000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'> Support </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<br class="atl-forced-newline" />
+					</td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Win Server2003 R2 (SP2) 64-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Win Server2003 R2 (SP2) 32-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Win Server 2003 (SP2) 64-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Win Vista (SP1) 32-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Win XP (SP3) 32-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'>
+						<a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux"
+							class="external-link" rel="nofollow">RHEL</a>
+						6 (Update 1 and higher) (x86) 64-bit
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'> 19 May 2011 </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'>
+						<a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux"
+							class="external-link" rel="nofollow">RHEL</a>
+						5 (Update 5 and higher) (x86) 64-bit
+					</td>
+					<td class='confluenceTd'> 30 Mar 2010 </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'>
+						<a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux"
+							class="external-link" rel="nofollow">RHEL</a>
+						5 (Update 5 and higher) (x86) 32-bit
+					</td>
+					<td class='confluenceTd'>
+						30 Mar 2010
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Oracle Linux 5.8 64-bit </td>
+					<td class='confluenceTd'> Mar 2012 </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> SUSE LE 11 SP1 (x86) 64-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<font color="#ff0000">Support</font>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> SUSE LE 11 SP1 (x86) 32-bit </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Sun Solaris 10 SPARC 64 (Update 7) </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> Sun Solaris 10 X64 64-bit (Update 7) </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> AIX 7.1 </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+				<tr>
+					<td class='confluenceTd'> AIX 6.1 TL6 (SP3) </td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'>
+						Support
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'>
+						<br class="atl-forced-newline" />
+					</td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+					<td class='confluenceTd'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</root>

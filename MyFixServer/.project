@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>MyFixServer</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>temp</name>
+			<type>2</type>
+			<location>C:/temp</location>
+		</link>
+		<link>
+			<name>xxx</name>
+			<type>2</type>
+			<location>C:/Program Files/Progress/Apama 4.3/adapters/monitors</location>
+		</link>
+		<link>
+			<name>xxxx</name>
+			<type>2</type>
+			<location>C:/Users/cpacheco/Documents/temp/xxxx</location>
+		</link>
+	</linkedResources>
+</projectDescription>

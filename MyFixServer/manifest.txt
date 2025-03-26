@@ -1,0 +1,2 @@
+Main-Class: quickfix.examples.executor.Executor
+Class-Path: lib/quickfixj-all-1.5.0.jar  lib/swt32.jar lib/backport-util-concurrent-3.0.jar lib/mina-core-1.0.3.jar  lib/slf4j-api-1.5.3.jar lib/slf4j-jdk14-1.5.3.jar lib/engine_client5.0.jar lib/util5.0.jar

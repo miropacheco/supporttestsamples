@@ -1,0 +1,3060 @@
+﻿// 
+// Auto-generated MonitorScript file for "Scenario1" Scenario
+// 
+// Created on:         Jul 3, 2012 4:46:10 PM
+// Created with:       Apama Event Modeler version EMdlr 4.3.4.0
+// 
+// Debug logging code: false
+// 
+
+package Scenario_Scenario1;
+
+event ScenarioFailed {
+	integer scenarioInstanceId;
+}
+
+// Apama generated code - ONLY EDIT INDICATED SECTIONS
+// Generated code type: CALLBACK
+// Generated code version: 1
+
+// BLOCKBUILDER - USER DEFINED MONITORS
+
+
+event Order_Manager_0$init {
+	integer blockInstanceId$;
+	string ownerId$;
+	string scenarioId$;
+	dictionary<string,string> userData$;
+	wildcard integer outputStreamId$0;
+	wildcard integer outputStreamId$1;
+	wildcard integer outputStreamId$2;
+	wildcard integer outputStreamId$3;
+	wildcard integer outputStreamId$4;
+	wildcard string order_identifier;
+	wildcard string service_identifier;
+	wildcard string broker_identifier;
+	wildcard string book_identifier;
+	wildcard string market_identifier;
+	wildcard string exchange;
+	wildcard string symbol;
+	wildcard float price;
+	wildcard integer quantity;
+	wildcard string side;
+	wildcard string type;
+	wildcard string extra_parameters;
+	wildcard boolean leave_orders_open_on_scenario_exit;
+	wildcard boolean clear_orders_in_final_state;
+	wildcard boolean auto$002dgenerate_order_identifier;
+	wildcard boolean add_scenario_info_to_extra_params;
+}
+
+/**
+* Status snapshot of execution feed
+*/
+event OrderManager40_ExecutionStatus {
+	wildcard string order_identifier;
+	wildcard string symbol;
+	wildcard string side;
+	wildcard float money_executed;
+	wildcard float average_price_executed;
+	wildcard integer quantity_executed;
+	wildcard float last_money_executed;
+	wildcard float last_price_executed;
+	wildcard integer last_quantity_executed;
+	wildcard boolean final;
+	wildcard string extra_parameters;
+}
+
+event OrderManager40_PendingChange {
+	integer changeType;   // 0 = modify, 1 = cancel
+	Order_Manager_0$init params;
+}
+
+/**
+* Status snapshot of order status feed
+*/
+event OrderManager40_OrderStatus {
+	wildcard string order_identifier;
+	wildcard string market_order_identifier;
+	wildcard string symbol;
+	wildcard float price;
+	wildcard integer quantity;
+	wildcard string side;
+	wildcard string type;
+	wildcard integer state;
+	wildcard float money_executed;
+	wildcard float average_price_executed;
+	wildcard float last_price_executed;
+	wildcard integer last_quantity_executed;
+	wildcard integer quantity_executed;
+	wildcard integer quantity_remaining;
+	wildcard boolean in_market;
+	wildcard boolean is_visible;
+	wildcard boolean modifiable;
+	wildcard boolean cancelled;
+	wildcard boolean change_rejected;
+	wildcard boolean externally_modified;
+	wildcard boolean final;
+	wildcard string status_message;
+	wildcard string extra_parameters;
+}
+
+/**
+* Status snaphot of order quantity feed
+*/
+event OrderManager40_OrderQuantityStatus {
+	wildcard string order_identifier;
+	wildcard string symbol;
+	wildcard string side;
+	wildcard integer quantity_executed;
+	wildcard integer last_quantity_executed;
+	wildcard boolean final;
+	wildcard string extra_parameters;
+}
+
+
+/**
+* Pending order event defining the cancel order to be executed when the order is confirmed as modifiable.
+*/
+event OrderManager40_PendingOrderServiceState {
+	string orderId;
+	com.apama.oms.CancelOrder cancelOrder;
+}
+
+
+/**
+* The Order Manager block service.
+* 
+* Handles pending cancels.
+*
+*/
+monitor OrderManager40_OrderManagerBlockService {
+	
+	action onload() {
+			
+		// Handle pending order cancels
+		OrderManager40_PendingOrderServiceState pendingState;
+		on all OrderManager40_PendingOrderServiceState():pendingState {
+			com.apama.oms.OrderUpdate orderUpdate;
+			on com.apama.oms.OrderUpdate(orderId=pendingState.orderId, modifiable = true):orderUpdate {
+				route pendingState.cancelOrder;
+			}
+		}
+	}
+}
+
+
+// BLOCKBUILDER - END OF USER DEFINED MONITORS
+
+event Order_Manager_0 {
+
+// BLOCKBUILDER - USER DEFINED VARIABLES
+
+	import "PayloadPlugin" as payloadMgr;
+
+	Order_Manager_0$init params;
+		
+	integer myId; // the instance id
+	integer subIdCount;
+	
+	OrderManager40_ExecutionStatus executionStatus;
+	OrderManager40_OrderQuantityStatus quantityStatus;
+	
+	dictionary < string, OrderManager40_OrderStatus> orderBook;  // map from order IDs to order status events
+	dictionary < string, OrderManager40_OrderQuantityStatus> orderBookTrades;       // map from order IDs to order status events
+	dictionary < string, Order_Manager_0$init> orderPlaceParams;               // map from order IDs to the block instance params when order placed
+
+	dictionary < string, sequence <OrderManager40_PendingChange> > queuedChanges;
+	
+	dictionary <string, string> scenarioToMsOrderMap;            // map from the user supplied order id, to the internal id
+	dictionary <string, string> msToScenarioOrderMap;            // map from the internal id, to the user supplied id
+	
+	dictionary <string, listener> orderUpdateListeners;          // map from the user supplied order id to the the listener for the order updates
+	dictionary <string, listener> orderTradeListeners;           // map from the user supplied order id to the the listener for the order trades
+	// Statistics for the order book as a whole
+	integer nWaiting;
+	integer nWorking;
+	integer nComplete;
+	integer nRejected;
+	integer nPendingChange;
+	integer nPendingCancel;
+	integer nCancelled;
+	integer nSuspended;
+	integer nUnknown;
+	integer nModifiable;
+	integer nInMarket;
+	integer nVisible;
+	integer nTradeable;
+	integer executed;
+	integer placed;
+	integer working;
+	
+	dictionary<integer, action<integer> > stateUpdaters;
+	
+	sequence<string> currentIteration;
+	integer iterationIndex;
+
+	integer nextOrderIdentifier;
+
+	boolean quitting;                                         // if true, then we die as soon as tradeable becomes 0
+	
+	context parentContext;
+	boolean isMultiContext;
+	
+// BLOCKBUILDER - END OF USER DEFINED VARIABLES
+
+	integer blockInstanceId$;
+	action<string,string,string,float,integer,string,string,integer,float,float,float,integer,integer,integer,boolean,boolean,boolean,boolean,boolean,boolean,boolean,string,string> sendOutput$order_status;
+
+	action<integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer> sendOutput$order_book_status;
+
+	action<boolean> sendOutput$iteration_complete;
+
+	action<string,string,string,float,float,integer,float,float,integer,boolean,string> sendOutput$order_execution;
+
+	action<string,string,string,integer,integer,boolean,string> sendOutput$order_quantity;
+
+	action update$order_identifier(string order_identifier) {
+// BLOCKBUILDER - USER DEFINED ACTION
+
+		params.order_identifier := order_identifier;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$service_identifier(string service_identifier) {
+// BLOCKBUILDER - USER DEFINED ACTION
+//
+		params.service_identifier := service_identifier;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$broker_identifier(string broker_identifier) {
+// BLOCKBUILDER - USER DEFINED ACTION
+//
+		params.broker_identifier := broker_identifier;
+		
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$book_identifier(string book_identifier) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.book_identifier := book_identifier;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$market_identifier(string market_identifier) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.market_identifier := market_identifier;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$exchange(string exchange) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.exchange := exchange;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$symbol(string symbol) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.symbol := symbol;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$price(float price) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.price := price;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$quantity(integer quantity) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.quantity := quantity;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$side(string side) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.side := side;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$type(string type) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.type := type;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$extra_parameters(string extra_parameters) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.extra_parameters := extra_parameters;
+		// Insert Scenario Info
+		if params.add_scenario_info_to_extra_params then {
+			addScenarioInfoToExtraParams();
+		}
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$leave_orders_open_on_scenario_exit(boolean leave_orders_open_on_scenario_exit) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.leave_orders_open_on_scenario_exit := leave_orders_open_on_scenario_exit;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$clear_orders_in_final_state(boolean clear_orders_in_final_state) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.clear_orders_in_final_state := clear_orders_in_final_state;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$auto$002dgenerate_order_identifier(boolean auto$002dgenerate_order_identifier) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.auto$002dgenerate_order_identifier := auto$002dgenerate_order_identifier;
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action update$add_scenario_info_to_extra_params(boolean add_scenario_info_to_extra_params) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		if params.add_scenario_info_to_extra_params = add_scenario_info_to_extra_params then {
+			return;
+		}
+		params.add_scenario_info_to_extra_params := add_scenario_info_to_extra_params;
+		if add_scenario_info_to_extra_params = true then {
+			addScenarioInfoToExtraParams();
+		}
+		else {
+			removeScenarioNameFromExtraParams();
+		}
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$submit_order(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		
+		if params.auto$002dgenerate_order_identifier then {
+			params.order_identifier := generateNextOrderIdentifier();
+		}
+		if not orderBook.hasKey(params.order_identifier) then {
+			string idkey;
+			subIdCount:=subIdCount+1;
+			
+			string orderId:=currentTime.toString()+ ":" + integer.getUnique().toString() + ":" + params.order_identifier;
+				
+			// Set new order book status on output feed
+			OrderManager40_OrderStatus state:=new OrderManager40_OrderStatus;
+				
+
+			msToScenarioOrderMap.add(orderId, params.order_identifier);
+			scenarioToMsOrderMap.add(params.order_identifier, orderId);    			  
+			state.order_identifier:=params.order_identifier;
+			state.symbol:=params.symbol;
+			state.price := params.price;
+			state.quantity:=params.quantity;
+			state.side:=params.side;
+			state.type:=params.type;
+			state.state:=1;
+				
+			state.quantity_remaining:=params.quantity;
+			if params.type="" then {
+				if params.price=0.0 then {
+					state.type:="MARKET";
+				} else {
+					state.type:="LIMIT";
+				}
+			}
+			 
+			 
+			addOrder(state);
+				
+			orderPlaceParams.add(params.order_identifier, params.clone());
+				
+			reportOrderStatus(state);
+				
+			addOrderListener();
+			emitOrderBookStatus();
+			com.apama.oms.NewOrder newOrder := com.apama.oms.NewOrder(orderId, params.symbol,
+				params.price, params.side, state.type, params.quantity, params.service_identifier,
+				params.broker_identifier, params.book_identifier,
+				params.market_identifier, params.exchange, params.ownerId$,
+				stringToDict(params.extra_parameters));			
+			
+			if (isMultiContext) then {		
+				enqueue newOrder to parentContext;
+			} else {
+				route newOrder;
+			}
+	
+		} else {
+			OrderManager40_OrderStatus duplicate:=new OrderManager40_OrderStatus;
+			duplicate.order_identifier:=params.order_identifier;
+			duplicate.symbol:=params.symbol;
+			duplicate.price := params.price;
+			duplicate.quantity:=params.quantity;
+			duplicate.side:=params.side;
+			duplicate.type:=params.type;
+			duplicate.state:=4;
+			duplicate.cancelled:=true;
+			duplicate.final:=true;
+			duplicate.status_message:="Ignoring re-submit of order "+params.order_identifier;
+			
+			reportOrderStatus(duplicate);		
+		}
+		
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$modify_order(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		OrderManager40_OrderStatus state;
+		
+		if orderBook.hasKey(params.order_identifier) then {
+			state:=orderBook[params.order_identifier];
+			if not state.modifiable then {
+				if (state.state = 3 or state.state = 4 or state.state = 7) then {
+					state.status_message:="Ignoring request to modify order in final state "+getStateDescription(state.state);
+					reportOrderStatus(state);
+				} else {
+					queueModify();
+				}
+			} 
+			else {   
+				forgetOrderStats(state);
+				string type;			    
+				state.modifiable:=false;
+				state.state:=5;
+				reportOrderStatus(state);
+				if params.type="" then {
+					if params.price=0.0 then {
+						type:="MARKET";
+					} else {
+						type:="LIMIT";
+					}
+				} else {
+					type:=params.type;
+				}
+			 
+				com.apama.oms.AmendOrder amendOrder := com.apama.oms.AmendOrder(scenarioToMsOrderMap[params.order_identifier], 
+					orderPlaceParams[params.order_identifier].service_identifier, 
+					params.symbol, params.price, params.side, type, params.quantity, 
+					stringToDict(params.extra_parameters));
+				
+				if (isMultiContext) then {
+					enqueue amendOrder to parentContext;
+				} else {
+					route amendOrder;
+				}
+				addOrderStats(state);
+				emitOrderBookStatus();
+			}
+				
+		} 
+		else { 
+			state :=new OrderManager40_OrderStatus;
+			state.state:=4;
+			state.final:=true;
+			state.order_identifier:=params.order_identifier;
+			state.change_rejected:=true;
+			state.externally_modified:=true;
+			state.status_message:="Rejecting attempt to modify an order that has never been placed "+params.order_identifier;
+			reportOrderStatus(state);
+		}
+		
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$cancel_order(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		OrderManager40_OrderStatus state;
+		
+		if orderBook.hasKey(params.order_identifier) then {
+			cancelOrder(params.order_identifier);
+			emitOrderBookStatus();
+		} else { 
+			state :=new OrderManager40_OrderStatus;
+			state.state:=4;
+			state.final:=true;
+			state.order_identifier:=params.order_identifier;
+			state.change_rejected:=true;
+			state.externally_modified:=true;
+			state.status_message:="Rejecting attempt to cancel an order that has never been placed "+params.order_identifier;
+			
+			reportOrderStatus(state);
+		}
+		 
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$retrieve_order(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		if orderBook.hasKey(params.order_identifier) then {
+			reportOrderStatus(orderBook[params.order_identifier]);
+		} 
+		else {
+			OrderManager40_OrderStatus state :=new OrderManager40_OrderStatus;
+			state.state:=0;
+			state.order_identifier:=params.order_identifier;
+			state.status_message:="Unable to retrieve non-existant order "+params.order_identifier;
+			reportOrderStatus(state);
+		}
+
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$clear(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		OrderManager40_OrderStatus state:=new OrderManager40_OrderStatus;
+		reportOrderStatus(state);
+		sendOutput$iteration_complete(false);
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$cancel_all_orders(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		string id;
+		for id in orderBook.keys() {
+			if not orderBook[id].final then {
+				cancelOrder(id);
+			}
+		}    
+		emitOrderBookStatus();
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$iterate(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		
+		currentIteration:=orderBook.keys();
+		iterationIndex:=0;
+		boolean iterationComplete:=iterationIndex>=currentIteration.size();
+		   
+		if (iterationComplete) then {
+			OrderManager40_OrderStatus state:=new OrderManager40_OrderStatus;
+			reportOrderStatus(state);
+			iterationComplete:=true;
+		} 
+		else {
+			reportOrderStatus(orderBook[currentIteration[iterationIndex]]);
+		}
+		sendOutput$iteration_complete(iterationComplete);
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$next(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		boolean iterationComplete := false;
+		
+		iterationIndex:=iterationIndex+1;
+
+		while (iterationIndex < currentIteration.size() and not orderBook.hasKey(currentIteration[iterationIndex])) {
+			iterationIndex:=iterationIndex+1;
+		}
+		if(iterationIndex>=currentIteration.size()) then {
+			OrderManager40_OrderStatus state:=new OrderManager40_OrderStatus;
+			reportOrderStatus(state);
+			iterationComplete:=true;
+		} 
+		else {
+			reportOrderStatus(orderBook[currentIteration[iterationIndex]]);
+		}
+		sendOutput$iteration_complete(iterationComplete);
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$clear_book(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+//		 Kill all listeners
+		string key;
+		for key in orderUpdateListeners.keys() {
+			if (isMultiContext) then {
+				enqueue com.apama.oms.UnsubscribeOrderToContext(context.current(), scenarioToMsOrderMap[key]) to parentContext;
+			}
+			orderUpdateListeners[key].quit();
+		}
+		for key in orderTradeListeners.keys() {
+			orderTradeListeners[key].quit();
+		}
+		
+		// Forget everything
+		resetStats();
+		orderBook := {};
+		orderPlaceParams := {};
+		queuedChanges := {};
+		scenarioToMsOrderMap := {};
+		msToScenarioOrderMap := {};
+		orderUpdateListeners := {};
+		orderTradeListeners := {};
+		orderBookTrades := {};
+		currentIteration := [];
+		
+		emitOrderBookStatus();
+		
+		OrderManager40_OrderStatus state:=new OrderManager40_OrderStatus;
+		reportOrderStatus(state);
+		sendOutput$iteration_complete(false);
+	
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action operation$clear_order(action<> acknowledge) {
+// BLOCKBUILDER - USER DEFINED ACTION
+		string orderId:=params.order_identifier;
+		
+		clearOrder(orderId);
+	emitOrderBookStatus();
+		
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action setup {
+// BLOCKBUILDER - USER DEFINED ACTION
+
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action instancePreSpawnInit(integer blockInstanceId$, string scenarioId$, dictionary<string, string> userData$, context target, action<> acknowledge) {
+self.blockInstanceId$ := blockInstanceId$;
+// BLOCKBUILDER - USER DEFINED ACTION
+//
+		// Determine if multi-context
+		parentContext := context.current();
+		isMultiContext := not ( parentContext.getId() = target.getId() );
+			
+		myId := integer.getUnique();				
+		
+		acknowledge();
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action instancePostSpawnInit(integer blockInstanceId$, string ownerId$, string scenarioId$, dictionary<string, string> userData$, action<> acknowledge, string order_identifier, string service_identifier, string broker_identifier, string book_identifier, string market_identifier, string exchange, string symbol, float price, integer quantity, string side, string type, string extra_parameters, boolean leave_orders_open_on_scenario_exit, boolean clear_orders_in_final_state, boolean auto$002dgenerate_order_identifier, boolean add_scenario_info_to_extra_params, action<string,string,string,float,integer,string,string,integer,float,float,float,integer,integer,integer,boolean,boolean,boolean,boolean,boolean,boolean,boolean,string,string> sendOutput$order_status, action<integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer,integer> sendOutput$order_book_status, action<boolean> sendOutput$iteration_complete, action<string,string,string,float,float,integer,float,float,integer,boolean,string> sendOutput$order_execution, action<string,string,string,integer,integer,boolean,string> sendOutput$order_quantity) {
+		self.sendOutput$order_status := sendOutput$order_status;
+		self.sendOutput$order_book_status := sendOutput$order_book_status;
+		self.sendOutput$iteration_complete := sendOutput$iteration_complete;
+		self.sendOutput$order_execution := sendOutput$order_execution;
+		self.sendOutput$order_quantity := sendOutput$order_quantity;
+// BLOCKBUILDER - USER DEFINED ACTION
+		params.blockInstanceId$ := blockInstanceId$;
+		params.ownerId$ := ownerId$;
+		params.scenarioId$ := scenarioId$;
+		params.userData$ := userData$;
+		params.order_identifier := order_identifier;
+		params.service_identifier := service_identifier;
+		params.broker_identifier := broker_identifier;
+		params.book_identifier := book_identifier;
+		params.market_identifier := market_identifier;
+		params.exchange := exchange;
+		params.symbol := symbol;
+		params.price := price;
+		params.quantity := quantity;
+		params.side := side;
+		params.type := type;
+		params.extra_parameters := extra_parameters;
+		params.leave_orders_open_on_scenario_exit := leave_orders_open_on_scenario_exit;
+		params.clear_orders_in_final_state := clear_orders_in_final_state;
+		params.auto$002dgenerate_order_identifier := auto$002dgenerate_order_identifier;
+		params.add_scenario_info_to_extra_params := add_scenario_info_to_extra_params;
+		
+		resetStats();
+		
+		stateUpdaters := {
+			1: updateWaiting,
+			2: updateWorking,
+			3: updateComplete,
+			4: updateRejected,
+			5: updatePendingChange,
+			6: updatePendingCancel,
+			7: updateCancelled,
+			8: updateSuspended,
+			9: updateUnknown
+		};
+		
+		// Add Scenario Info
+		if params.add_scenario_info_to_extra_params then {
+			addScenarioInfoToExtraParams();
+		}
+		acknowledge();
+		emitOrderBookStatus();
+		
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+	action cleanup {
+// BLOCKBUILDER - USER DEFINED ACTION
+		
+			quitting:=true;
+			params.extra_parameters:="";
+		if(not params.leave_orders_open_on_scenario_exit) then {
+			string key;
+			for key in orderBook.keys() {	
+				boolean needToWait:=false;
+				if not orderBook[key].modifiable and not orderBook[key].final then {
+					needToWait:=true;
+				}
+				cancelOrder(key);				
+				if (needToWait) then {
+					handlePendingCancel(key);
+				}
+			}
+		}
+// BLOCKBUILDER - END OF USER DEFINED ACTION
+	}
+
+// BLOCKBUILDER - USER DEFINED ACTIONS
+
+	
+		action MODIFY_ORDER_TYPE() returns integer { return 0; }
+		action CANCEL_ORDER_TYPE() returns integer { return 1; }
+
+	
+    	/** 
+    	 * Simply tags the scenario display name into the extra params so the blotter can display it
+    	 * is called at the start of the mThread action, upon initialisation and whenever the extraparams
+    	 * parameter of the block is modified (extraparams-update action).
+    	 */
+    	action addScenarioInfoToExtraParams() {
+		string toAppend := "";
+		boolean somethingAdded := false;
+
+		if params.userData$.hasKey("ScenarioName") then {
+			if (params.extra_parameters.length() > 0) then {
+				toAppend := toAppend + ";";
+			}
+			toAppend := toAppend + "ScenarioName=" + params.userData$["ScenarioName"];
+			somethingAdded := true;
+		}
+		if params.userData$.hasKey("ScenarioDisplayName") then {
+			if somethingAdded then {
+				toAppend := toAppend + ";";
+			}
+			toAppend := toAppend + "ScenarioDisplayName=" + params.userData$["ScenarioDisplayName"];
+			somethingAdded := true;
+		}
+		if params.userData$.hasKey("ScenarioInstance") then {
+			if somethingAdded then {
+				toAppend := toAppend + ";";
+			}
+			toAppend := toAppend + "ScenarioInstance=" + params.userData$["ScenarioInstance"];
+			somethingAdded := true;
+		}
+
+		if (somethingAdded) then {
+			params.extra_parameters := params.extra_parameters + toAppend;
+		}
+	}
+	
+    /** 
+    * This action is added for the extra block parameter
+	* (add_scenario_info_to_extra_params )to remove the scenario 
+	* name from the extra param field when the block parameter 
+	* is set to false.  It is called whenever the parameter is changed
+    */
+	action removeScenarioNameFromExtraParams() {
+		dictionary<string, string> paramsDict := stringToDict(params.extra_parameters);
+		if paramsDict.hasKey("ScenarioName") then {
+			paramsDict.remove("ScenarioName");
+		}
+		if paramsDict.hasKey("ScenarioDisplayName") then {
+			paramsDict.remove("ScenarioDisplayName");
+		}
+		if paramsDict.hasKey("ScenarioInstance") then {
+			paramsDict.remove("ScenarioInstance");
+		}
+		params.extra_parameters := dictToString(paramsDict);
+	}
+	
+	action addOrder(OrderManager40_OrderStatus state) {
+		orderBook.add(state.order_identifier, state);
+		addOrderStats(state);
+	}
+	
+	// forget about the given orderId:
+	action clearOrder(string orderId) {
+		if orderBook.hasKey(orderId) then {
+			OrderManager40_OrderStatus state := orderBook[orderId];
+			forgetOrderStats(state);
+			orderBook.remove(orderId);
+		}
+		if orderBookTrades.hasKey(orderId) then {
+			orderBookTrades.remove(orderId);
+		}
+		if orderPlaceParams.hasKey(orderId) then {
+			orderPlaceParams.remove(orderId);
+		}
+		if queuedChanges.hasKey(orderId) then {
+			queuedChanges.remove(orderId);
+		}
+		
+		
+		if scenarioToMsOrderMap.hasKey(orderId) then {
+			string msId:=scenarioToMsOrderMap[orderId];
+			scenarioToMsOrderMap.remove(orderId);
+			if msToScenarioOrderMap.hasKey(msId) then {
+				msToScenarioOrderMap.remove(msId);
+			}
+			if (isMultiContext) then {
+				enqueue com.apama.oms.UnsubscribeOrderToContext(context.current(), msId) to parentContext;
+			}
+		}
+		
+		if orderUpdateListeners.hasKey(orderId) then {
+			orderUpdateListeners[orderId].quit();
+			orderUpdateListeners.remove(orderId);
+		}
+		if orderTradeListeners.hasKey(orderId) then {
+			orderTradeListeners[orderId].quit();
+			orderTradeListeners.remove(orderId);
+		}
+		
+	}
+	
+	action addOrderStats(OrderManager40_OrderStatus state) {
+		updateStateCounts(state.state, 1);
+		if state.in_market then {
+			nInMarket := nInMarket + 1;
+		}
+		if not state.final then {
+			nTradeable := nTradeable + 1;
+		}
+		if state.modifiable then {
+			nModifiable := nModifiable + 1;
+		}
+		if state.is_visible then {
+			nVisible := nVisible + 1;
+		}
+		executed := executed + state.quantity_executed;
+		if not state.final then {
+			working := working + state.quantity_remaining;
+		}
+		placed := placed + state.quantity;
+	}
+		
+	action forgetOrderStats(OrderManager40_OrderStatus state) {
+		updateStateCounts(state.state, -1);
+		if state.in_market then {
+			nInMarket := nInMarket - 1;
+		}
+		if not state.final then {
+			nTradeable := nTradeable - 1;
+		}
+		if state.modifiable then {
+			nModifiable := nModifiable - 1;
+		}
+		if state.is_visible then {
+			nVisible := nVisible - 1;
+		}
+		executed := executed - state.quantity_executed;
+		if not state.final then {
+			working := working - state.quantity_remaining;
+		}
+		placed := placed - state.quantity;
+	}
+	
+	action resetStats() {	
+		nWaiting := 0;
+		nWorking :=0;
+		nComplete := 0;
+		nRejected := 0;
+		nPendingChange := 0;
+		nPendingCancel := 0;
+		nCancelled := 0;
+		nSuspended := 0;
+		nUnknown := 0;
+		nModifiable := 0;
+		nInMarket := 0;
+		nVisible := 0;
+		nTradeable := 0;
+		executed := 0;
+		placed := 0;
+		working := 0;
+	}
+	
+	action updateWaiting(integer increment) {
+		nWaiting := nWaiting + increment;
+	}
+
+	action updateWorking(integer increment) {
+		nWorking := nWorking + increment;
+	}
+
+	action updateComplete(integer increment) {
+		nComplete := nComplete + increment;
+	}
+
+	action updateRejected(integer increment) {
+		nRejected := nRejected + increment;
+	}
+
+	action updatePendingChange(integer increment) {
+		nPendingChange := nPendingChange + increment;
+	}
+
+	action updatePendingCancel(integer increment) {
+		nPendingCancel := nPendingCancel + increment;
+	}
+
+	action updateCancelled(integer increment) {
+		nCancelled := nCancelled + increment;
+	}
+
+	action updateSuspended(integer increment) {
+		nSuspended := nSuspended + increment;
+	}
+
+	action updateUnknown(integer increment) {
+		nUnknown := nUnknown + increment;
+	}
+	
+	// Update the order state counters by increment depending on state
+	action updateStateCounts(integer state, integer increment) {
+			stateUpdaters[state](increment);
+	}
+
+	// cancel the given order. 
+	action cancelOrder(string orderId) {
+		
+		if not orderBook.hasKey(orderId) then {
+			return;
+		}
+		
+		OrderManager40_OrderStatus state:=orderBook[orderId];
+		if not state.modifiable then {
+			if (state.final) then {
+				state.status_message:="Ignoring request to cancel order in final state "+getStateDescription(state.state);
+				reportOrderStatus(state);
+			} 
+			else {
+				Order_Manager_0$init origParams:=params.clone();
+				params.order_identifier:=orderId;
+				queueCancel();
+				params:=origParams;
+			}
+		} else { // state is currently modifiable
+			forgetOrderStats(state);
+			state.modifiable:=false;
+			state.state:=6;
+			reportOrderStatus(state);
+			addOrderStats(state);
+			com.apama.oms.CancelOrder cancelOrder := com.apama.oms.CancelOrder(scenarioToMsOrderMap[orderId], 
+				orderPlaceParams[orderId].service_identifier, 
+				stringToDict(params.extra_parameters));
+			
+			if (isMultiContext) then {
+				enqueue cancelOrder to parentContext;
+			} else {
+				route cancelOrder;
+			}
+			
+		}
+	}
+		
+
+	// listen to the current order identifier.  Assumes order id is in the order 
+	// book.
+	action addOrderListener() {
+		string thisOrderId:=params.order_identifier;
+		if not orderBook.hasKey(params.order_identifier) then {
+			return;
+		}
+		
+		if (isMultiContext) then {
+			// set up re-route service
+			enqueue com.apama.oms.SubscribeOrderToContext(context.current(), scenarioToMsOrderMap[thisOrderId]) to parentContext;
+		}
+		
+		com.apama.oms.OrderUpdate orderUpdate;
+		
+		orderUpdateListeners[thisOrderId] := on all com.apama.oms.OrderUpdate(orderId=scenarioToMsOrderMap[thisOrderId]):orderUpdate {
+
+			OrderManager40_OrderStatus state:=orderBook[thisOrderId];
+			
+			// Generate order execution feed if we've actually had a fill
+			boolean routeExecution := false;
+			boolean routeQuantity := false;
+			if orderUpdate.qtyExecuted > state.quantity_executed then {
+				routeExecution := true;
+				executionStatus.order_identifier := thisOrderId;
+				executionStatus.symbol := orderUpdate.symbol;
+				executionStatus.side := orderUpdate.side;
+				executionStatus.money_executed := orderUpdate.avgPrice * orderUpdate.qtyExecuted.toFloat();
+				executionStatus.average_price_executed := orderUpdate.avgPrice;
+				executionStatus.quantity_executed := orderUpdate.qtyExecuted;
+				executionStatus.last_money_executed := orderUpdate.avgPrice * orderUpdate.qtyExecuted.toFloat() - state.money_executed;
+				executionStatus.last_quantity_executed := orderUpdate.qtyExecuted - state.quantity_executed;
+				executionStatus.last_price_executed := executionStatus.last_money_executed/executionStatus.last_quantity_executed.toFloat();
+					
+				// Generate order quantity feed if this quantity is bigger than the last one
+				if not orderBookTrades.hasKey(thisOrderId) or orderBookTrades[thisOrderId].quantity_executed < orderUpdate.qtyExecuted then {
+					routeQuantity := true;
+					quantityStatus.order_identifier := thisOrderId;
+					quantityStatus.symbol := orderUpdate.symbol;
+					quantityStatus.side := orderUpdate.side;
+					quantityStatus.quantity_executed := orderUpdate.qtyExecuted;
+					quantityStatus.last_quantity_executed := orderUpdate.qtyExecuted - state.quantity_executed;
+				}
+			}
+			
+			forgetOrderStats(state);
+			
+			integer oldState:=state.state;
+			integer oldQtyExecuted:=state.quantity_executed;
+
+			// remember that the params may have changed...
+			state.symbol:=orderUpdate.symbol;
+			state.price:=orderUpdate.price;
+			state.side:=orderUpdate.side;
+			state.type:=orderUpdate.type;
+			state.quantity:=orderUpdate.quantity;
+			state.in_market:=orderUpdate.inMarket;
+			state.is_visible:=orderUpdate.isVisible and orderUpdate.inMarket;
+			state.modifiable:=orderUpdate.modifiable;
+			state.cancelled:=orderUpdate.cancelled;
+			state.change_rejected:=orderUpdate.orderChangeRejected;
+			state.externally_modified:=orderUpdate.externallyModified;
+			state.market_order_identifier:=orderUpdate.marketOrderId;
+			state.quantity_executed:=orderUpdate.qtyExecuted;
+			state.quantity_remaining:=orderUpdate.qtyRemaining;
+
+			// some service providers at the moment do not persist the last price, 
+			// last shares and average price (these may be set to zero in the update)
+			// Only set these values when they are non-zero
+			if (orderUpdate.lastPrice>0.0) then {
+				state.last_price_executed:=orderUpdate.lastPrice;
+			}
+			if (orderUpdate.qtyExecuted-oldQtyExecuted>0) then {
+				state.last_quantity_executed:=orderUpdate.qtyExecuted-oldQtyExecuted;
+			}
+			if (orderUpdate.avgPrice>0.0) then {
+				state.average_price_executed:=orderUpdate.avgPrice;
+			}
+
+			state.status_message:=orderUpdate.status;
+			state.extra_parameters:=dictToString(orderUpdate.extraParams);
+			state.money_executed:=orderUpdate.avgPrice*orderUpdate.qtyExecuted.toFloat();
+			
+
+			// now determine the state given the old state
+			// in case we don't set the state, provide a default:
+			state.state:=9;
+			
+			if(oldState=1) then {
+				if state.in_market then {
+					if state.modifiable then {
+						state.state:=2;
+					} else {
+						state.state:=2;
+						reportOrderStatus(state);
+						state.state:=8;
+					}
+				} 
+				else {
+					if state.cancelled then {
+						if state.quantity_executed = 0 then {
+							state.state:=4;
+						} else {
+							state.state:=2;
+							reportOrderStatus(state);
+							state.state:=7;
+						}
+					} else {
+						if state.quantity_executed = 0 then {
+							state.state:=1;
+						} else {
+							state.state:=2;
+							reportOrderStatus(state);
+							state.state:=3;
+						}
+					}
+				}
+			} else {
+				if (oldState=5 or oldState=6) and (not state.modifiable) and state.in_market and (not state.cancelled) then {
+					// stay as is
+					state.state:=oldState;
+				} else {
+					if state.in_market then {
+						if state.modifiable then {
+							state.state:=2;
+						} else {
+							state.state:=8;
+						}
+					} else {
+						if state.cancelled then {
+							state.state:=7;
+						} else {
+							state.state:=3;
+						}
+					}
+				}
+			}
+			
+			
+			if(state.state=4 or state.state=7 or state.state=3) then {
+				state.final:=true;
+			}
+			
+			if routeExecution then {
+				executionStatus.final := state.final;
+				executionStatus.extra_parameters := state.extra_parameters;
+				reportExecution(executionStatus);
+			}
+			if routeQuantity then {
+				quantityStatus.final := state.final;
+				quantityStatus.extra_parameters := state.extra_parameters;
+				orderBookTrades[thisOrderId] := quantityStatus;
+				reportQuantity(quantityStatus);
+			}
+			
+			if orderUpdate.unknownState then {
+				state.state:=9;
+			}
+			
+			addOrderStats(state);
+			
+			// if a cancel was rejected while we are in the process of quitting,
+			// try again.
+			
+			if(quitting and state.change_rejected and state.modifiable and oldState=6) then {
+				com.apama.oms.CancelOrder cancelOrder := com.apama.oms.CancelOrder(scenarioToMsOrderMap[state.order_identifier], 
+				                                                        								orderPlaceParams[state.order_identifier].service_identifier, 
+				                                                        													stringToDict(""));
+				
+				if (isMultiContext) then {
+					enqueue cancelOrder to parentContext;
+				} else {
+					route cancelOrder;
+				}
+				return;
+			}
+
+
+			reportOrderStatus(state);
+			emitOrderBookStatus();
+			
+			if state.modifiable then {
+				processQueuedChange(state.order_identifier);
+			}
+			if state.final and params.clear_orders_in_final_state then {
+				clearOrder(state.order_identifier);
+			}
+		}
+		com.apama.oms.OrderTrade trade;
+		orderTradeListeners[thisOrderId] := on all com.apama.oms.OrderTrade(orderId=scenarioToMsOrderMap[thisOrderId]):trade {
+			// Generate order quantity feed if this quantity is bigger than the last one
+			if not orderBookTrades.hasKey(thisOrderId) or orderBookTrades[thisOrderId].quantity_executed < trade.qtyExecuted then {
+				orderBookTrades[thisOrderId] := OrderManager40_OrderQuantityStatus(thisOrderId, trade.symbol, trade.side,
+					trade.qtyExecuted, trade.lastShares, trade.finished, dictToString(trade.extraParams));
+				reportQuantity(orderBookTrades[thisOrderId]);
+			}
+		}
+	}
+				
+	 
+	action queueModify {
+		queueChange(MODIFY_ORDER_TYPE());
+	}
+		
+	action queueCancel {
+		queueChange(CANCEL_ORDER_TYPE());
+	}
+	 
+	action queueChange(integer type) {
+		sequence<OrderManager40_PendingChange> changes;
+		if not queuedChanges.hasKey(params.order_identifier) then {
+			changes:=new sequence<OrderManager40_PendingChange>;
+			queuedChanges.add(params.order_identifier, changes);
+		}
+		changes:=queuedChanges[params.order_identifier];
+		changes.append(OrderManager40_PendingChange(type, params.clone()));
+	}
+	
+	action processQueuedChange(string orderId) {
+		OrderManager40_OrderStatus state:=orderBook[orderId];
+		sequence<OrderManager40_PendingChange> changes;
+		OrderManager40_PendingChange change;
+		if not queuedChanges.hasKey(orderId) then {
+			return;
+		}
+		changes:=queuedChanges[orderId];
+		change:=changes[0];
+		changes.remove(0);
+		if changes.size()=0 then {
+			queuedChanges.remove(orderId);
+		}
+				
+		forgetOrderStats(state);
+		state.modifiable:=false;
+		if change.changeType = MODIFY_ORDER_TYPE() then {
+			string type:=state.type;
+			state.state:=5;
+			reportOrderStatus(state);
+			if type="" then {
+				if state.price=0.0 then {
+					type:="MARKET";
+				} else {
+					type:="LIMIT";
+				}
+			}
+			
+			
+			com.apama.oms.AmendOrder amendOrder := com.apama.oms.AmendOrder(scenarioToMsOrderMap[orderId], 
+							orderPlaceParams[orderId].service_identifier, 
+							change.params.symbol, change.params.price, change.params.side, 
+							type, change.params.quantity, 
+							stringToDict(change.params.extra_parameters));
+			
+			if (isMultiContext) then {
+				enqueue amendOrder to parentContext;
+			} else {
+				route amendOrder;
+			}
+			addOrderStats(state);
+			emitOrderBookStatus();				
+
+		}
+		if change.changeType = CANCEL_ORDER_TYPE() then {
+			state.state:=6;
+			reportOrderStatus(state);
+			com.apama.oms.CancelOrder cancelOrder := com.apama.oms.CancelOrder(scenarioToMsOrderMap[orderId], 
+							orderPlaceParams[orderId].service_identifier, 
+							stringToDict(change.params.extra_parameters));
+			
+			if (isMultiContext) then {
+				enqueue cancelOrder to parentContext;
+			} else {
+				route cancelOrder;
+			}
+			addOrderStats(state);
+			emitOrderBookStatus();				
+		}
+	}
+
+	/**
+	* Report the order status to the output feed.
+	*/
+	action reportOrderStatus(OrderManager40_OrderStatus state) {
+		
+		if (quitting) then { return; }
+		
+		sendOutput$order_status(
+			state.order_identifier, 
+			state.market_order_identifier, 
+			state.symbol, 
+			state.price, 
+			state.quantity, 
+			state.side, 
+			state.type, 
+			state.state, 
+			state.money_executed, 
+			state.average_price_executed, 
+			state.last_price_executed, 
+			state.last_quantity_executed, 
+			state.quantity_executed, 
+			state.quantity_remaining, 
+			state.in_market, 
+			state.is_visible, 
+			state.modifiable, 
+			state.cancelled, 
+			state.change_rejected, 
+			state.externally_modified, 
+			state.final, 
+			state.status_message, 
+			state.extra_parameters);
+		
+	}
+
+	
+	/**
+	* Report the execution status to the output feed.
+	*/
+	action reportExecution(OrderManager40_ExecutionStatus executionStatus) {
+	
+		if (quitting) then { return; }
+		
+		sendOutput$order_execution(
+			executionStatus.order_identifier, 
+			executionStatus.symbol, 
+			executionStatus.side, 
+			executionStatus.money_executed, 
+			executionStatus.average_price_executed, 
+			executionStatus.quantity_executed, 
+			executionStatus.last_money_executed, 
+			executionStatus.last_price_executed, 
+			executionStatus.last_quantity_executed, 
+			executionStatus.final, 
+			executionStatus.extra_parameters);
+		
+	}
+	
+	/**
+	* Report the order quantity status to the output feed.
+	*/
+	action reportQuantity(OrderManager40_OrderQuantityStatus quantityStatus) {
+		
+		if (quitting) then { return; }
+		
+		sendOutput$order_quantity(
+			quantityStatus.order_identifier,
+			quantityStatus.symbol, 
+			quantityStatus.side, 
+			quantityStatus.quantity_executed, 
+			quantityStatus.last_quantity_executed, 
+			quantityStatus.final, 
+			quantityStatus.extra_parameters);
+	}
+	
+	
+	/** 
+	* Helper action iterates through the order book to produce an overall count of 
+	* the status of the orders, and routes to the owning scenario.
+	*/
+	action emitOrderBookStatus() {
+	
+		if (quitting) then { return; }
+	
+		sendOutput$order_book_status( 
+						orderBook.size(),
+						placed,
+						executed,
+						working,
+						nWaiting, 
+						nWorking, 
+						nComplete,
+						nRejected,
+						nPendingChange,
+						nPendingCancel,
+						nCancelled,
+						nSuspended,
+						nInMarket,
+						nVisible,
+						nModifiable,
+						nTradeable);
+		
+	}
+	
+	action getStateDescription(integer state) returns string {
+		if state = 0 then {
+			return "NEW";
+		}
+		if state = 1 then {
+			return "WAITING";
+		}
+		if state = 2 then {
+			return "WORKING";
+		}
+		if state = 3 then {
+			return "COMPLETED";
+		}
+		if state = 4 then {
+			return "REJECTED";
+		}
+		if state = 5 then {
+			return "PENDING CHANGE";
+		}
+		if state = 6 then {
+			return "PENDING CANCEL";
+		}
+		if state = 7 then {
+			return "CANCELLED";
+		}
+		if state = 8 then {
+			return "SUSPENDED";
+		}
+		if state = 9 then {
+			return "UNKNOWN";
+		}
+		return "Really really unknown "+state.toString();
+	}	  
+
+	action generateNextOrderIdentifier returns string {
+		string generatedOrderId;
+		nextOrderIdentifier := nextOrderIdentifier+1;
+		generatedOrderId := "Order_"+nextOrderIdentifier.toString();
+
+		//make sure that this generated id has not been used already
+		while orderBook.hasKey(generatedOrderId)	{
+			nextOrderIdentifier := nextOrderIdentifier+1;
+			generatedOrderId := "Order_"+nextOrderIdentifier.toString();
+		}
+		return generatedOrderId;
+	}
+	
+	
+	/**
+	* Handles pending cancels.  Routes to pending cancel handler request
+	* to the OrderManagerService.  The Cancel should activate when the next OrderUpdate
+	* modifies the order state to modifiable.
+	*/
+	action handlePendingCancel(string orderId) {
+		OrderManager40_PendingOrderServiceState pendingState := new OrderManager40_PendingOrderServiceState;
+		pendingState.orderId := scenarioToMsOrderMap[orderId];
+		pendingState.cancelOrder := com.apama.oms.CancelOrder(scenarioToMsOrderMap[orderId], 
+		                                                      orderPlaceParams[orderId].service_identifier, 
+		                                                       	stringToDict(params.extra_parameters));
+		if (isMultiContext) then {
+			enqueue pendingState to parentContext;
+		} else {
+			route pendingState;
+		}
+	}
+	
+	/** generic utility functions: **/
+	
+	action stringToDict(string payload) returns dictionary<string,string> {
+		if payload.length() = 0 then {
+			return new dictionary <string, string>;
+		} else {
+			return dictionary<string,string>.parse(payloadMgr.payloadToDict(payload));
+		}
+	} 
+	
+	
+	action dictToString(dictionary<string,string> params) returns string {
+		if params.size() = 0 then {
+			return "";
+		} else {
+			return payloadMgr.dictToPayload(params.toString());
+		}
+	}
+		
+// BLOCKBUILDER - END OF USER DEFINED ACTIONS
+}
+
+// Used for handing out ids for streams (and possibly other things to).
+
+// IN - A request for a given type of id.
+event IDRequest {
+	string key;// Unique key that identifies the requesting monitor/mthread - returned in reply.
+	string idType;// "STREAM" for stream ids
+	integer num;// Number of ids wanted.
+}
+
+// IN - A reply, allocating a sequence of ids.
+event IDReply {
+	string key;// Key from the matching ID request is simply returned.
+	integer id;// First id assigned.
+}
+
+monitor IDGenerator {
+	dictionary <string,integer> ids;
+	IDRequest request;
+	integer id;
+	action onload {
+		on all IDRequest(): request {
+			if (not ids.hasKey(request.idType)) then {
+				ids.add(request.idType, 1);
+			}
+			id := ids[request.idType];
+			route IDReply(request.key, id);
+			ids[request.idType] := id + request.num;
+		}
+	}
+}
+
+monitor ScenarioMetaData {
+	com.apama.scenario.Scenario scenario;
+	com.apama.scenario.ScenarioServiceUpdaterSingleInstance updater;
+	action onload {
+		setup();
+		// Notify any client listeners when scenario loads
+		route scenario;
+		emit scenario to "com.apama.scenario";
+
+		com.apama.scenario.Delete delete;
+		on all unmatched com.apama.scenario.Delete(scenarioId = "Scenario_Scenario1"):delete {
+			log "Scenario1("+delete.scenarioInstanceId.toString()+"): " + "Scenario delete ignored - unknown scenarioInstanceId." at INFO;
+			emitNack(delete.messageId, delete.scenarioInstanceId);
+		}
+		com.apama.scenario.Edit edit;
+		on all unmatched com.apama.scenario.Edit(scenarioId = "Scenario_Scenario1"):edit {
+			log "Scenario1("+edit.scenarioInstanceId.toString()+"): " + "Scenario edit ignored - unknown scenarioInstanceId." at INFO;
+			emitNack(edit.messageId, edit.scenarioInstanceId);
+		}
+		on all com.apama.scenario.StartScenarioRecovery() {
+			route scenario;
+		}
+
+	}
+	action setup {
+		// Handle request for Scenario data
+		sequence<string> iNames := [
+			"symbol",
+			"quantity",
+			"side",
+			"type",
+			"action",
+			"orderId",
+			"price"
+
+		];
+		sequence<string> iTypes := [
+			"string",
+			"integer",
+			"string",
+			"string",
+			"string",
+			"string",
+			"float"
+		];
+		sequence<string> iConstraints := [
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"integer\" minvalue=\"\" maxvalue=\"\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"float\" minvalue=\"\" maxvalue=\"\" unique=\"false\" mutability=\"mutable\" />"
+		];
+		sequence<string> iDefaults := [
+			"",
+			"0",
+			"",
+			"",
+			"",
+			"",
+			"0.0"
+		];
+		sequence<string> oNames := [
+			"status",
+			"orderStatus",
+			"market",
+			"visible",
+			"modifiable",
+			"identifier"
+		];
+		sequence<string> oTypes := [
+			"string",
+			"integer",
+			"boolean",
+			"boolean",
+			"boolean",
+			"string"
+		];
+		scenario.scenarioId := "Scenario_Scenario1";
+		scenario.displayName := "Scenario1";
+		scenario.description := "Scenario1 Scenario";
+		scenario.inputNames := iNames;
+		scenario.inputTypes := iTypes;
+		scenario.inputConstraints := iConstraints;
+		scenario.inputDefaults := iDefaults;
+		scenario.outputNames := oNames;
+		scenario.outputTypes := oTypes;
+		scenario.executionMode := 0;
+
+		updater.init(scenario.scenarioId);
+		updater.instanceInit(-1, dummyOutput, "");
+	}
+	action dummyOutput() returns sequence<string> {
+		return new sequence<string>;
+	}
+	action emitNack(integer messageId, integer scenarioInstanceId) {
+		updater.scenarioInstanceId:=scenarioInstanceId;
+		updater.emitNack(messageId);
+	}
+
+	action onunload {
+		// generate the scenarioUnloaded event
+		route com.apama.scenario.ScenarioUnloaded("Scenario_Scenario1");
+	}
+
+}
+monitor ScenarioMonitor {
+
+	event Variables {
+		wildcard string symbol;
+		wildcard integer quantity;
+		wildcard string side;
+		wildcard string type;
+		wildcard string status;
+		wildcard string $action;
+		wildcard string orderId;
+		wildcard float price;
+		wildcard integer orderStatus;
+		wildcard boolean market;
+		wildcard boolean visible;
+		wildcard boolean modifiable;
+		wildcard string identifier;
+	}
+
+	event State$State$start$Changed {
+		integer scenarioInstanceId;
+		integer sequenceNumber;
+	}
+
+	event State$State$getBack$Changed {
+		integer scenarioInstanceId;
+		integer sequenceNumber;
+	}
+
+	integer scenarioInstanceId;
+	boolean createdSent;
+	integer stateNumber := -1;
+	sequence<integer> schedule;
+	boolean pendingEdited;
+	integer editMessageId;
+	listener stateChangedListener;
+	boolean dispatchPending;
+	integer stateChangeSequenceNumber;
+	boolean inAction;
+	boolean waitingForOperation;
+	string runningState;
+	dictionary<integer, sequence<string> > savedBlockFeeds;
+	com.apama.scenario.ScenarioServiceUpdaterSingleInstance updater;
+	com.apama.scenario.Scenario scenario;
+	com.apama.scenario.Create init;
+	Variables variables;
+	Variables updateVariableSnapshot;
+	Variables oldvariables;
+
+	string block0$Feed0$OldEvent_order_identifier;
+	integer block0$Feed0$OldEvent_quantity;
+	string block0$Feed0$OldEvent_side;
+	integer block0$Feed0$OldEvent_state;
+	boolean block0$Feed0$OldEvent_in_market;
+	boolean block0$Feed0$OldEvent_is_visible;
+	boolean block0$Feed0$OldEvent_modifiable;
+	string block0$Feed0$OldEvent_status_message;
+	string block0$OldParameter$order_identifier;
+	string block0$OldParameter$service_identifier;
+	string block0$OldParameter$broker_identifier;
+	string block0$OldParameter$book_identifier;
+	string block0$OldParameter$market_identifier;
+	string block0$OldParameter$exchange;
+	string block0$OldParameter$symbol;
+	float block0$OldParameter$price;
+	integer block0$OldParameter$quantity;
+	string block0$OldParameter$side;
+	string block0$OldParameter$type;
+	string block0$OldParameter$extra_parameters;
+	boolean block0$OldParameter$leave_orders_open_on_scenario_exit;
+	boolean block0$OldParameter$clear_orders_in_final_state;
+	boolean block0$OldParameter$auto$002dgenerate_order_identifier;
+	boolean block0$OldParameter$add_scenario_info_to_extra_params;
+	string block0$Feed0$Event_order_identifier;
+	integer block0$Feed0$Event_quantity;
+	string block0$Feed0$Event_side;
+	integer block0$Feed0$Event_state;
+	boolean block0$Feed0$Event_in_market;
+	boolean block0$Feed0$Event_is_visible;
+	boolean block0$Feed0$Event_modifiable;
+	string block0$Feed0$Event_status_message;
+	string block0$Parameter$order_identifier;
+	string block0$Parameter$service_identifier;
+	string block0$Parameter$broker_identifier;
+	string block0$Parameter$book_identifier;
+	string block0$Parameter$market_identifier;
+	string block0$Parameter$exchange;
+	string block0$Parameter$symbol;
+	float block0$Parameter$price;
+	integer block0$Parameter$quantity;
+	string block0$Parameter$side;
+	string block0$Parameter$type;
+	string block0$Parameter$extra_parameters;
+	boolean block0$Parameter$leave_orders_open_on_scenario_exit;
+	boolean block0$Parameter$clear_orders_in_final_state;
+	boolean block0$Parameter$auto$002dgenerate_order_identifier;
+	boolean block0$Parameter$add_scenario_info_to_extra_params;
+	Order_Manager_0 block0$Instance;
+	boolean block0$Feed0$Changed;
+	boolean block0$Feed1$Changed;
+	boolean block0$Feed2$Changed;
+	boolean block0$Feed3$Changed;
+	boolean block0$Feed4$Changed;
+
+
+	boolean generateInstanceDiedFlag := false;
+	boolean ended := false;
+	boolean scenarioEnded := false;
+	integer newBlocksInitialised := 0;
+	action onload {
+		sequence<string> iNames := [
+			"symbol",
+			"quantity",
+			"side",
+			"type",
+			"action",
+			"orderId",
+			"price"
+
+		];
+		sequence<string> iTypes := [
+			"string",
+			"integer",
+			"string",
+			"string",
+			"string",
+			"string",
+			"float"
+		];
+		sequence<string> iConstraints := [
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"integer\" minvalue=\"\" maxvalue=\"\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"string\" minlength=\"\" maxlength=\"\" stringcase=\"mixed\" trim=\"true\" unique=\"false\" mutability=\"mutable\" />",
+			"<validation type=\"float\" minvalue=\"\" maxvalue=\"\" unique=\"false\" mutability=\"mutable\" />"
+		];
+		sequence<string> iDefaults := [
+			"",
+			"0",
+			"",
+			"",
+			"",
+			"",
+			"0.0"
+		];
+		sequence<string> oNames := [
+			"status",
+			"orderStatus",
+			"market",
+			"visible",
+			"modifiable",
+			"identifier"
+		];
+		sequence<string> oTypes := [
+			"string",
+			"integer",
+			"boolean",
+			"boolean",
+			"boolean",
+			"string"
+		];
+		scenario.scenarioId := "Scenario_Scenario1";
+		scenario.displayName := "Scenario1";
+		scenario.description := "Scenario1 Scenario";
+		scenario.inputNames := iNames;
+		scenario.inputTypes := iTypes;
+		scenario.inputConstraints := iConstraints;
+		scenario.inputDefaults := iDefaults;
+		scenario.outputNames := oNames;
+		scenario.outputTypes := oTypes;
+
+		updater.init("Scenario_Scenario1");
+		// Initialise variables
+		variables.status := "";
+		variables.orderStatus := (0.0).round();
+		variables.market := false;
+		variables.visible := false;
+		variables.modifiable := false;
+		variables.identifier := "";
+		oldvariables := variables.clone();
+
+		block0$Parameter$order_identifier := "";
+		block0$Parameter$service_identifier := "";
+		block0$Parameter$broker_identifier := "";
+		block0$Parameter$book_identifier := "";
+		block0$Parameter$market_identifier := "";
+		block0$Parameter$exchange := "";
+		block0$Parameter$symbol := "";
+		block0$Parameter$price := 0.0;
+		block0$Parameter$quantity := (0.0).round();
+		block0$Parameter$side := "";
+		block0$Parameter$type := "";
+		block0$Parameter$extra_parameters := "";
+		block0$Parameter$leave_orders_open_on_scenario_exit := false;
+		block0$Parameter$clear_orders_in_final_state := false;
+		block0$Parameter$auto$002dgenerate_order_identifier := true;
+		block0$Parameter$add_scenario_info_to_extra_params := false;
+
+		block0$Instance.setup();
+		on all com.apama.scenario.Create(scenarioId = "Scenario_Scenario1"): init {
+			if (init.inputFieldValues.size() != 7) then {
+				log "Scenario1: " + "Scenario create ignored - " + (7).toString() + " input field(s) required but " + init.inputFieldValues.size().toString() + " provided." at INFO;
+				emitNack(init.messageId, 0);
+				return;
+			}
+
+			string key;
+			key := "Scenario_Scenario1$" + init.messageId.toString();
+			route IDRequest(key, "BLOCK_INSTANCE", 7);
+			IDReply idReply;
+			on IDReply(key = key):idReply {
+				scenarioInstanceId := idReply.id;
+				preSpawnBlockSetup();
+			}
+		}
+		com.apama.scenario.RequestInstancesInternal reqInstances;
+		on all completed com.apama.scenario.RequestInstancesInternal(scenarioId = "Scenario_Scenario1"): reqInstances {
+			route com.apama.scenario.RequestInstancesDone("Scenario_Scenario1", reqInstances.messageId);
+		}
+	}
+
+	action generateInstanceDied(boolean deleted) {
+		if generateInstanceDiedFlag then {
+			if not deleted and not ended then {
+				if not createdSent then {
+					emitAcknowledgement(init.messageId);
+
+					updater.emitCreated(init.messageId, init.owner, "FAILED", getInputVariables(), getOutputVariables());
+
+					updateVariableSnapshot := variables.clone();
+					createdSent:=true;
+				}
+				finish("FAILED", false);
+			}
+			updater.emitInstanceDied();
+			if not deleted then {
+				updater.notifyInstanceDied();
+			}
+		}
+		generateInstanceDiedFlag := false;
+	}
+
+	action ondie {
+		generateInstanceDied(false);
+	}
+
+	action startBlockDeathListeners {
+	}
+
+	action startBlockDeathListener(string name, integer id) {
+		if runningState = "RUNNING" or runningState = "" then {
+			log "Scenario1("+scenarioInstanceId.toString()+ "): Block " + name + " instance "+id.toString()+" has died unexpectedly" at INFO;
+			die;
+		}
+	}
+
+	action mThread {
+		generateInstanceDiedFlag := true; // so we get an InstanceDied event when this new instance dies.
+
+		updater.instanceInit(scenarioInstanceId, getLastUpdateOutputVariables, init.owner);
+
+		// Initialise input variables
+		variables.symbol := init.inputFieldValues[0];
+		variables.quantity := ((init.inputFieldValues[1]).toFloat()).round();
+		variables.side := init.inputFieldValues[2];
+		variables.type := init.inputFieldValues[3];
+		variables.$action := init.inputFieldValues[4];
+		variables.orderId := init.inputFieldValues[5];
+		variables.price := (init.inputFieldValues[6]).toFloat();
+		startBlockDeathListeners();
+		setupBlocks();
+		setupBlockListeners();
+		setupEditListener();
+		setupQuitListener();
+	}
+
+	action Dispatcher(integer nextState) {
+		while true {
+			if nextState = -3 then {
+				return;
+			} else if nextState = 0 then {
+				nextState := State$start$Rules();
+			} else if nextState = 2 then {
+				nextState := State$getBack$Rules();
+			} else if nextState = -2 then {
+				endState();
+				return;
+			} else {
+				log "Scenario1("+scenarioInstanceId.toString()+ "): Internal error in scenario. Invalid state " + nextState.toString() at INFO;
+				die;
+			}
+		}
+	}
+
+	action State$start {
+		stateNumber := 0;
+		schedule := [
+			0,
+			1,
+			2,
+			3
+		];
+		State$start$SetupListeners();
+	}
+
+	action State$start$SetupListeners {
+		stateChangedListener.quit();
+		dispatchPending:=false;
+		State$start$SetupStateChangeListener();
+	}
+
+	action State$start$SetupStateChangeListener {
+		State$State$start$Changed state$State$start$Changed;
+		stateChangedListener:=on State$State$start$Changed(scenarioInstanceId = scenarioInstanceId, sequenceNumber=stateChangeSequenceNumber+1):state$State$start$Changed {
+			State$start$SetupStateChangeListener();
+			emitUpdate();
+			State$start$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(0);
+			}
+		}
+	}
+
+	action State$start$ChangeCheck {
+		integer changeVector$0;
+		changeVector$0 := 0;
+		if oldvariables.$action != variables.$action then {
+		}
+		if oldvariables.$action != variables.$action then {
+			changeVector$0 := changeVector$0 or 0x1;
+		}
+		if (changeVector$0 and 0x1) != 0  then {
+			addRuleToSchedule(0);
+		}
+		if (changeVector$0 and 0x1) != 0  then {
+			addRuleToSchedule(1);
+		}
+		if (changeVector$0 and 0x1) != 0  then {
+			addRuleToSchedule(2);
+		}
+		if (changeVector$0 and 0x1) != 0  then {
+			addRuleToSchedule(3);
+		}
+		resetSavedState();
+	}
+
+	action State$start$Rules returns integer {
+		integer ruleId;
+		integer nextState;
+
+		while schedule.size() > 0 {
+			ruleId := schedule[0];
+			schedule.remove(0);
+			if ruleId = 0 then {
+				if State$start$Rule$New_Rule_1$Condition() then {
+					nextState := State$start$Rule$New_Rule_1$Action();
+					if nextState != -1 then {
+						return nextState;
+					}
+				}
+			} else if ruleId = 1 then {
+				if State$start$Rule$New_Rule_3$Condition() then {
+					nextState := State$start$Rule$New_Rule_3$Action();
+					if nextState != -1 then {
+						return nextState;
+					}
+				}
+			} else if ruleId = 2 then {
+				if State$start$Rule$New_Rule_5$Condition() then {
+					nextState := State$start$Rule$New_Rule_5$Action();
+					if nextState != -1 then {
+						return nextState;
+					}
+				}
+			} else if ruleId = 3 then {
+				if State$start$Rule$New_Rule_4$Condition() then {
+					nextState := State$start$Rule$New_Rule_4$Action();
+					if nextState != -1 then {
+						return nextState;
+					}
+				}
+			} else {
+				log "Internal error in scenario Scenario1. Invalid rule " + ruleId.toString() + " in state State$start" at INFO;
+				die;
+			}
+		}
+		return -3;
+	}
+
+	action State$start$Rule$New_Rule_1$Condition returns boolean {
+		boolean retval;
+		retval := (variables.$action = "newOrder");
+		return retval;
+	}
+
+	action State$start$Rule$New_Rule_1$Action returns integer {
+		inAction := true;
+		block0$Parameter$quantity := (variables.quantity.toFloat()).round();
+		block0$Instance.update$quantity(block0$Parameter$quantity);
+		block0$Parameter$order_identifier := "";
+		block0$Instance.update$order_identifier(block0$Parameter$order_identifier);
+		block0$Parameter$symbol := variables.symbol;
+		block0$Instance.update$symbol(block0$Parameter$symbol);
+		block0$Parameter$side := variables.side;
+		block0$Instance.update$side(block0$Parameter$side);
+		block0$Parameter$type := variables.type;
+		block0$Instance.update$type(block0$Parameter$type);
+		block0$Parameter$market_identifier := "ALGO";
+		block0$Instance.update$market_identifier(block0$Parameter$market_identifier);
+		block0$Parameter$service_identifier := "FIX";
+		block0$Instance.update$service_identifier(block0$Parameter$service_identifier);
+		block0$Parameter$price := variables.price;
+		block0$Instance.update$price(block0$Parameter$price);
+		block0$Instance.operation$submit_order(State$start$Rule$New_Rule_1$Action$OperationAck$0);
+		if inAction then {
+			waitingForOperation := true;
+			return -3;
+		} else {
+			cleanUpState();
+			State$getBack();
+			return 2;
+		}
+	}
+
+	action State$start$Rule$New_Rule_1$Action$OperationAck$0() {
+		inAction := false;
+		emitUpdate();
+		State$start$ChangeCheck();
+		if waitingForOperation then {
+			waitingForOperation := false;
+			cleanUpState();
+			State$getBack();
+			Dispatcher(2);
+		}
+	}
+
+
+	action State$start$Rule$New_Rule_3$Condition returns boolean {
+		boolean retval;
+		retval := (variables.$action = "modifyOrder");
+		return retval;
+	}
+
+	action State$start$Rule$New_Rule_3$Action returns integer {
+		inAction := true;
+		block0$Parameter$order_identifier := variables.orderId;
+		block0$Instance.update$order_identifier(block0$Parameter$order_identifier);
+		block0$Parameter$quantity := (variables.quantity.toFloat()).round();
+		block0$Instance.update$quantity(block0$Parameter$quantity);
+		block0$Parameter$price := variables.price;
+		block0$Instance.update$price(block0$Parameter$price);
+		block0$Instance.operation$modify_order(State$start$Rule$New_Rule_3$Action$OperationAck$0);
+		if inAction then {
+			waitingForOperation := true;
+			return -3;
+		} else {
+			cleanUpState();
+			State$getBack();
+			return 2;
+		}
+	}
+
+	action State$start$Rule$New_Rule_3$Action$OperationAck$0() {
+		inAction := false;
+		emitUpdate();
+		State$start$ChangeCheck();
+		if waitingForOperation then {
+			waitingForOperation := false;
+			cleanUpState();
+			State$getBack();
+			Dispatcher(2);
+		}
+	}
+
+
+	action State$start$Rule$New_Rule_5$Condition returns boolean {
+		boolean retval;
+		retval := (variables.$action = "cancelAll");
+		return retval;
+	}
+
+	action State$start$Rule$New_Rule_5$Action returns integer {
+		inAction := true;
+		block0$Instance.operation$cancel_order(State$start$Rule$New_Rule_5$Action$OperationAck$0);
+		if inAction then {
+			waitingForOperation := true;
+			return -3;
+		} else {
+			cleanUpState();
+			State$getBack();
+			return 2;
+		}
+	}
+
+	action State$start$Rule$New_Rule_5$Action$OperationAck$0() {
+		inAction := false;
+		emitUpdate();
+		State$start$ChangeCheck();
+		if waitingForOperation then {
+			waitingForOperation := false;
+			cleanUpState();
+			State$getBack();
+			Dispatcher(2);
+		}
+	}
+
+
+	action State$start$Rule$New_Rule_4$Condition returns boolean {
+		boolean retval;
+		retval := (variables.$action = "quit");
+		return retval;
+	}
+
+	action State$start$Rule$New_Rule_4$Action returns integer {
+		inAction := true;
+		inAction := false;
+		emitUpdate();
+		State$start$ChangeCheck();
+		return -2;
+	}
+
+
+
+
+	action State$getBack {
+		stateNumber := 2;
+		schedule := [
+			0
+		];
+		State$getBack$SetupListeners();
+	}
+
+	action State$getBack$SetupListeners {
+		stateChangedListener.quit();
+		dispatchPending:=false;
+		State$getBack$SetupStateChangeListener();
+	}
+
+	action State$getBack$SetupStateChangeListener {
+		State$State$getBack$Changed state$State$getBack$Changed;
+		stateChangedListener:=on State$State$getBack$Changed(scenarioInstanceId = scenarioInstanceId, sequenceNumber=stateChangeSequenceNumber+1):state$State$getBack$Changed {
+			State$getBack$SetupStateChangeListener();
+			emitUpdate();
+			State$getBack$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(2);
+			}
+		}
+	}
+
+	action State$getBack$ChangeCheck {
+		resetSavedState();
+	}
+
+	action State$getBack$Rules returns integer {
+		integer ruleId;
+		integer nextState;
+
+		while schedule.size() > 0 {
+			ruleId := schedule[0];
+			schedule.remove(0);
+			if ruleId = 0 then {
+				if State$getBack$Rule$New_Rule_2$Condition() then {
+					nextState := State$getBack$Rule$New_Rule_2$Action();
+					if nextState != -1 then {
+						return nextState;
+					}
+				}
+			} else {
+				log "Internal error in scenario Scenario1. Invalid rule " + ruleId.toString() + " in state State$getBack" at INFO;
+				die;
+			}
+		}
+		return -3;
+	}
+
+	action State$getBack$Rule$New_Rule_2$Condition returns boolean {
+		boolean retval;
+		retval := true;
+		return retval;
+	}
+
+	action State$getBack$Rule$New_Rule_2$Action returns integer {
+		inAction := true;
+		variables.$action := "\"\"";
+		inAction := false;
+		emitUpdate();
+		State$getBack$ChangeCheck();
+		cleanUpState();
+		State$start();
+		return 0;
+	}
+
+
+
+
+	action endState {
+		ended := true;
+		finish("ENDED", false);
+		generateInstanceDied(false);
+		die;
+	}
+
+	action finish(string state, boolean deleted) {
+		block0$Instance.cleanup();
+		if runningState != state then {
+			runningState:=state;
+			if not deleted then {
+				updater.finished(state, init.owner, getLastUpdateInputVariables(), getLastUpdateOutputVariables());
+			}
+			updater.emitStateChange(state);
+		}
+	}
+
+	action addRuleToSchedule(integer ruleNum) {
+		integer i := schedule.indexOf(ruleNum);
+		if i = -1 then {
+			schedule.append(ruleNum);
+		}
+	}
+
+	action setupQuitListener {
+		com.apama.scenario.Delete delete;
+		on com.apama.scenario.Delete(scenarioId="Scenario_Scenario1", scenarioInstanceId = scenarioInstanceId):delete {
+			emitAcknowledgement(delete.messageId);
+			finish("ENDED", true);
+			// Tell everyone about Deletion
+			updater.emitOpCompleted(delete.messageId);
+			generateInstanceDied(true);
+			updater.emitDeleted(delete.messageId);
+			die;
+		}
+	}
+
+	action cleanUpState {
+		schedule.setSize(0);
+		resetSavedState();
+	}
+
+	action emitUpdate {
+		boolean updated:=false;
+		if pendingEdited or (not inAction and (oldvariables.symbol != variables.symbol or oldvariables.quantity != variables.quantity or oldvariables.side != variables.side or oldvariables.type != variables.type or oldvariables.$action != variables.$action or oldvariables.orderId != variables.orderId or not (oldvariables.price).bitEquals(variables.price))) then {
+			updateVariableSnapshot := variables.clone();
+			updated := true;updater.emitEdited(editMessageId, getInputVariables());
+			pendingEdited := false;
+			editMessageId := 0;
+		}
+		if(not inAction and (oldvariables.status != variables.status or oldvariables.orderStatus != variables.orderStatus or oldvariables.market xor variables.market or oldvariables.visible xor variables.visible or oldvariables.modifiable xor variables.modifiable or oldvariables.identifier != variables.identifier)) then {
+			if not updated then {
+				updateVariableSnapshot := variables.clone();
+			}
+			updater.newUpdateAvailable();
+		}
+	}
+
+	action emitAcknowledgement(integer messageId) {
+		updateVariableSnapshot := variables.clone();
+		updater.emitAcknowledgement(messageId);
+	}
+
+	action emitNack(integer messageId, integer scenarioInstanceId) {
+		updater.emitNack(messageId);
+		updater.emitOpCompleted(messageId);
+	}
+
+	action resetSavedState {
+		oldvariables := variables.clone();
+		block0$Feed0$OldEvent_order_identifier := block0$Feed0$Event_order_identifier;
+		block0$Feed0$OldEvent_quantity := block0$Feed0$Event_quantity;
+		block0$Feed0$OldEvent_side := block0$Feed0$Event_side;
+		block0$Feed0$OldEvent_state := block0$Feed0$Event_state;
+		block0$Feed0$OldEvent_in_market := block0$Feed0$Event_in_market;
+		block0$Feed0$OldEvent_is_visible := block0$Feed0$Event_is_visible;
+		block0$Feed0$OldEvent_modifiable := block0$Feed0$Event_modifiable;
+		block0$Feed0$OldEvent_status_message := block0$Feed0$Event_status_message;
+		block0$OldParameter$order_identifier := block0$Parameter$order_identifier;
+		block0$OldParameter$service_identifier := block0$Parameter$service_identifier;
+		block0$OldParameter$broker_identifier := block0$Parameter$broker_identifier;
+		block0$OldParameter$book_identifier := block0$Parameter$book_identifier;
+		block0$OldParameter$market_identifier := block0$Parameter$market_identifier;
+		block0$OldParameter$exchange := block0$Parameter$exchange;
+		block0$OldParameter$symbol := block0$Parameter$symbol;
+		block0$OldParameter$price := block0$Parameter$price;
+		block0$OldParameter$quantity := block0$Parameter$quantity;
+		block0$OldParameter$side := block0$Parameter$side;
+		block0$OldParameter$type := block0$Parameter$type;
+		block0$OldParameter$extra_parameters := block0$Parameter$extra_parameters;
+		block0$OldParameter$leave_orders_open_on_scenario_exit := block0$Parameter$leave_orders_open_on_scenario_exit;
+		block0$OldParameter$clear_orders_in_final_state := block0$Parameter$clear_orders_in_final_state;
+		block0$OldParameter$auto$002dgenerate_order_identifier := block0$Parameter$auto$002dgenerate_order_identifier;
+		block0$OldParameter$add_scenario_info_to_extra_params := block0$Parameter$add_scenario_info_to_extra_params;
+		block0$Feed0$Changed := false;
+		block0$Feed1$Changed := false;
+		block0$Feed2$Changed := false;
+		block0$Feed3$Changed := false;
+		block0$Feed4$Changed := false;
+	}
+
+	action preSpawnBlockSetup() {
+		newBlocksInitialised := 0;
+		dictionary<string,string> userData := {"ScenarioName":"Scenario_Scenario1","ScenarioDisplayName":"Scenario1","ScenarioInstance": scenarioInstanceId.toString()};
+		block0$Instance.instancePreSpawnInit(scenarioInstanceId + 1,"Scenario_Scenario1$" + scenarioInstanceId.toString(), userData, context.current(), preSpawnAck);
+	}
+
+	action preSpawnAck {
+		newBlocksInitialised := newBlocksInitialised + 1;
+		if newBlocksInitialised = 1 then { 
+			newBlocksInitialised := 0;
+			spawn mThread;
+		}
+	}
+
+	action setupBlocks() {
+		dictionary<string,string> userData := {"ScenarioName":"Scenario_Scenario1","ScenarioDisplayName":"Scenario1","ScenarioInstance": scenarioInstanceId.toString()};
+		block0$Instance.instancePostSpawnInit(scenarioInstanceId + 1, init.owner, "Scenario_Scenario1$" + scenarioInstanceId.toString(), userData, block0$InitAck, block0$Parameter$order_identifier, block0$Parameter$service_identifier, block0$Parameter$broker_identifier, block0$Parameter$book_identifier, block0$Parameter$market_identifier, block0$Parameter$exchange, block0$Parameter$symbol, block0$Parameter$price, (block0$Parameter$quantity.toFloat()).round(), block0$Parameter$side, block0$Parameter$type, block0$Parameter$extra_parameters, block0$Parameter$leave_orders_open_on_scenario_exit, block0$Parameter$clear_orders_in_final_state, block0$Parameter$auto$002dgenerate_order_identifier, block0$Parameter$add_scenario_info_to_extra_params, block0$Feed0$Update, block0$Feed1$Update, block0$Feed2$Update, block0$Feed3$Update, block0$Feed4$Update);
+
+	}
+
+	action checkBlocksInitialised {
+		if newBlocksInitialised = 1 then {
+			stateNumber := 0;
+			inAction := true;
+			if savedBlockFeeds.hasKey(0) then {
+				inAction := true;
+				string order_identifier := savedBlockFeeds[0][0];
+				string market_order_identifier := savedBlockFeeds[0][1];
+				string symbol := savedBlockFeeds[0][2];
+				float price := float.parse(savedBlockFeeds[0][3]);
+				integer quantity := integer.parse(savedBlockFeeds[0][4]);
+				string side := savedBlockFeeds[0][5];
+				string type := savedBlockFeeds[0][6];
+				integer state := integer.parse(savedBlockFeeds[0][7]);
+				float money_executed := float.parse(savedBlockFeeds[0][8]);
+				float average_price_executed := float.parse(savedBlockFeeds[0][9]);
+				float last_price_executed := float.parse(savedBlockFeeds[0][10]);
+				integer last_quantity_executed := integer.parse(savedBlockFeeds[0][11]);
+				integer quantity_executed := integer.parse(savedBlockFeeds[0][12]);
+				integer quantity_remaining := integer.parse(savedBlockFeeds[0][13]);
+				boolean in_market := boolean.parse(savedBlockFeeds[0][14]);
+				boolean is_visible := boolean.parse(savedBlockFeeds[0][15]);
+				boolean modifiable := boolean.parse(savedBlockFeeds[0][16]);
+				boolean cancelled := boolean.parse(savedBlockFeeds[0][17]);
+				boolean change_rejected := boolean.parse(savedBlockFeeds[0][18]);
+				boolean externally_modified := boolean.parse(savedBlockFeeds[0][19]);
+				boolean final := boolean.parse(savedBlockFeeds[0][20]);
+				string status_message := savedBlockFeeds[0][21];
+				string extra_parameters := savedBlockFeeds[0][22];
+				block0$Feed0$Event_order_identifier := order_identifier;
+				block0$Feed0$Event_quantity := quantity;
+				block0$Feed0$Event_side := side;
+				block0$Feed0$Event_state := state;
+				block0$Feed0$Event_in_market := in_market;
+				block0$Feed0$Event_is_visible := is_visible;
+				block0$Feed0$Event_modifiable := modifiable;
+				block0$Feed0$Event_status_message := status_message;
+				variables.identifier := block0$Feed0$Event_order_identifier;
+				variables.quantity := (block0$Feed0$Event_quantity.toFloat()).round();
+				variables.side := block0$Feed0$Event_side;
+				variables.orderStatus := (block0$Feed0$Event_state.toFloat()).round();
+				variables.market := block0$Feed0$Event_in_market;
+				variables.visible := block0$Feed0$Event_is_visible;
+				variables.modifiable := block0$Feed0$Event_modifiable;
+				variables.status := block0$Feed0$Event_status_message;
+				block0$Feed0$Changed := true;
+			}
+			if savedBlockFeeds.hasKey(1) then {
+				inAction := true;
+				integer number_of_orders := integer.parse(savedBlockFeeds[1][0]);
+				integer total_placed := integer.parse(savedBlockFeeds[1][1]);
+				integer total_executed := integer.parse(savedBlockFeeds[1][2]);
+				integer total_working := integer.parse(savedBlockFeeds[1][3]);
+				integer waiting_for_acknowledgement := integer.parse(savedBlockFeeds[1][4]);
+				integer working := integer.parse(savedBlockFeeds[1][5]);
+				integer complete := integer.parse(savedBlockFeeds[1][6]);
+				integer rejected := integer.parse(savedBlockFeeds[1][7]);
+				integer pending_change := integer.parse(savedBlockFeeds[1][8]);
+				integer pending_cancel := integer.parse(savedBlockFeeds[1][9]);
+				integer cancelled := integer.parse(savedBlockFeeds[1][10]);
+				integer suspended := integer.parse(savedBlockFeeds[1][11]);
+				integer in_market := integer.parse(savedBlockFeeds[1][12]);
+				integer visible := integer.parse(savedBlockFeeds[1][13]);
+				integer modifiable := integer.parse(savedBlockFeeds[1][14]);
+				integer tradeable := integer.parse(savedBlockFeeds[1][15]);
+				block0$Feed1$Changed := true;
+			}
+			if savedBlockFeeds.hasKey(2) then {
+				inAction := true;
+				boolean complete := boolean.parse(savedBlockFeeds[2][0]);
+				block0$Feed2$Changed := true;
+			}
+			if savedBlockFeeds.hasKey(3) then {
+				inAction := true;
+				string order_identifier := savedBlockFeeds[3][0];
+				string symbol := savedBlockFeeds[3][1];
+				string side := savedBlockFeeds[3][2];
+				float money_executed := float.parse(savedBlockFeeds[3][3]);
+				float average_price_executed := float.parse(savedBlockFeeds[3][4]);
+				integer quantity_executed := integer.parse(savedBlockFeeds[3][5]);
+				float last_money_executed := float.parse(savedBlockFeeds[3][6]);
+				float last_price_executed := float.parse(savedBlockFeeds[3][7]);
+				integer last_quantity_executed := integer.parse(savedBlockFeeds[3][8]);
+				boolean final := boolean.parse(savedBlockFeeds[3][9]);
+				string extra_parameters := savedBlockFeeds[3][10];
+				block0$Feed3$Changed := true;
+			}
+			if savedBlockFeeds.hasKey(4) then {
+				inAction := true;
+				string order_identifier := savedBlockFeeds[4][0];
+				string symbol := savedBlockFeeds[4][1];
+				string side := savedBlockFeeds[4][2];
+				integer quantity_executed := integer.parse(savedBlockFeeds[4][3]);
+				integer last_quantity_executed := integer.parse(savedBlockFeeds[4][4]);
+				boolean final := boolean.parse(savedBlockFeeds[4][5]);
+				string extra_parameters := savedBlockFeeds[4][6];
+				block0$Feed4$Changed := true;
+			}
+			savedBlockFeeds := {};
+			inAction := false;
+			emitAcknowledgement(init.messageId);
+
+			runningState:="RUNNING";
+
+			updater.emitCreated(init.messageId, init.owner, runningState, getInputVariables(), getOutputVariables());
+
+			updateVariableSnapshot := variables.clone();
+			createdSent:=true;
+			com.apama.scenario.RequestInstancesInternal requestInstances;
+			if init.owner = "*" then {
+				on all com.apama.scenario.RequestInstancesInternal(scenarioId = "Scenario_Scenario1"): requestInstances {
+					updater.emitInstance(requestInstances, init.owner, runningState, getInputVariables(), getOutputVariables());
+					}
+			} else {
+				on all (com.apama.scenario.RequestInstancesInternal(scenarioId = "Scenario_Scenario1", ownerFilter=false): requestInstances or
+					com.apama.scenario.RequestInstancesInternal(scenarioId = "Scenario_Scenario1", owner=init.owner, ownerFilter=true): requestInstances) {
+					updater.emitInstance(requestInstances, init.owner, runningState, getInputVariables(), getOutputVariables());
+					}
+				}
+			resetSavedState();
+			State$start();
+			Dispatcher(0);
+		}
+	}
+
+	action block0$Feed0$Update(string order_identifier, string market_order_identifier, string symbol, float price, integer quantity, string side, string type, integer state, float money_executed, float average_price_executed, float last_price_executed, integer last_quantity_executed, integer quantity_executed, integer quantity_remaining, boolean in_market, boolean is_visible, boolean modifiable, boolean cancelled, boolean change_rejected, boolean externally_modified, boolean final, string status_message, string extra_parameters) {
+		if ended then {
+			return;
+		}
+		if stateNumber = -1 then {
+			sequence<string> s := [order_identifier.toString(), market_order_identifier.toString(), symbol.toString(), price.toString(), quantity.toString(), side.toString(), type.toString(), state.toString(), money_executed.toString(), average_price_executed.toString(), last_price_executed.toString(), last_quantity_executed.toString(), quantity_executed.toString(), quantity_remaining.toString(), in_market.toString(), is_visible.toString(), modifiable.toString(), cancelled.toString(), change_rejected.toString(), externally_modified.toString(), final.toString(), status_message.toString(), extra_parameters.toString()];
+			savedBlockFeeds[0] := s;
+			return;
+		}
+		boolean savedInAction := inAction;
+		inAction := true;
+		block0$Feed0$Event_order_identifier := order_identifier;
+		block0$Feed0$Event_quantity := quantity;
+		block0$Feed0$Event_side := side;
+		block0$Feed0$Event_state := state;
+		block0$Feed0$Event_in_market := in_market;
+		block0$Feed0$Event_is_visible := is_visible;
+		block0$Feed0$Event_modifiable := modifiable;
+		block0$Feed0$Event_status_message := status_message;
+		variables.identifier := block0$Feed0$Event_order_identifier;
+		variables.quantity := (block0$Feed0$Event_quantity.toFloat()).round();
+		variables.side := block0$Feed0$Event_side;
+		variables.orderStatus := (block0$Feed0$Event_state.toFloat()).round();
+		variables.market := block0$Feed0$Event_in_market;
+		variables.visible := block0$Feed0$Event_is_visible;
+		variables.modifiable := block0$Feed0$Event_modifiable;
+		variables.status := block0$Feed0$Event_status_message;
+		block0$Feed0$Changed := true;
+		inAction := savedInAction;
+		if inAction then {
+			return;
+		}
+		if stateNumber = 0 then {
+			emitUpdate();
+			State$start$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(0);
+			}
+		} else if stateNumber = 2 then {
+			emitUpdate();
+			State$getBack$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(2);
+			}
+		}
+	}
+
+	action block0$Feed1$Update(integer number_of_orders, integer total_placed, integer total_executed, integer total_working, integer waiting_for_acknowledgement, integer working, integer complete, integer rejected, integer pending_change, integer pending_cancel, integer cancelled, integer suspended, integer in_market, integer visible, integer modifiable, integer tradeable) {
+		if ended then {
+			return;
+		}
+		if stateNumber = -1 then {
+			sequence<string> s := [number_of_orders.toString(), total_placed.toString(), total_executed.toString(), total_working.toString(), waiting_for_acknowledgement.toString(), working.toString(), complete.toString(), rejected.toString(), pending_change.toString(), pending_cancel.toString(), cancelled.toString(), suspended.toString(), in_market.toString(), visible.toString(), modifiable.toString(), tradeable.toString()];
+			savedBlockFeeds[1] := s;
+			return;
+		}
+		boolean savedInAction := inAction;
+		inAction := true;
+		block0$Feed1$Changed := true;
+		inAction := savedInAction;
+		if inAction then {
+			return;
+		}
+		if stateNumber = 0 then {
+			emitUpdate();
+			State$start$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(0);
+			}
+		} else if stateNumber = 2 then {
+			emitUpdate();
+			State$getBack$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(2);
+			}
+		}
+	}
+
+	action block0$Feed2$Update(boolean complete) {
+		if ended then {
+			return;
+		}
+		if stateNumber = -1 then {
+			sequence<string> s := [complete.toString()];
+			savedBlockFeeds[2] := s;
+			return;
+		}
+		boolean savedInAction := inAction;
+		inAction := true;
+		block0$Feed2$Changed := true;
+		inAction := savedInAction;
+		if inAction then {
+			return;
+		}
+		if stateNumber = 0 then {
+			emitUpdate();
+			State$start$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(0);
+			}
+		} else if stateNumber = 2 then {
+			emitUpdate();
+			State$getBack$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(2);
+			}
+		}
+	}
+
+	action block0$Feed3$Update(string order_identifier, string symbol, string side, float money_executed, float average_price_executed, integer quantity_executed, float last_money_executed, float last_price_executed, integer last_quantity_executed, boolean final, string extra_parameters) {
+		if ended then {
+			return;
+		}
+		if stateNumber = -1 then {
+			sequence<string> s := [order_identifier.toString(), symbol.toString(), side.toString(), money_executed.toString(), average_price_executed.toString(), quantity_executed.toString(), last_money_executed.toString(), last_price_executed.toString(), last_quantity_executed.toString(), final.toString(), extra_parameters.toString()];
+			savedBlockFeeds[3] := s;
+			return;
+		}
+		boolean savedInAction := inAction;
+		inAction := true;
+		block0$Feed3$Changed := true;
+		inAction := savedInAction;
+		if inAction then {
+			return;
+		}
+		if stateNumber = 0 then {
+			emitUpdate();
+			State$start$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(0);
+			}
+		} else if stateNumber = 2 then {
+			emitUpdate();
+			State$getBack$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(2);
+			}
+		}
+	}
+
+	action block0$Feed4$Update(string order_identifier, string symbol, string side, integer quantity_executed, integer last_quantity_executed, boolean final, string extra_parameters) {
+		if ended then {
+			return;
+		}
+		if stateNumber = -1 then {
+			sequence<string> s := [order_identifier.toString(), symbol.toString(), side.toString(), quantity_executed.toString(), last_quantity_executed.toString(), final.toString(), extra_parameters.toString()];
+			savedBlockFeeds[4] := s;
+			return;
+		}
+		boolean savedInAction := inAction;
+		inAction := true;
+		block0$Feed4$Changed := true;
+		inAction := savedInAction;
+		if inAction then {
+			return;
+		}
+		if stateNumber = 0 then {
+			emitUpdate();
+			State$start$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(0);
+			}
+		} else if stateNumber = 2 then {
+			emitUpdate();
+			State$getBack$ChangeCheck();
+			if dispatchPending then {
+				dispatchPending:=false;
+				Dispatcher(2);
+			}
+		}
+	}
+
+	action setupBlockListeners() {
+
+	}
+
+	action block0$InitAck() {
+		newBlocksInitialised := newBlocksInitialised + 1;
+		checkBlocksInitialised();
+	}
+
+	action setupEditListener() {
+		com.apama.scenario.Edit edit;
+		on all com.apama.scenario.Edit(scenarioId = "Scenario_Scenario1", scenarioInstanceId = scenarioInstanceId):edit {
+			if (edit.inputFieldValues.size() != 7) then {
+				log "Scenario1("+edit.scenarioInstanceId.toString()+"): " + "Scenario edit ignored - " + (7).toString() + " input field(s) required but " + edit.inputFieldValues.size().toString() + " provided." at INFO;
+				emitNack(edit.messageId, edit.scenarioInstanceId);
+				return;
+			}
+
+			variables.symbol := edit.inputFieldValues[0];
+			variables.quantity := ((edit.inputFieldValues[1]).toFloat()).round();
+			variables.side := edit.inputFieldValues[2];
+			variables.type := edit.inputFieldValues[3];
+			variables.$action := edit.inputFieldValues[4];
+			variables.orderId := edit.inputFieldValues[5];
+			variables.price := (edit.inputFieldValues[6]).toFloat();
+			emitAcknowledgement(edit.messageId);
+			pendingEdited := true;
+			editMessageId := edit.messageId;
+			emitUpdate();
+			if stateNumber = 0 then {
+				State$start$ChangeCheck();
+				Dispatcher(0);
+			} else if stateNumber = 2 then {
+				State$getBack$ChangeCheck();
+				Dispatcher(2);
+			}
+		}
+	}
+
+	action getInputVariables() returns sequence<string> {
+		sequence<string> s := [
+			variables.symbol.toString(),
+			variables.quantity.toString(),
+			variables.side.toString(),
+			variables.type.toString(),
+			variables.$action.toString(),
+			variables.orderId.toString(),
+			variables.price.toString()
+		];
+		return s;
+	}
+
+	action getLastUpdateInputVariables() returns sequence<string> {
+		sequence<string> s := [
+			updateVariableSnapshot.symbol.toString(),
+			updateVariableSnapshot.quantity.toString(),
+			updateVariableSnapshot.side.toString(),
+			updateVariableSnapshot.type.toString(),
+			updateVariableSnapshot.$action.toString(),
+			updateVariableSnapshot.orderId.toString(),
+			updateVariableSnapshot.price.toString()
+		];
+		return s;
+	}
+
+	action getOutputVariables() returns sequence<string> {
+		sequence<string> s := [
+			variables.status.toString(),
+			variables.orderStatus.toString(),
+			variables.market.toString(),
+			variables.visible.toString(),
+			variables.modifiable.toString(),
+			variables.identifier.toString()
+		];
+		return s;
+	}
+
+	action getLastUpdateOutputVariables() returns sequence<string> {
+		sequence<string> s := [
+			updateVariableSnapshot.status.toString(),
+			updateVariableSnapshot.orderStatus.toString(),
+			updateVariableSnapshot.market.toString(),
+			updateVariableSnapshot.visible.toString(),
+			updateVariableSnapshot.modifiable.toString(),
+			updateVariableSnapshot.identifier.toString()
+		];
+		return s;
+	}
+
+	action btot(boolean z) returns integer {
+		if z then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action tmerge(boolean received, integer z) returns integer {
+		if not received then {
+			return 0;
+		} else {
+			return z;
+		}
+	}
+
+	action tand(integer a, integer b) returns integer {
+		if a = 1 or b = 1 then {
+			return 1;
+		} else if a = 2 and b = 2 then {
+			return 2;
+		} else {
+			return 0;
+		}
+	}
+
+	action tor(integer a, integer b) returns integer {
+		if a = 2 or b = 2 then {
+			return 2;
+		} else if a = 1 and b = 1 then {return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	action txor(integer a, integer b) returns integer {
+		if a = 0 or b = 0 then {
+			return 0;
+		} else if a = 2 and b = 1 or a = 1 and b = 2 then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action tnot(integer a) returns integer {
+		if a = 0 then {
+			return 0;
+		} else if a = 1 then {return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action tlte(float a, float b) returns integer {
+		if a <= b then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action tgte(float a, float b) returns integer {
+		if a >= b then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action tlt(float a, float b) returns integer {
+		if a < b then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action tgt(float a, float b) returns integer {
+		if a > b then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action teqf(float a, float b) returns integer {
+		if a = b then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action tneqf(float a, float b) returns integer {
+		if a != b then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action teqs(string a, string b) returns integer {
+		if a = b then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+	action tneqs(string a, string b) returns integer {
+		if a != b then {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
+
+}
+
+// SCENARIO SOURCE:
+// UEsDBBQACAAIAMWF40AAAAAAAAAAAAAAAAANAAQAU2NlbmFyaW8xLnNkZv7KAADtXFtzmzgUfu9M
+// /wPLw74RA+K6i7eT3SY7mWk3nSbd2T51ZJAdTbk4IOfy71fiYoEBGxwc407bTg2SLH3ncPSdo8NJ
+// nHdPgS88oDjBUTgVlTNZFFDoRh4OF1Pxy+2lZInv/nj7xvnl/fVft18/XQiJi0IY40i4+Xpze/FR
+// EO8IWf42mTw+Pp7BJQzgmRsFE494k8Sbn9FPkX6dTSBJ56xbuCkmeI/mOMSELixcYh9JElunmJ5e
+// C4KzjKMliglGibCEMfR95E/FOfQTJAqTbMjCj2bQl+KVTwflbQmBBCXpdXYXEylty5to4yxahV4i
+// +GhOqNgaFZtES3ol66LwiD1yNxVNenmH8OKOZNcT/u10tfVt3iBgbyqyiWIYJqlcEmtRRMGHMwb8
+// H/QofGYDaRNOJOgS/ICmIolXSCxNRqfzUOLGeJnqZlLtcqPQSyevNDMxn0MCn6Qw8tBGF+8kKA5w
+// SNX1QHUMZxRK3oF8FKCQCrqIYRDA+IygJ7KC/r/5uG9XIf1uhvg2n0RMBVYAALqsG7IBVJvJ9S1G
+// Sx+6yMslE4q1pMpw3VQtcUO4Jqi7EF4lF/f04zb61ooLyF0WknzMRNy5YCdVAKVFFf6KPvEQPV7H
+// HorrsJxJ22N0Js1P3mFIXmgNMz9yv7MNFiDa1qqAcBWgGLvp6E/F6G3q0BTVUE2gWsBoVEc606ZZ
+// yJoorLFIIf2sdCvgRVaTy3CeJHgRsq6a2XDQWiez2bmV8iW7bCW+ttVvK6l9TOlA5pHvj+7mkcM3
+// ZaAPZh6yPgSpbDEPDrqTIQ7IKnTJ5m2Us8oJm4ChaWA4hlBexwQo6G6O5RDOVtOa90wrQzQo5XTM
+// Q5fl4cyjE60PYR52pwDnIOahy2o/82ggs1MyjwHji1dyIBT0QPHFXubRM75ogHo65mGrwzkX2X4l
+// 87CbGPuwpxZbNbfFF+cf/r4+ZTPQ9eFYghHO67CE3o0lBjQD3Wwjh9QMLq/+G4EV9D6LrqVTBow0
+// G45dg55FOehuZDDkWXS9NmhWWJuvAA0MObB5sKQgTJNjbXKmw66LYd2yV1o/u1iDyO3CpvtGMYBl
+// a4osq0avgMqZ1LI4zoTlFBtzjGVlg3q+sdSr1XOP4MfMPWptruvIuUet2xlgyNyj1paGTek7iDw8
+// fz7F9OPejh+YzYehMeeXKOjjJReA2S+5ABqUMv6IQKP/AGPqFmlHmp0uQHeKPQbOThdr9yTbMWSn
+// 9zcP0CztKANGDroTTx3GPEC/94CnGjDqze/49g0Ye6VY+geMtmWZqm7YZmPAWPRa9YBR/8ECxlRU
+// Q7Z65s8PHjAWuDplFoYJGIslt6Z9XBi6yD/3/VGFi8Pu6EIRzcS1747uFRXtfwRs3tFFb8OO1n6w
+// HZ3zccvTO/oR0H798hN7a/nJ/QqTATdzZaYNm81uealUuVxLitEcxYiyS7KegoKoVWs5KPS2l2/Z
+// el6+pbI3sh3Lt8oNO1FtQnBWCY3v0pbN/ciS6PmOWyDyJ3S/izXcGViVgs0kUDlshV0XuA25jnsn
+// HzSUoJV6G8rR1GPzQbvNUyxb6rp6EuzhXNJhUlrN77wPy2ddMhPgCDmtrYT26/0qIr9n/w/rc/vz
+// FyeGtCkltKIY1eH7cl2dypuEvFqUPC+pTDTmYHpIF8oLS5NoFbsomzxtS7ly3b6MYkYZdAIYU+Yp
+// jdtgp7w/G6+u+SC/kJ6mYlpvkd09Z3dcA8sIh6QsMZegTaYq/VTkq8m0gbUiG2iQLddBRSajm0xc
+// uVX6HEpWbZesQzw/8BJZwWCyWkPJSj3tfhbaLKH5YglLR+P+Epqv8TT50b67rOWGnJwKx7KmJhwu
+// V0TIjjalqQMUzFBcC3sqbyjbBoEug9Qug6wOg6oBQtsgu8typeyMM0kVU9xFK9JHTV0gVesK2wZ1
+// 0aWmdRnUReGaUtZAJnRxuw5/GmwiN+fkOZhFdNfAFYkkto+8zUjTSZ155tLzjZYFEKUCV34SF4U5
+// QtknRr5XrX5lU2EvSw9kUyUkxuFCFGh04aNwwQJtegOf+E02woUJe0eGnxBjoRgHRaSxCvE9w5D/
+// 8EmwInCGKUC6IdNrH5XVUyhkp4I4t9FTZEjofP1UlCkkexpbEhWZrqrpCVbJlOuu2qEY23VJiQUt
+// 2NtDqsz1k6G6XF8fSFecGxPsoePraYPxTsbmeFEAw/lzS9YJujAz6rJXyfENDZyoofHUY3bM+mlq
+// 9fAkV1DE6jGuvJ8aqsdmuYaWMXY3yCpbq4eCZPbjrXvraO5HkLy219Pkqo3cjISTlB2cdKQgQeMR
+// ZwDj74gcX1PV2vm6pmZR5CMYHkwjPMR8wAlOZzm6SvTjqoRHkmk1HIbj0MqOuPvQWuFxIQ2v6VmE
+// goyPrxVFHq/n4rd5CiUVeZ0/Se8KnaYVl8JHGEJKi+lvAKgphktJULD02bulLKtQ+a7If12DxvyZ
+// Cwn0o8VUvMQhe1XPCpDInYTDeVT9Jsu+TyrKXFcqVV4qtRmIzMOV6iNihTDtZjJw7NJg0ttRG22o
+// 1TGjNttQgzGjtkqoLV1RgA3k9M+oLcRu07U2YtSK3IZaHzNqpQ21MWbUahtq8+Wo+xxKegMHbcCt
+// AYAfDrbWBtses5W0+UdWxTFe1G3+0RgzZytt/tEYwKtfnn+4uTgcdO4kFWDRv5ppG6o2kJc8MHbu
+// KhlkilyWTV1WZMPQ7AEY/Pbzl8OBV7nHtExLBrZtmaplAkqG5hCufgDVO5OGkLxaNNZYM6aXasbK
+// Lw+dSYomP6yUTifOI47zshVnUvqda2/f/A9QSwcIHIfMPygIAAASTgAAUEsDBBQACAAIAMWF40AA
+// AAAAAAAAAAAAAABIAAAAYmxvY2tzL0ZpbmFuY2UvT3JkZXIgTWFuYWdlbWVudC9PcmRlciBNYW5h
+// Z2VyLmJkZi9PcmRlciBNYW5hZ2VyIHY0LjAuYmRm7X37UxtHtvDPqCr/w6xuqiJsId4GA+IWwXiX
+// LzZ4Dd58qVSKEtIA81maIZqRCTfl//07j35Pz0NC2CY3e++uUU8/T58+fd69999/jIbBp3CcRknc
+// ba52VppBGPeTQRRfd5sfzl8vbTf/e/+7xt4/Xp0env/y7ii4HCb9j8HZL2fnR2+D5k2W3e4sL9/d
+// 3XV6t71Rr9NPRsuDbLB8ObjqwL9NaIutl5YO8HPwI7V+FV5FcZTBkMHraBguLeEI3HHcG4Xd5ul4
+// EI6Dt724dx2OsY8g2BOTpB/wMxrsb3RW9pbhX1Ey6GXh/uoKNLsP1lZWXu4tU4n42ptkN8l4/904
+// uR6HaRqcJVfZXW8c7i2LL6IeLGAUxlm6f34TBtY8xNJvevFgGKZBNu4NwiD8I+xPcCVpAOVBmsGQ
+// wVUyDnrBWT+Me+Mo6QTB6S1W6Q2H90GUBb3BAJpD9/3JeAxjqZpBNICfUQa1Yuhj1CMQZQlVHvXG
+// H8MsSGhK4R8wfHDbG/dGKfSPQMbZHya39+Po+iYLWv1FBMLG0trK6mqQWzXUHN8mYx6g9e7scBF6
+// ORgOg/fYOg3eh2k4/hQOOnvLCiC0C8vmNuwNwrQ/jmhx+++GvX7IUBgRwFKeawqLAWjw9GFPjCbU
+// x+04uQ3HWQT1cT3DYThc6uEcu81sPAmbwSC8HYd9gOug27zqDdOwqXAgvp1kS1dhCPBcloXJJFOl
+// ogxK8adALoYg7tQkbQLIu82Xm1vbqy/Wt19urK6srK28bKp2zhrPsnHYGwXJlbVBvUsYk/aIO8Xv
+// vPR2MLlFJBwEdzdhHALsABJXEcAZMCSBFmNRIYjSABYZRgBzRp/4Xmw1QA+7vkySj21shj3B5wCh
+// JvYv7Fx3oHk2jmCIdpBOLkcRYgogG9YJF7H7KP6UfAwH+R2QEIrCoQ0ixkYoH/vAtLpigskB1LFs
+// yojO/eG6shuYigDTOAQU9KCE6vFTbxgNxCG4v4V5pbDE+LoZ8L/9Xgplo+iPcNCE4xiNJMZM4uj3
+// SSixJRhNst5lNIRzBbXx7yEWRvEwjK+zm24TfvT+0D+WTagsE1iK4GSdyQpwvSwB17k630u9NI2u
+// Y8AC3V1wDWgh6EAkTtVThlp6P7pMhj4grZXh1DkdMCTBBmjGIcw5xRMmzsmTh87tOOqHXuCsVwCH
+// WhoQQTICpHvwAOBcDZNeNi/YQO9Yi0Cj/p4CMr9PenQ7eo/XiwrgyMbzhU8UZyGyKN8IhFI4GV7U
+// Wa06V9AQr625naDJ7S2C5aucIJyVFwprFVDAhuryngUCxdOfA2ymwQNkQ73HpBIRiIE1MSForXTj
+// 8K4drHbvesC0x9ftYK17l4w/0p/rXWAQb4dhBozHRncc/r+wn7WDze4tHCyoEPSBX76Gby90SS/u
+// h8N2sNXlv4bhoB1sd9NJekuHsR287E7ij3FyFwNXehLeBelNMoG1JTHwz5cwR7hye1cZMVP9Ydgb
+// A+/6M08tGIW92OQ57nqp4IfwxF8Cn3YDJXGSQUfIR/VxHJjBNfC6wc+8qFwnxD2ZTDgzucih0T/c
+// HbKvWURMPrJ4MNwST1mzwdiFHIQhjc2h6QgkLthAmMOhgGZuEjhvkjkAEJMMlvyeYJ2rx2zmCIUT
+// YAKBQCXuzLGnqx4IXjDcO2ub6LO9T9Q/9NDLjDHgk1iznDhgcBYNFRMcyg4BdCaMEWKMI7RWuf/e
+// bVMopnftjndN4Q12J1cSnEkEUr3BnNNkFCZxSO0VhhkD4YKN1fTi6HYy7NHsgg+MhAYE4N9wPE54
+// M5I+yW8D6kMvHFYssBe6OM58eJIAjwdHGjk6AWTk501uX/TAXT7hC2kEsL8XQjJOwUORNquIcpL1
+// AECjBDAMCRMLzf173hHcCEa1AUnmadBKJyShqQv/mWCMEhK/QPbC05kuPlk2qAfrAPFarKoUthsV
+// sP2UDCejMLgLUepHTLa6Ti6zXoSiiA25Jwu4YS/N6kCtik1woMNibRhQ9wihpw0gdW5KYVQli6he
+// 5gOmb4ys1YPRVi3KpiFlMl2y478CkMbhCFCAGGQPlLang5LqDBVgsc2XPWFgwTp4DV7BpZSOwzSD
+// 6KqEXZ0GLJdJAhx1PBewTLP8NPgUEVPkXX8pj+Bbv+jMYduXiB0Uv4BvSGKUe8dcKrh04MkusZ3s
+// gflaEDTCMRIybDRg0wUMM4JOWfuaZsmt7AL1624HOAuA3zXaEfj+gOY3UTYVG/KVNod5/F7R5pRq
+// Xnybo/t7AotXsoZ37aUkPrd2ZFZJgJEiEAoGhhAcRmQSuAzhrgxJPUVSbgikCpf8tI60EADlUr3g
+// K6X9NcB3ef+0YBL+ATvJdkApOHvhUmorKIaLEsYtuBAioelgPCAVxf0TANRVBFDygWa91ELgBQ0d
+// HxRuAupViOktrbay1AkSt54CYRZ2tFGYpiC1ecFVpe8zjaG4fFZviB6fshnFsJDDJo+9lt71Mknv
+// ABrfg3Q2WGJLr1gZMgCZ4EDJSEskW48TXI2T0YxU6avDEH6HofEzZzVHK3SJ6Xx9fUrTeSLsLqh3
+// GA4N+3mPbOTETrE3gSJq7IXRihM4xEItCTwFzTRiza60uQvWje5QbPmDiew/UJPCU27hUjwZXUJD
+// Zdb3LX2jSo/ldmLZnAiwT1h8YSHtFl1AvDfaRj1ZWMMovQEuOpU6vk8hX3AEK9LNnqjt50uv32Mn
+// HFSz9nuTNGS0EB0CUz8I+4CAKZD7u5sI2HIm+mlwh94YgDVPHvhlqoiNKutoAfj/AloIXpmwJXhh
+// U08B0Z+M0DAQfVJaU+G9Bbwc9q6NyE9eFyHMfOyHpI036AXmJfpVWuZqyicoB1l65OgsiF9NhsKY
+// Jsh/+AcLFk8ZvsXIuP7wWwTpW/9GKCH+GggpWXUvxKpIW22I6WtGYJwcdjiVxPSNwa5M/l6vupVn
+// gN3DZfNvDIC2I4MXjFU3SA0wOoyOluSFZ6nJ5SgXhmu0bLsW/vu/BrSJPfNCu8qRcnpoawWABLcw
+// y/8lAc0gBaBubW+ura3gf1abOW3no8F4JpgVLXjeChXpIeJlFKucU6cHivZI+atc1aV2rI0qy3pd
+// CP6VmJsSu9dGlZU9By8FHb8BLG+r0gh5ExHpi8a2nWoqPeg3Btpyw9VGlW50Gmyczab1jcGL3AsL
+// wTUHMe+K4ldIPIl16BQw2ujemWYUGINedUEr6oQd0q8Kh1TSsgK0Y8WVD+ahuP/aG1CicOXYHQZP
+// sfizURysdMBKUWBagIWJrpgdT2WomQwj0sOQK50Ebi29aNnENmsaauDs4PmJEzhC8G8YYxSTwh0Z
+// IadmiU6jgCXk9mtEOOEqx2H6bRoBvZuMEFtdW1tfh//ZXN1Yt9gw0wcI5lu4xedK9c2xVCl76AU9
+// 8qW9hy29Bf6iY2hLo0y6HHMLtIspBTkPq1xtqOM0ivuhbEYXBYAadTR0mPGKQHbd0Ol30OlVemxf
+// hox2IsjvXjsSCy9N5RGWc6kKGNOU7yFr9YXCFiOi2KfC9g6SjTsV+OuD/poNfSOcqxiRfXFujxc4
+// 8JgWRR9E1iVERMRWOf1/xNisbxM8mwo8GHZTAZx5BNh8/fASHxi2mordspy962jVvwm37kcXLn1Q
+// eyGhVuDOXQ69L+W4/VVAsyFBk3ezrYNTj+BQ+6XAsLG1ur66/XJry+IG6H6c6nCpwyStJYIER8wg
+// BN3A4wsPJ8p/Ez8VvNm2ADbVeXoEl/6vAoKXFgimPT+P5bT/NUCxutK0fMmm9RqrlIRKJYo5r2x9
+// a2trc2V1bXvVIgw5H6c5eTOZHjpzcGf6atxbXcFr1RG8VKD5tHLXXZTdYC4QKRZNJYcJt1/3yqJN
+// 0JIY+7z8xWWx1a2/ZTEHItt/y2Il4Flb/VsWQyx5+b+WdbawYeVvNkiCYu0vywat/c0GzcAG7S17
+// EqTtaeAZ3NKUCcE2V0v4pdC8jFQiMOq2LUxCo0lK6RF4ucRLydxn6PJdyEV8bTf6HLgtj4Jw/Imi
+// /cpBt1ZsxYnzkMMUKNwt8HKfKIRxkrKph7MT6kPcCc64KoclprdhH/2IVEfCMAz4H4f9LPqEZI/6
+// UiNJg5HmRtmK3Pznm2Y7aL4+/r/NIMz6xZ703/T+XI6Tj9WYXRzW4N8eMqSSfYoCrsi9VQbwqW3J
+// yM2Vbtoo1eQLoxgS6hwu5Mse7oWIksht+mWIPeB2PTXgM4y3N1dX11+S4sKQaslS7Of4a4BemOVV
+// ZBMLP0BWev0+6ppRWXoNpD7Nvv4efKEbofQACAJQcQA2ptwFRnsSMElGdMlS0NLEZ/Hrb8S3QImk
+// qtYL/83Sq1U2ddM0aeQX/vWoEfgb1mUZKDdf1GVihIiElGQ8wdgIEbHAObqeJlwKc09ubpWChdGN
+// Wtdf+JdMfVO66rK8kpvbNRYuO6i/9i/rd1R+FgpyRm4WexZ5lSid4D+4yoDGRwee/nACVZo/fvil
+// SSnSmmdHb5Bl7A1RSXp9kyMrHL2XTm5RISpkMNGbYDmxh+DsX6fvz5H1hJ6Dt8cnH87mwYA+YsLK
+// UvAXJat8sVIKfpmqshL8bw/e/3R0LnbgzfHb4/MHbsH56btAdsq/uNcZ9+AL6dEqrt7qWPEXxdLt
+// zJHilgz2981MCrsQzRrCgZQyPME0DRk08jqWvyiWn48BmDD9tuyT2FG4pofhVeZJIcV+kY7gG2WF
+// vhNfyquwRI5aXd+G/9vYevlibcMO5hBOktIZ10h/UQauNMzaCIFYZaX8IRVuuBJ41DNhIfsGUoqN
+// 1M2wEWV2Q3bwRVMYTst0DpZx/6SZ4sB8Sp6p2osUnTQrsplllOs++K4xSRHhVQH3ZziGqjT5aZto
+// YJwEV5NxplPva5SAQ9QPU1P5IWQVonyXk5QtYehlhLO7otAggtZ9MsEp4rkLDKhTeh/6SVLpdw09
+// Gcr9SZ94gTi1YQQjxJIySOAXm8/mpXctwS1EKcCslRXUu668eLHxUvstTbJk6RrnS2AusdNZCPZP
+// 2UKnPOXXEWSaXiaX8lJDMBMxpFuICGFM2CkKpLe5yZlruil3NrqOE5mp1RpXfJfLgK+wKlT59ilJ
+// j5lyAp/xuKRXMcxsVoboyyZSU4Eu3nZgs/NoFA6iHkaTCo9bHIISAcvnGgacqQADrgEiQpLTU4sw
+// wcVXxYbtre2V9Zcvt7fWtrfWgTXe2lSuWr3BQFNMVJzjSsxXSgoR4mfa+5DEJ6bUd5JMyLy6+nmU
+// oPUxvN9RD6acwNiL+vsgSkHQvacpOTVf8Sdq0DZnCsePiJjb9bH4skhIo2L/XFYBN/wkvDtlRfYB
+// ppM/VYmFOb8x/wbiFGepuJ9TIS5ij0I/iw5eUZaMU+ID8OPrgzdnR4iCg/CqNxlmX3rr95ZzVoE9
+// TcB0o38sLRlUVhL2KB5EwJJMeiqPCz3zI9rox0tk4J0+A94LviSxDDU1k0dbYZp+oO0tqxkUT4pi
+// eu5LJlWsFXvL8buppjbs9ZEaWSOEQp08NuYzYRG1WjzhYjXSoUiHYpC2K8of/rgztu9t75yLFTLv
+// ZWOcyiAEXnuY2gRYmDt0NPoPLtn+QeQTUqjexsNJIciIj7EvcZDBpkyxdDwmPFb+sOBsxlakVNlh
+// Ib7BC6tiLc0h8Roqq5LBdeTjjMwFFjC+06CjTuXknXOxgkXipJELKhdSJp6tMjJvov+VQAKZ/479
+// pkAYNgLcFPvghKjlWVFgLnv9GzjLKw+AhWBHvRAoVrT8GF5HKkQLJUPpgFUGjli9OACXshXfY8d6
+// XYbXk1jlP+Ksp6Q0GHSCU3q3IDabCHc1WBdKudhvRmJtFo1CGtaoG2nHAS1QqRLBysXOnHzohz0h
+// U/AAyMdwZfvAvlWsYLEIC7YXEFZOALmwtJnm53PXeGELb7inhdN8nYyv8UkHen7MwAonyJx1/22x
+// u8oMGYdGuLAQzdACPBusfYLomkcQrbeYEgpewu63kcfS99YsazJK5IN3+n06Lugng3B/7x+/Hr46
+// OD/4dXk54JcNNZ+OFYKl4PTkzS/B0avj8+D45NXx4cH50avg7Ojw/Pj05Oy7BrT7p90CObed4PDg
+// zZsfDw5/8tUQT+/tBKv43h98//HN6eFPP344fvPq6D2M+OEM/nl19Pr4BIZ6e3pyfH76HoZqNIj3
+// DP4L31z8r+DPxoLQPvN1JBnd48H3u40FobpK7mBkq0SyzFw4iPqkjhrf7/H3Nv+zjyLw+FUv62Et
+// oC2Dfm9M7DMNyCebUwFCRys16qzWqLNWo856jTobZh0JCUS3C41unipCCVdeiR0NKurAaS+vwTda
+// eR1pDfTNlOxe5gcywrDlxgcgadnw9QWT8BQjGnsnBXfvhRYozCpCWglI93fBROwCVXMXSXwh8e4C
+// 1XC+VkRcZKsoviAV1AXxN77qKOB/D7RpIA/sRdkOq1aDgZ4JircXGc5IrQnW87nRWH72rPEsOGMO
+// Io17t+lNQsyI7cndeLYsjiSJhuJ50Y2ViyNZTXTx52zomNvkgh3jvafAogvpGpn/LkLLLghHvPVc
+// ZCnpDB0oL6pGpErVw1G10jHl7hFK1ELKzw3/zohnkg7ZzG6QUD5q54j0cH0ATV4JupwM4r4drMLf
+// zAQ3FgT1rYMtlk60FGHo54OQRRCUmdDq0WmH7Cl3mOeFuXPGt1oHIVdJvWjhQ10gaLxF3o/phcjz
+// 4vuqU5J4yabMneH9SFh9IVNq+KroVOYXMlnZNEePsftCJJquezZzR8Y6MVbigvIz829R9csQ2qnw
+// 4pHImoCdfO8t0UpJ1C+ylTLTmc+UJu3SCBBVopx6yqGfxFcRS4Pmuw6dQuiL8ZlwMd90RqqIPzXv
+// id+OccUgEYpnxZNR2jG1qX39t7k6tIxzBfvNbsGhwbQC+P9/iRe87VxzKXzFaQs9rBdtxE96xVzq
+// bWHijYUescP43F/SG7QWsXABihfgQuDR1GCJMf8UatSFj2h/JkjhAr47DeJNzeatxR2zA56fDV5q
+// 84EtFon+G8daYOncX7kl9qtrDtARhW0DKeAyRFF+ccfonSeyMAZG3F5ix9phqPK5Qf/9zLudk32O
+// Tl4Fp6+LRKDvpAhE6AAyUA0B6j8H748PfnxzhBLUQjQih4jmOzb0vxtOrqO4iUgvTP9vr2GauVse
+// cUCe69E94DRyCNJrTNgddI10cnk8OEQn1V3EqQrmMLR/7+Ya+Ajd79ZPGkaLcsGeoCDtEj5jn5Hj
+// RxBVdonhGfVuWTHCmH38imybFg/Dto8phrJnbQx5jgq8dFcoEOYwOm+YGIGesH/HexfY/ykcStkH
+// 9Z7y7jO1FJ5xpIJpFMwhxdg8bLhXxnXuB/uwfeEkHPDv/O6p/oQoLgWW8+RtKnq+3S1aFK4DZXdy
+// /hlGlFOLFS1tuUzEU7zyCWnLBh6l54m0o9Ua2OhZjWZPBof0Dyqt5vsm1XojTem7065WDk/hXqIX
+// xx9A+A3Umg4hrG8285sOKbVhNtAhnheoFPVTpw6ptnvooXF3A8yDpjmxeDh31yzi/NRmkXyV1ix7
+// r7lDVWZhrO8DUXWrZ4MPVYXqKVezUDzHaha9NVlcVXocv5Ussyr7j+KTVdG5NAYYhQa7JYv47BoF
+// dwo8lh5MfG4HzAvI33hsSX5hxBzzsZVHfk8eGaFRPpYKZWM8pWQ+Boj8gbeMWgJweqd80Wo2tbEg
+// +cPfJ+xO4dKy4v8ACkXSX4p8be7CYBCFiDlpghyHeIKYrvPLEHgCNIvggtDXDRXlQPtgKof8a1fP
+// JUrfToZZpD/UvMONW/i7EsXld5IFs9WR8h+S89pyh+xvspTrmP8rv7j/ijVN/a+jKUU74ykpIL9n
+// YYPvq11aqY1EhVN55H89kyQdpWemYpFWC4W5F9K2YzUp2Sp7A3xlNlA9E1X8UfWYRRtc2LdSbRhd
+// i2vhe1dwbBUIlIvIhVbwoAdkLkAGdIGZio7bS7DT9Yiq9c6W7H3hs2cZeaW2XEj+yzRLWV7Wi8n3
+// hMvxqdPnsKCcAl6uJ/dh1uXkOsLV+PT+dYlf+XpsY4FajV08zVr0Quw+aBmuaWIOK8gZM+Qach9m
+// WkWuF1yHx4Ayh5VIk4tcgPw907xVNBdMV9ty5nGkSV+ljjH9mmmG3JTOqlCBzWF2pIBtGTrlmabG
+// ibxgZkItPYeJSWLfctV4M01QKSlhjlpDPo/dBZxWewt/z7azGNWD+0oazDnMClX6clb490yzomAX
+// mBXbB+ZyXm0NqT63dvmM59fuhM9xzvyJ8hqwsOE4Uz6n8PsqgS/Ag4u+Ku2OzKaTFg3qaufVK5D6
+// j7AeqzNai7ukP5sD7KqttK36Bt2ZAFzdLYK8jjV5DuAoMT8rOJTUmQkAJf3hykst4nNYcrUJXa28
+// uupMAKjuFuFQx9Q/D3BUnVENjaqa0wFjGjLRrR7cICXjMJuMYyYZGuiVHezUGGWXJ15nxqiHmJK+
+// LSyEwzSUixgln0IzVOD1OBnNmSgqd7Hv2YWdUawlpM198/286TbX3t9qfNdwKpEUZfOTvOJIQzDi
+// wCalc+/c9NKfwvtWQb+LxtDiGo0GH8N7stpok8ZOV//9fHVX2Mccm99OV+jBztGpNEvO6Gtr8XnQ
+// 3GkGz6WNtHMdZh8osqG1aNQKZLWCmdKgNCqqSsMsiMM7n+tvbHqgYvUSrwuiqjtd7Km4lhgY/9en
+// GseTJa1o7aLJLzI8PSp9al7Qqi0hu0hKQOghCBjsykhn1N7plkGO2zDHr2oqG7j8rhlwgyE3vkue
+// V/VguImoMWBkPQIb0+U3cpOU34TDiGrHm7GqN9oeU7ta+EfXB47DaJoGahsfaUndlc6K+dmanoy6
+// 5ol8DjRRcupx6LSoJs2cC4H6H9ha2uYWMwt6Ya69qhwJFN+QxHBkjG44+aiBqrmB5AykDYPpxEII
+// tO5UUgjRlL/YhmIZG4Vnjf9ABsVbJXcEGLfaNBUT9LoCrLEdaICqD3JXdc2cTsnqNqekUQ0dvYfV
+// KqdLUK2k2K5Ps/Cn5fZM9M6TV1E/a6kmjuixuCt2QGBmy1ahS7LL3xfCmGyDGsxZktPFO5jIRnfZ
+// QBrZG3atEtI3mNwO8UXCeuRP1Z6S6uh2xZRH1ymmPrpOOQUyxvNSIf3dT4mM9kyNNpxi5Xi100UG
+// x/lKvLr3i+0xBbTjGINaOfh5ScbPSVeo5vMymPpPvhoKMU/wAvD/BgeDJ3w+zBJ7SM6NWaq6oHcV
+// QzUbV0MbqZr+WtDmN3mJUFw4USXD+8W+SlrGjQWs7jqGittFG/mirUXPjVOGF5TzF0mBGcropAIA
+// XAF2ipxuXukYCXN+4jaouCzsW46oEZln71uL5v1G1xrXDJgXWbii0A/Vr92t6RpK7Ito5MJ3p0sx
+// rrsNGzJQvsll5bMvvfor7/4F37XvQGTBc+UzTJyKfrpicAbOFWsGHes/c9esrtbycZGFSN3mMXMc
+// R2ED32Ur+rAv9qDkUi+4ziXi17o/FQ9Tcn1yh/L2NODnvT+dneIbVDcyNkrxTXmMLmadPssZ0ykR
+// h0RRoKDWPWuh/oZR5N4ss4sAjndwrk+Pa3CuTo5qsTcJJX/IsnB0a5ItO4iaHuUNP1GyGxXeVnHj
+// lR3+x7zn+LJ/Ivec4XJZWL2c+ZfH43810sqw5wcjbR3EDR4Lc2Vk/txwd0akzAOgmg8TuNgwtYFV
+// R2cGRF15IErm0OlDzJxiovMZxUm8FP4RoadTVou3L0eYR6NzaHL4AgSuziaVQaDUOalFHCTVe8zL
+// AGiMMM7MAWBK44qzRp/PiF740CftY3ifyoAEV7P7azT4jUmsyQ2Z10A00JzJZ8F7F1L/RwGaSJww
+// H42662VpCHUCUGSesBwuxTlXjozyo3SJ3ena9fe77ijA0v5PyF0zBIkddfsxid5cFM6lAo9nGfKy
+// cwhnGQF2V/qrDYrfflP3VPnBywPj0fAJfWbngEyF6ICCl5JEPchk/0ZLCFS6u4mGoYET9C3Yy3kF
+// C0wSiew8NpqqDVmUlKByVtIW1KqJ3X+j7xdBX7bto1b6wUi8vAz06CfKkQH/VckH9aUijHh4q8Cf
+// 6lpxIizcG6ZM0JZytq2Z+BCnk0vUPF2GtE/niWjbEl7lHbFRLSN1m6W7gCn8tlig8m5I3YUzb2rU
+// QR95bfp0l2pHb1gr9Xz39dggY6NIboL8/z2+anJNbErKajdx6yi0RAry52dVZKhc9BcrEEgX+4Cj
+// v/psj85gDoycr/ZynY86PEt/cA8Yfvn1N0EZC/mIb4cPfNxTPC/JyrWhl4gHuCc4tmVww5WWbcYc
+// QQAoP7mdxvH9IYPJgLx34/DstncHRB1OZlEISVsFb+tEN+0gn+dGBbmpRDftQAa/ZD085ioCKL+l
+// aTi86rgjk3t1LhPPNP7nUPcVKj1HUUxPeI2Q/i6JWTVI7aqpImuGHbpKbK9Ft7Eashgtm6ai68Ux
+// Rjh3xWpVwaLUWWCgK7b2OGvsCv3mfJFK7XOSZlNstLLJPmDnfTvdLkohoAfyKMiLghH0F8cSXZgS
+// SH3RVmjL5bttJu5o55IT6NrCuq7sL0bHtq69PUUKn3adxD3tKdL1tOsn6VH79eSDxNwow28zQEzN
+// sl5wWJ3tmWdgWPl4MweFEaVHFgNofcH2cZiTP/yvsKkBWG97MzLP00ke3k4vnmi9wrnohFa+mejQ
+// u8IOzDCI4vC66SOXat2t2kdSXAEURadT3ik7pb4QaJ5WCjxZSd0GWMXMfjddyN4MQXEzBJ5NEeA1
+// dRxVRQBTSfRQYfRORdRMQdhKQdzI1AEacw83mIsD/yM4wT+Ci7dHwG0Iu4cMhCcxEXnG1R3hSi9y
+// EZCT3Joq5HB7KlyXhVLRQqUbslRmJKDSTVlq5SSgTy/cT6Txpk9bagTppkXF27JYZSag4peyWOQm
+// QKF/V0n9B4PBFwztybHUZRL2Q9htxM54KimOTZkyHYFhVi04kDvdJjnIRFctFEFqn0OPK7p0RHc1
+// O5ZthJ1EJBsZh+HgPEFctHyKcsYT0vYYDl45pSzXyNlXFswBFCiE84dpfIHmSmJi1Zpuafuv8POK
+// FjZza90z50+aZd9rbTJlSSIcJBx5e/rq+PUvF6fvocHF+S/vjgDMHFSSKoHjT1ESrOwGn3XTw4OT
+// w6M3NZuuYlMYmJzbl589C/iv4FlwFgGFuAch9Tq1H5GwHonwveuAuS5kWp+MH+qIVasoUyNg+rMe
+// UohAPNUB1G2sc4+f34zD3kCwmG2gEySpAoHrDaOUtWGIMZgliPwC1Cx4EmoYdSxkzyLbkMy3BuO3
+// jHZL4tERHnexI/tZ5j8EkMsJCqGVFPySA36JA6g1n0p5TtIEpoXKzANKM67tHhaZUxyRNFE0zYic
+// ponHiOEFFKHDD0nB1PaDFQv3zfmpv58Hzd2mVv8W1TFn0jUCR9Scf7Unyw6e+XUr00PNlRuPkbgA
+// cDqf80KNgSvWa05xXsuWPPiXXbMctWLBanLVq20ID16rirmmEj6z6NNzNXcB0c+CqimihtkN4dBL
+// nZfM7i/zPDEBcx6zaCw8C1rVjMYieZxgtJxNKrE5kUmVpMogk+LBI5UT0hmaGmMWdn7MhkgDvell
+// 0E2L9umWWIGYtQEvfFmxHjVC+mgHSpR3vGT0HCWBoY4n6a6J31izmpQZdXnObt3cufH2W0QoSrq3
+// mtQbxXsuS4bQ9WX/JQiPW3EuQ/R0p9j0s5E5UwU6VVl+eIM1D4dxT34XLBEZxLZYvzcuzQD4myv3
+// 8YHr6JNM3nc82LFYX2E7sY0uPCufi5uqUN88rhQExESKDn6TbGyhq7weWmyYYd6RWOBY6kom6das
+// 6NMMRavo1Kxa3Ktl4Szp0q5X0F9DusV64yeLO5cq9hTNal7Ls7U73t49U8KZeANBxUxwPIvJ8VYW
+// HVNlfR0+vgVezK7I2P65Yfkgu94CFcjhGuklfA2zurdiFX46lvyKWTh2/cJJOL0WYp+P0vH5rUfu
+// hO4hI83HJJbnviOMJavyiuJSlTPcWJZKikh2PfXjeWC4+hhxS67QqpMlUnv9y+7ADcoxe9C5GqkL
+// 46evD53a3OxDZHGkDuTfRmuVqJoUeuLv56JHX0rt8kWLRI/Ym/wz15mZvJ2vQvbsRlaP/3Kb8LWj
+// 8SFH0ueCEkuz48TSQ3FiaQ444eujPk4sVeDE0jxxItdZNU64TRxmyNScsnZKpmnFPsgdVSZpDYR7
+// quV/yCVSG6pL7FcscsUct6CKlQZUFyntpy4Smk9dYO8pl5mIxiXGrnGBhUxUZO4cFWgw0k9jK1Yc
+// AFrqZOUJEMV92Bq4svgEmTBVfz/XtahPt0ses7hLPSf1d0WXh8qLsKBPc2f1j4pe5eYX9mpih/5R
+// 0auFQIVd59DMKak5CKsxqwZRSOuUVEFdIncx2E30N35VdKyOSGHH1iEyflV0LA5aYbfGQVR/u12y
+// tCNS79vPbyNLOIlJaru8182CQaheLoi5ortg4wqyHmzRriXOVG0z0K/067eWriRWDzMVoVSORNYJ
+// tEBmqMt9Epkm53UEMzvtUaOOG6JfTquOAdch4HTDWDx6QXSQL67beq1jxrjuUkdrM16baosXDmAm
+// 1yzDKX9DkV2EOy2wfQuA0eseUngTB91qiPXkAFqykNGFgBm8ROt1Wg3nKknZ3RfTzmNFeL3YbVQB
+// qDDOt9bjJfkw7UMTo8skThEM7YrUWlgpDMOeInx6GonSWFXd5CO+Rz5E6gk6gUQE2DNdJsKXT28K
+// lFdrwydI03SCCcnlJ0QP64VU6o6eSc1JYzq9jWX8uIkY8BVutQ9ImZWjOeXgRtQHPmpyi1k/GIhi
+// nxuF0v3ZA73rDSgUeNmLqdd+UKZRIO2bI5EWjB+5qX57pnrezqszjRp6OJO6m32pk2E80SkfVLIe
+// +kNf3Lvwh09kjZtgbHFwgyZBINPDYcMwOdNGHpk+VZogWXX+bfjB6Cq2rqXze3Z/JHnn/SJJxzzC
+// +eG1Wdp5ZsbrzWQAx99Iu/yY8zQy+ORbCI8eq77MwZOrbb8E57brfbp+R45Fz4rA1MmS1+hEKC8h
+// t3//S3JF4/j7yO+A09yYj78Hz+OJD1mqkkJz7+gVjT3NEspl7IIB8vCtAYPlenN195i9KvJH2HpF
+// jp7DQLObKoW/L6Pra47r58sFx8P3lKlD9yqwFe3GSVnE/D5ONYvMeDBmrxDapjdIjlLo07xgPwBV
+// 7zS7japPc65F6Wl2a09/Utwe5o6tOjdfFW9J9FjIPclwcMYXicFV7jo1/q1nIet5JiGuG5SQRpcy
+// qYQym6b0Ojs9+S0sp51Ox+BmRea0gu3iSnT27Dpu7kbOiObdRK7AqYvMCk6GRp17zdqIfApIpa+0
+// a0b6aR9VU2kFnaqp1DGhm01FJ6YsYFa13tBUqUR0BjezrvmiZmHWEbMB/c06EeMtpdKEJGZzXeGt
+// foBTLcj/rquzOqpknvUC/HO2yzl+RerPXKv3WjEqedlkpBjY4HacfIKpjlPpUDVKWAWREEm9xefP
+// 00yTXBHAIrqiovQGWNOUdlzc2VwrAMobgvCBx+QylE4J/xOOEykhsDJjUXR2GgOvlrK2HJp96g1B
+// 4la+DvcBjEKpObAHKSOZi8XJ0EW8v9JZ8Qj3ntvOhpbqQMtF7hjGNizZdGS/cMj6O+t0WTwNyXIU
+// rNTPOtnDWowT+dcU6EAs0qMiHfSBcbxILd8D5+hIjxFbI2DyFf45PqvHQkoEj5O7YKBi84SXYCbV
+// WSSaDgdSr0YtItRqAc7h01tJ/EMm0VAq1cQpASliEF71QEzcyaktXhqye0teQt1Va3dKLUNVhht3
+// wDVxDTsZ77x1KhLxOa22Zc98DbMCwxxETVSRX3ue6nueHegGThY/Xx6q/KoKllW5LrvdlurdC7rZ
+// p736qNNed6dtsEfmeEQlJOZtEqsrf73g/BUtn4aUP7mI6VRXO207QbNW8B4fqYvSRn7qcgKCowu8
+// WOQ/DdXHoQC6pXuwXRMFCjC7CJ/KhizbPkkzBN0w2nXdXKTdLbdg3UP63eRtn3XvrsbD1Cc60hyr
+// tMlXT3XqFyF97mf+q8FUfKtJtJz+bKcaW6gy5uuIHsXTdSpOO9syUdEMizrT96JYoZx1y66ymNsU
+// 82qbsAmJTozfOKEuGtVFoS5cXm1XcGsJk8UdHFPJFgec/wZuPOSrBEMG91wf7n30epeRI23RTzaG
+// U34NrGTHwFdZyaAgDvdtfHHCNkzaZGbCeiQVPs/B5c2lRr/2a53Of8R5z1sECoYrNhA8dAaC7hhW
+// hmZzpnyslTYFb0JW16ogqJzWtCOP2ViouPqK07Q2FiovBIG8/zacEwu8VG0qYxANQswa8YImvpru
+// qeWD4X89anWiLfzGK1ZNVNksOnpqOI2KnsZVdo656uUeWS1HMy9SyFVRbp8dwn4B3ZxgWwwmkzmI
+// X5isgQ9Bbi6yDsLjjARkWQJ4FKU3WMMSlfijKSQteu+TsoVZqCYTG2vDvZEfnKDElmA+KJ7gMeGs
+// vWC3F64ebntPBJlo74zv+LGI9+kaC/p5ZmdrnAfZ++ohdolfXq/lOql3uQWnNao3OsHXHq/0DRAx
+// hPJKVUNafZTmtu/LcShQxXVUtJ2DrATe8uER1+vfTybzbhzTWOoSw0o3/T6WVQx0KHvZdquZFxl5
+// CyBvTpyr7HRF1V9XLPgLP+MV6eIpyzkTX9cUD2u5x9OVVqLUzutIle1RjS6YrXMMue964z9zbvWs
+// LdaaY1PTzLvKqfvLMwFeBf7Hegytdi5ff/UrPaXv88j/PkoefokGMtn9TC4eiqR0nJT7dqnQoDpV
+// Ke+P7IbPsV3DzcfvMHt25Yd7llRl5fc4ljg5+T+XSid+To+ORUO5IPuw3Beq7DwbMoUn0RdyGJoZ
+// oR51j+fmPTTLLgsepYER5Bi2+J62yXGQhLtGuCAZr8OBAGqFJ7rbW3VxmV6KSoKVABJB7hwd37CS
+// FvL1zNNqaWTL3/r6W4FFyKwiiYQuMUwstjrSaqYIhqbl1ndWXBtTsfTs5he/tcCs4bGc5D7nOHTf
+// Cso/KiOW+VUpB61CZX+0lygvS7NUafKsQltLYX7y2ADNzyQGupDW9hKnp3xQKyO9D+21H9NUqK91
+// aQ7iH9mqNdetg47BrKdA9UUHocpfiYHid1Aq+KbQu9ztyF+nDKMrXYT81Tw+MCUV6wxcdmq8+lj/
+// p0Ik8+KYI9ZPhWhKBK2WnR3F6MMornoLnnnrUl+atqeOiWceHxnvh4J9qeXy4q1q7GCFTlrJaw1O
+// rgIb+K9weIscrkhDwNn5McUK3MnXN8bG0pOqeJWPk8GkH9J7KHgWSFc0iSlRCnYoTZuTVCY4YT1X
+// mxRgdNNrrLiLzUSdNmZ4L/iahMW310Y+vZZkgpSYKWQtoXIRoUnyl4K++H1npLBa0IFHirWSoUK6
+// wMpvtWCE66iCfFarBTcqRpXauawWzBgUVSJDtFSB8J5Rv3VclypSMVvmQRe74Ys9sMJDdFYfIQ7+
+// 2dBym2PkFNl+midHPzel0GpUXfVU/fng+Pz45J++6mu+6qfvfyqovu6pfnj69t2bo/OjV74GG54G
+// 74/+z9FhQf1NT/13RyevYD7B4b8OTv555Gv1oqwVCSa+Vlu+xVDtN/7JbXsanH04w5H8DV56Gnw4
+// +enk9OcTVV1BJSSn6DH/I0xOQfO54CPVy85IhvDlYgO7Ch+y9qGV+FO2GhguT7GnBwyhyhfzqwhu
+// H5QXif6+aD73tLJW0UDF9qj3ESjeZBxKJ74o1TPDsAV6KyrJ+KWoSYqGqyHmkrpvyJciNBkSOid3
+// VosLBP9pF/ew1Vl764G1vknoIqGcZWkgw8uYN047QfBe0Xz7W8BpzsYyAIpuD74YTDbgjGVY6Ogc
+// vggdcXqTTIacjesT4qlKW4OL4uZs+MROBa+d5kLk5JN0RAbt28eXgq2GKlM0YMGQJ84mV7F0/kF7
+// lst3X9QWd8Js3kn0ZlYmsbAazlHxMJtFcWpNxayWy/oxUeUKDanPsLbPGzJj6DNYnWE22ZU6CcF5
+// 0WmK+gFw20OygU1iQrt0J3iGSKgT7JvrEPh327sfJr2BvnDz6ZFkdiRxB4sWOuua9zpGlNRdBW6q
+// pdwquVXh4KhMSsOWGPvt9bgj/lS7wsuQlAadwYyVWxas4hXy3hYxH0oFSs/s+JmQZsHCjInzXN5x
+// gUQnTSoX9fZOl4rz7LvG599+299b7ieDcP+7xt4yZd3axzSN/x9QSwcIjL/gTTwvAADLGQEAUEsB
+// AhQAFAAIAAgAxYXjQByHzD8oCAAAEk4AAA0ABAAAAAAAAAAAAAAAAAAAAFNjZW5hcmlvMS5zZGb+
+// ygAAUEsBAhQAFAAIAAgAxYXjQIy/4E08LwAAyxkBAEgAAAAAAAAAAAAAAAAAZwgAAGJsb2Nrcy9G
+// aW5hbmNlL09yZGVyIE1hbmFnZW1lbnQvT3JkZXIgTWFuYWdlci5iZGYvT3JkZXIgTWFuYWdlciB2
+// NC4wLmJkZlBLBQYAAAAAAgACALUAAAAZOAAAAAA=
+

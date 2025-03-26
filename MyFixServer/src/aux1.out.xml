@@ -1,0 +1,422 @@
+<html>
+<body>
+	
+		
+			
+<table style="width: 100%;" cellpadding="0" border="0">
+<tbody>
+<tr valign="middle">
+<td style="background:#cccccc; padding: 3px;">
+<p>
+<strong> Product </strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Operating Systems</strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Version</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Apama Server</strong></td><td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;">
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<p> Win Server2003 R2 (SP2) 32-bit </p>
+<p> Win Server 2003 (SP2) 64-bit </p>
+<p> Win Vista (SP1) 32-bit </p>
+<p> Win XP (SP3) 32-bit </p>
+<p>
+						RHEL
+						6 (Update 1 and higher) (x86) 64-bit
+						
+					</p>
+<p>
+						RHEL
+						5 (Update 5 and higher) (x86) 64-bit
+					</p>
+<p>
+						RHEL
+						5 (Update 5 and higher) (x86) 32-bit
+					</p>
+<p> SUSE LE 11 SP1 (x86) 64-bit </p>
+<p> SUSE LE 11 SP1 (x86) 32-bit </p>
+<p> Sun Solaris 10 SPARC 64 (Update 7) </p>
+<p> Sun Solaris 10 X64 64-bit (Update 7) </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Apama Dashboard Client</strong></td><td>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<p> Win Server2003 R2 (SP2) 32-bit </p>
+<p> Win Vista (SP1) 32-bit </p>
+<p> Win XP (SP3) 32-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Apama Developer Studio</strong></td><td>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<p> Win Vista (SP1) 32-bit </p>
+<p> Win XP (SP3) 32-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+</tbody>
+</table>
+		
+	
+
+
+	
+		
+			
+<table style="width: 100%;" cellpadding="0" border="0">
+<tbody>
+<tr valign="middle">
+<td style="background:#cccccc; padding: 3px;">
+<p>
+<strong> Product </strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Operating Systems</strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Version</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Apama Server</strong></td><td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;">
+<p> Win Server 2012 64-bit </p>
+<p> Win 8 x86 64-bit </p>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<p>
+						RHEL
+						6 (Update 1 and higher) (x86) 64-bit
+						
+					</p>
+<p>
+						RHEL
+						5 (Update 5 and higher) (x86) 64-bit
+					</p>
+<p> Oracle Linux 5.8 64-bit </p>
+<p> SUSE LE 11 SP1 (x86) 64-bit </p>
+<p> Sun Solaris 10 SPARC 64 (Update 7) </p>
+<p> Sun Solaris 10 X64 64-bit (Update 7) </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Apama Dashboard Client</strong></td><td>
+<p> Win Server 2012 64-bit </p>
+<p> Win 8 x86 64-bit </p>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Apama Developer Studio</strong></td><td>
+<p> Win Server 2012 64-bit </p>
+<p> Win 8 x86 64-bit </p>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+</tbody>
+</table>
+		
+	
+
+
+	
+		
+			
+<table style="width: 100%;" cellpadding="0" border="0">
+<tbody>
+<tr valign="middle">
+<td style="background:#cccccc; padding: 3px;">
+<p>
+<strong> Product </strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Operating Systems</strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Version</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Control Tower 21</strong></td><td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;">
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<p> Win XP (SP3) 32-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Analyst Studio 6.1.4</strong></td><td>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<p> Win XP (SP3) 32-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+</tbody>
+</table>
+		
+	
+
+
+	
+		
+			
+<table style="width: 100%;" cellpadding="0" border="0">
+<tbody>
+<tr valign="middle">
+<td style="background:#cccccc; padding: 3px;">
+<p>
+<strong> Product </strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Operating Systems</strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Version</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Control Tower 3.0</strong></td><td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;">
+<p> Win Server 2012 64-bit </p>
+<p> Win 8 x86 64-bit </p>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<p>
+						RHEL
+						6 (Update 1 and higher) (x86) 64-bit
+						
+					</p>
+<p>
+						RHEL
+						5 (Update 5 and higher) (x86) 64-bit
+					</p>
+<p> Oracle Linux 5.8 64-bit </p>
+<p> SUSE LE 11 SP1 (x86) 64-bit </p>
+<p> Sun Solaris 10 SPARC 64 (Update 7) </p>
+<p> Sun Solaris 10 X64 64-bit (Update 7) </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Analyst Studio 6.1.4</strong></td><td>
+<p> Win Server 2012 64-bit </p>
+<p> Win 8 x86 64-bit </p>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Analyst Server 7.0.5</strong></td><td>
+<p> Win Server 2012 64-bit </p>
+<p> Win 8 x86 64-bit </p>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+</tbody>
+</table>
+		
+	
+
+
+	
+		
+			
+<table style="width: 100%;" cellpadding="0" border="0">
+<tbody>
+<tr valign="middle">
+<td style="background:#cccccc; padding: 3px;">
+<p>
+<strong> Product </strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Operating Systems</strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Version</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Corticon server - 52</strong></td><td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;">
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server 2003 (SP2) 64-bit </p>
+<p> Win XP (SP3) 32-bit </p>
+<p>
+						RHEL
+						6 (Update 1 and higher) (x86) 64-bit
+						
+					</p>
+<p>
+						RHEL
+						5 (Update 5 and higher) (x86) 64-bit
+					</p>
+<p>
+						RHEL
+						5 (Update 5 and higher) (x86) 32-bit
+					</p>
+<p> SUSE LE 11 SP1 (x86) 64-bit </p>
+<p> Sun Solaris 10 SPARC 64 (Update 7) </p>
+<p> AIX 7.1 </p>
+<p> AIX 6.1 TL6 (SP3) </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Corticon Developer studio</strong></td><td>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server 2003 (SP2) 64-bit </p>
+<p> Win XP (SP3) 32-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+</tbody>
+</table>
+		
+	
+
+
+	
+		
+			
+<table style="width: 100%;" cellpadding="0" border="0">
+<tbody>
+<tr valign="middle">
+<td style="background:#cccccc; padding: 3px;">
+<p>
+<strong> Product </strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Operating Systems</strong>
+</p>
+</td><td style="background:#cccccc; padding: 3px;">
+<p>
+<strong>Version</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Corticon server - 53</strong></td><td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;">
+<p> Win Server 2012 64-bit </p>
+<p> Win 8 x86 64-bit </p>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<p> Win Server2003 R2 (SP2) 64-bit </p>
+<p>
+						RHEL
+						6 (Update 1 and higher) (x86) 64-bit
+						
+					</p>
+<p>
+						RHEL
+						5 (Update 5 and higher) (x86) 64-bit
+					</p>
+<p> Oracle Linux 5.8 64-bit </p>
+<p> SUSE LE 11 SP1 (x86) 64-bit </p>
+<p> Sun Solaris 10 SPARC 64 (Update 7) </p>
+<p> AIX 7.1 </p>
+<p> AIX 6.1 TL6 (SP3) </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+<tr>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"><strong>Corticon Developer studio</strong></td><td>
+<p> Win Server 2012 64-bit </p>
+<p> Win 8 x86 64-bit </p>
+<p>
+						Win Server2008 R2
+						(SP1) 64-bit
+					</p>
+<p> Win 7 (SP1) 64-bit </p>
+<p> Win 7 (SP1) 32-bit </p>
+<td style="background:#ffffff; padding: 3pt; border-bottom:1px #cccccc solid; border-left: 1px #cccccc solid;" valign="top"></td></td>
+</tr>
+</tbody>
+</table>
+		
+	
+
+
+</body>
+</html>

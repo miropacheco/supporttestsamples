@@ -1,0 +1,55 @@
+//*****************************************************************************
+// Title:         Mon1
+// Description:   Mon1 description
+// Dependencies:  None
+// Author:        cpacheco
+//
+//*****************************************************************************
+
+    event Item {
+    	string s1;
+    	string s2;
+    }
+    event getScenarioId {
+    	string scenarioid;
+    }
+
+
+// TODO: Monitors and event definitions here
+monitor m1 {
+	action onload() {
+		
+		com.apama.dataview.DataViewAddDefinition def := new com.apama.dataview.DataViewAddDefinition;
+		def.dvName := "My Dataview";
+		def.dvDisplayName:="My view";
+		def.dvDescription:= "aaaa";
+		def.fieldNames:=["f1","f2"];
+		def.fieldTypes:=["string","string"];
+		def.keyFields:=["f1"];
+		route def;
+		on com.apama.dataview.DataViewDefinition () {
+			com.apama.dataview.DataViewAddOrUpdateItem item := new com.apama.dataview.DataViewAddOrUpdateItem;
+			item.dvName:="My Dataview";
+			item.owner:="*";
+			item.fieldValues:=["aaa","bbb"];
+			route item;
+			item := new com.apama.dataview.DataViewAddOrUpdateItem;
+			item.dvName:="My Dataview";
+			item.owner:="*";
+			item.fieldValues:=["ccc","ddd"];
+			route item;			
+			
+		}
+		Item it;
+		on all Item():it {
+			print "adding item:" + it.toString();
+			com.apama.dataview.DataViewAddOrUpdateItem item := new com.apama.dataview.DataViewAddOrUpdateItem;
+			item.dvName:="My Dataview";
+			item.owner:="*";
+			item.fieldValues.append(it.s1);
+			item.fieldValues.append(it.s2);
+			route item;
+			
+		}
+	}
+}

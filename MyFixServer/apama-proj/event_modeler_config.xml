@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Apama Scenario Manager Configuration File-->
+<config>
+  <catalogs>
+    <blocks>
+      <catalog name="Generated scenario blocks" type="FILE" location="C:\Users\cpacheco\apama-work-x64\studio_workspace\OMSTest\catalogs\Generated scenario blocks" />
+      <catalog name="OMSTest blocks" type="FILE" location="C:\Users\cpacheco\apama-work-x64\studio_workspace\OMSTest\catalogs\OMSTest blocks" />
+      <catalog name="Finance" type="FILE" location="C:\Program Files\Progress\Apama 4.3\catalogs\Bundle Contents\blocks\Finance" />
+      <catalog name="blocks" type="FILE" location="C:\Program Files\Progress\Apama 4.3\catalogs\blocks" />
+    </blocks>
+    <functions>
+      <catalog name="OMSTest functions" type="FILE" location="C:\Users\cpacheco\apama-work-x64\studio_workspace\OMSTest\catalogs\OMSTest functions" />
+      <catalog name="functions" type="FILE" location="C:\Program Files\Progress\Apama 4.3\catalogs\functions" />
+    </functions>
+  </catalogs>
+  <paths />
+  <recent />
+  <window />
+  <preferences>
+    <preference name="immutableShadeNodeColor" type="color">
+      <property name="red" value="154" />
+      <property name="blue" value="175" />
+      <property name="green" value="157" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="edgeLabelFont" type="font">
+      <property name="style" value="2" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="11" />
+    </preference>
+    <preference name="globalRuleEdgeLabelFont" type="font">
+      <property name="style" value="3" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="11" />
+    </preference>
+    <preference name="grammarBlockFont" type="font">
+      <property name="style" value="1" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="11" />
+    </preference>
+    <preference name="immutableNodeLabelFinishedFont" type="font">
+      <property name="style" value="0" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="12" />
+    </preference>
+    <preference name="internalBorderColor" type="color">
+      <property name="red" value="128" />
+      <property name="blue" value="128" />
+      <property name="green" value="128" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="immutableNodeLineColor" type="color">
+      <property name="red" value="154" />
+      <property name="blue" value="175" />
+      <property name="green" value="157" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="grammarScenarioVariableColor" type="color">
+      <property name="red" value="75" />
+      <property name="blue" value="75" />
+      <property name="green" value="148" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="datatableForegroundColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="mutableNodeLineThickness" type="float">
+      <property name="value" value="1.0" />
+    </preference>
+    <preference name="edgeLineColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="edgeLabelColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="wiringGraphSnapGrid" type="boolean">
+      <property name="value" value="true" />
+    </preference>
+    <preference name="globalRuleEdgeLabelColor" type="color">
+      <property name="red" value="255" />
+      <property name="blue" value="0" />
+      <property name="green" value="200" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="immutableNodeLineThickness" type="float">
+      <property name="value" value="1.0" />
+    </preference>
+    <preference name="logDebug" type="boolean">
+      <property name="value" value="false" />
+    </preference>
+    <preference name="globalruleseditorStateLabelFont" type="font">
+      <property name="style" value="1" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="14" />
+    </preference>
+    <preference name="globalRuleEdgeLineDeemphasisedColor" type="color">
+      <property name="red" value="255" />
+      <property name="blue" value="179" />
+      <property name="green" value="238" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="grammarBlockColor" type="color">
+      <property name="red" value="49" />
+      <property name="blue" value="196" />
+      <property name="green" value="106" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="displayShowFeedNames" type="boolean">
+      <property name="value" value="false" />
+    </preference>
+    <preference name="stateGraphGridColor" type="integer">
+      <property name="value" value="-5592406" />
+    </preference>
+    <preference name="grammarNonTerminalFont" type="font">
+      <property name="style" value="1" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="11" />
+    </preference>
+    <preference name="mutableNodeLabelUnfinishedFont" type="font">
+      <property name="style" value="2" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="12" />
+    </preference>
+    <preference name="wiringGraphShowGrid" type="boolean">
+      <property name="value" value="true" />
+    </preference>
+    <preference name="mutableNodeLineColor" type="color">
+      <property name="red" value="175" />
+      <property name="blue" value="154" />
+      <property name="green" value="154" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="wiringGraphGridSpacing" type="integer">
+      <property name="value" value="10" />
+    </preference>
+    <preference name="scrollBarIncrement" type="integer">
+      <property name="value" value="10" />
+    </preference>
+    <preference name="blockNodeLineColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="contextMenuSubTitleBackgroundColor" type="color">
+      <property name="red" value="230" />
+      <property name="blue" value="255" />
+      <property name="green" value="230" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="globalRuleEdgeLineColor" type="color">
+      <property name="red" value="255" />
+      <property name="blue" value="0" />
+      <property name="green" value="200" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="datatableValueFont" type="font">
+      <property name="style" value="0" />
+      <property name="name" value="Monospaced" />
+      <property name="size" value="12" />
+    </preference>
+    <preference name="grammarLiteralColor" type="color">
+      <property name="red" value="128" />
+      <property name="blue" value="70" />
+      <property name="green" value="70" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="globalruleseditorRuleLabelFont" type="font">
+      <property name="style" value="3" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="12" />
+    </preference>
+    <preference name="datatableBackgroundColor" type="color">
+      <property name="red" value="255" />
+      <property name="blue" value="255" />
+      <property name="green" value="255" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="stateGraphSnapGrid" type="boolean">
+      <property name="value" value="true" />
+    </preference>
+    <preference name="blockNodeColor" type="color">
+      <property name="red" value="199" />
+      <property name="blue" value="255" />
+      <property name="green" value="229" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="hideRuleComments" type="boolean">
+      <property name="value" value="false" />
+    </preference>
+    <preference name="globalRuleEdgeLineDashPattern" type="float_ARRAY">
+      <property name="value" value="1.0-1.0-1.0-1.0-0.0-0.0-0.0-" />
+    </preference>
+    <preference name="stateGraphShowGrid" type="boolean">
+      <property name="value" value="true" />
+    </preference>
+    <preference name="blockNodeLabelFont" type="font">
+      <property name="style" value="1" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="12" />
+    </preference>
+    <preference name="datatableBlockNameColor" type="color">
+      <property name="red" value="49" />
+      <property name="blue" value="196" />
+      <property name="green" value="106" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="datatableVariableNameColor" type="color">
+      <property name="red" value="75" />
+      <property name="blue" value="75" />
+      <property name="green" value="148" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="datatableValueColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="recentScenarioFiles" type="integer">
+      <property name="value" value="4" />
+    </preference>
+    <preference name="mutableNodeLabelFinishedColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="blockHighlightBorderColor" type="color">
+      <property name="red" value="255" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="componentHighlightColor" type="color">
+      <property name="red" value="150" />
+      <property name="blue" value="61" />
+      <property name="green" value="5" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="datatableColumnLabelFont" type="font">
+      <property name="style" value="2" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="11" />
+    </preference>
+    <preference name="blockNodeLineThickness" type="float">
+      <property name="value" value="1.0" />
+    </preference>
+    <preference name="blockNormalBorderColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="undoLevels" type="integer">
+      <property name="value" value="10" />
+    </preference>
+    <preference name="grammarNonTerminalColor" type="color">
+      <property name="red" value="128" />
+      <property name="blue" value="128" />
+      <property name="green" value="128" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="contextMenuEditTitleBackgroundColor" type="color">
+      <property name="red" value="255" />
+      <property name="blue" value="179" />
+      <property name="green" value="238" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="datatableNameFont" type="font">
+      <property name="style" value="1" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="11" />
+    </preference>
+    <preference name="mutableNodeLabelFinishedFont" type="font">
+      <property name="style" value="0" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="12" />
+    </preference>
+    <preference name="datatableVariableBackgroundColor" type="color">
+      <property name="red" value="224" />
+      <property name="blue" value="216" />
+      <property name="green" value="244" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="grammarLiteralFont" type="font">
+      <property name="style" value="1" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="11" />
+    </preference>
+    <preference name="stateGraphGridSpacing" type="integer">
+      <property name="value" value="20" />
+    </preference>
+    <preference name="mutableNodeShadeColor" type="color">
+      <property name="red" value="201" />
+      <property name="blue" value="177" />
+      <property name="green" value="177" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="contextMenuTitleBackgroundColor" type="color">
+      <property name="red" value="200" />
+      <property name="blue" value="255" />
+      <property name="green" value="200" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="datatableBlockBackgroundColor" type="color">
+      <property name="red" value="199" />
+      <property name="blue" value="255" />
+      <property name="green" value="229" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="mutableNodeLabelUnfinishedColor" type="color">
+      <property name="red" value="128" />
+      <property name="blue" value="128" />
+      <property name="green" value="128" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="datatableHeaderFont" type="font">
+      <property name="style" value="1" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="12" />
+    </preference>
+    <preference name="immutableNodeLabelUnfinishedColor" type="color">
+      <property name="red" value="128" />
+      <property name="blue" value="128" />
+      <property name="green" value="128" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="grammarKeywordColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="ruleseditorPanelBackgroundColor" type="color">
+      <property name="red" value="245" />
+      <property name="blue" value="245" />
+      <property name="green" value="245" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="ruleseditorActivatedBackgroundColor" type="color">
+      <property name="red" value="255" />
+      <property name="blue" value="255" />
+      <property name="green" value="255" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="ruleseditorDeactivatedBackgroundColor" type="color">
+      <property name="red" value="192" />
+      <property name="blue" value="192" />
+      <property name="green" value="192" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="globalRuleEdgeLineThickness" type="float">
+      <property name="value" value="2.0" />
+    </preference>
+    <preference name="ruleseditorRuleLabelFont" type="font">
+      <property name="style" value="3" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="12" />
+    </preference>
+    <preference name="globalruleseditorPanelBackgroundColor" type="color">
+      <property name="red" value="251" />
+      <property name="blue" value="229" />
+      <property name="green" value="242" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="immutableNodeLabelUnfinishedFont" type="font">
+      <property name="style" value="2" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="12" />
+    </preference>
+    <preference name="mutableNodeColor" type="color">
+      <property name="red" value="251" />
+      <property name="blue" value="221" />
+      <property name="green" value="221" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="grammarKeywordFont" type="font">
+      <property name="style" value="1" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="11" />
+    </preference>
+    <preference name="grammarScenarioVariableFont" type="font">
+      <property name="style" value="1" />
+      <property name="name" value="Dialog" />
+      <property name="size" value="11" />
+    </preference>
+    <preference name="wiringGraphGridColor" type="integer">
+      <property name="value" value="-5592406" />
+    </preference>
+    <preference name="edgeLineThickness" type="float">
+      <property name="value" value="1.0" />
+    </preference>
+    <preference name="blockDeprecatedBorderColor" type="color">
+      <property name="red" value="246" />
+      <property name="blue" value="16" />
+      <property name="green" value="154" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="immutableNodeColor" type="color">
+      <property name="red" value="221" />
+      <property name="blue" value="251" />
+      <property name="green" value="225" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="blockNodeLabelColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+    <preference name="immutableNodeLabelFinishedColor" type="color">
+      <property name="red" value="0" />
+      <property name="blue" value="0" />
+      <property name="green" value="0" />
+      <property name="alpha" value="255" />
+    </preference>
+  </preferences>
+</config>
+

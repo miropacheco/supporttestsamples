@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This file contains the shared codec definitions for all configurations of the
+Progress Apama FIX Adapter.  These elements can be included in an IAF
+configuration file using an XInclude directive as shown below:
+
+	<codecs>
+		<xi:include href="FIX-static-codecs.xml" xpointer="xpointer(//codec)" />
+	</codecs>
+
+In order to comply with the configuration file DTD, the <adapter-config>
+element in the configuration file should else contain a "xmlns:xi" attribute
+as shown below:
+
+	<adapter-config xmlns:xi="http://www.w3.org/2001/XInclude">
+
+Note that these definitions should not need to be modified and that any
+modified configurations will not be supported unless the changes have been
+approved by Progress Apama Technical Services.
+
+
+$Copyright (c) 2009-2010 Progress Software Corporation. All rights reserved. $
+
+All use, reproduction, transfer, publication or disclosure is prohibited
+except as expressly permitted in the applicable license agreement.
+-->
+
+<codecs xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<codec name="FilterCodec" library="FilterCodec" recordTimestamps="both" logTimestamps="downstream,upstream,roundtrip">
+		<property name="TransportFieldName" value="TRANSPORT"/>
+		<property name="filter" value=""/>
+		<property name="filter.upstream.44" value="0"/>
+	</codec>
+
+</codecs>

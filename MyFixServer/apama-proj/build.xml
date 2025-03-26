@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="" default="all" basedir=".">
+  <description>Auto-generated build file by Apama Export Wizard.</description>
+  <import file="apama-macros.xml" />
+  <!-- set global properties for this build -->
+  <import file="custom.xml" />
+  <property name="version" value="1.1.0" />
+  <property environment="env" />
+  <property file="environment.properties" />
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp />
+    <!-- Create required directories -->
+    <mkdir dir="${log.dir}" />
+  </target>
+  <!-- Framework -->
+  <target name="framework">
+    <start-correlator port="${Default Correlator.port}" console="true" java="true" />
+    <engine-inject port="${Default Correlator.port}">
+      <filelist>
+        <file name="${apama.home}/monitors/ScenarioService.mon" />
+        <file name="${apama.home}/monitors/scenario_support/ScenarioDeleterSupport.mon" />
+        <file name="${apama.home}/monitors/LoggingManager.mon" />
+        <file name="${apama.home}/monitors/finance/MultiLegOrderManagerSupport.mon" />
+        <file name="${apama.home}/monitors/finance/OrderManagerSupport.mon" />
+        <file name="${apama.home}/monitors/finance/TickManagerSupport.mon" />
+        <file name="${apama.home}/monitors/finance/ScenarioOrderService.mon" />
+        <file name="${apama.home}/monitors/StatusSupport.mon" />
+        <file name="${apama.home}/adapters/monitors/IAFStatusManager.mon" />
+        <file name="${apama.home}/adapters/monitors/FIX_Events.mon" />
+        <file name="${apama.home}/adapters/monitors/FIX_SessionManager.mon" />
+        <file name="${apama.home}/adapters/monitors/FIX_DataManager.mon" />
+        <file name="${apama.home}/adapters/monitors/FIX_OrderManager.mon" />
+        <file name="${apama.home}/adapters/monitors/FIX_StatusManager.mon" />
+        <file name="${apama.home}/adapters/monitors/FIX_SubscriptionManager.mon" />
+        <file name="${apama.home}/adapters/monitors/FIX_SecurityListManager.mon" />
+        <file name="${apama.home}/monitors/DashboardSupport.mon" />
+        <file name="${apama.home}/monitors/DataViewService_Interface.mon" />
+        <file name="${apama.home}/monitors/DataViewService_Impl_Dict.mon" />
+        <file name="monitors/Mon1.mon" />
+        <file name="scenarios/Scenario1.mon" />
+      </filelist>
+    </engine-inject>
+    <engine-send port="${Default Correlator.port}">
+      <filelist>
+        <file name="events/fixsession.evt" />
+      </filelist>
+    </engine-send>
+  </target>
+  <!-- Start -->
+  <target name="start" depends="pre-custom, init, framework, post-custom">
+    <start-iaf port="${instance 1.port}" name="instance 1" config="adapters/FIX_instance_1.xml" propsFile="adapters/FIX_instance_1.properties" />
+  </target>
+  <!-- Stop -->
+  <target name="stop">
+    <kill-correlator port="${Default Correlator.port}" />
+    <kill-iaf port="${instance 1.port}" />
+  </target>
+  <!-- Dashboards -->
+  <target name="dashboards" />
+  <!-- Dashboards -->
+  <target name="adapters" />
+  <!-- All -->
+  <target name="all" depends="start, adapters, dashboards" />
+  <!-- Clean -->
+  <target name="clean">
+    <delete includeemptydirs="true">
+      <fileset dir="${log.dir}" includes="**/*" />
+    </delete>
+  </target>
+</project>
+

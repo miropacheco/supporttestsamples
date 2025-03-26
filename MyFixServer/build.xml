@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<target name="build-jar-32">
+		<path id="classpath">
+		        <fileset dir="lib" includes="**/*.jar"/>
+		    </path>		
+		<javac srcdir="src" destdir="bin1" debug="false" excludes="test/,org/" classpathref="classpath"> 
+		</javac>
+		<copy  todir="./bin1">
+			<fileset dir="src" includes="**/*.properties"/>
+		</copy>
+	    <jar manifest="manifest.txt" basedir="bin1" destfile="fixEmulator32.jar" />
+	</target>
+	<target name="build-jar-64">
+		<path id="classpath">
+		        <fileset dir="lib" includes="**/*.jar"/>
+		    </path>		
+		<javac srcdir="src" destdir="bin1" debug="on" excludes="test/" classpathref="classpath"> 
+		</javac>
+		<copy  todir="./bin1">
+			<fileset dir="src" includes="**/*.properties"/>
+		</copy>
+	    <jar manifest="manifest64.txt" basedir="bin1" file="fixEmulator64.jar"/>
+	</target>	
+</project>

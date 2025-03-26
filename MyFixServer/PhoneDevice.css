@@ -1,0 +1,47 @@
+@CHARSET "ISO-8859-1";
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+	font-family: helvetica, arial, sans-serif
+}
+
+body,html {
+	text-align: center;
+	color: white;
+	background: green;
+}
+
+footer,section,header {
+	display: block;
+	width: 100%;
+}
+
+h1 {
+	font-size: 24px;
+	color: #000;
+	font-family: futura, arial;
+	margin: 5px;
+}
+
+footer {
+	position: absolute;
+	bottom: 105px;
+	right: 105px;
+	border: 1px solid black;
+}
+
+footer p,footer a {
+	font-size: 10px;
+	color: #000
+}
+#playDiv {
+
+   width:480px;
+   height:270px;
+   display:block;
+   background-color:black; 
+   	background: gray;
+}
+
+ 

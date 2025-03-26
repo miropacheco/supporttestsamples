@@ -1,0 +1,34 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)"
+	href="PhoneDevice.css">
+<link rel="stylesheet" media="only screen and (min-device-width:748px)"
+	href="Tablet.css">
+
+<link rel="stylesheet" media="only screen and (min-device-width:1200px)"
+	href="Tablet.css">
+
+</head>
+
+<body onload="showScores()">
+
+<h1>
+And the highest score in this game is: <span stype="header" id="score"></span>
+<p>
+
+</h1>
+
+<input type="button" value="Return" id="return"/>
+
+<script>
+   function showScores() {
+	   if (localStorage.highScore) {
+		   document.getElementById("score").innerHTML = localStorage.highScore;  
+	   }
+   }
+   document.getElementById("return").addEventListener("touchstart",function (eventData) {location="main.html"});
+   
+</script>
+</body>

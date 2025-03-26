@@ -1,0 +1,26 @@
+<project name="Custom" basedir=".">
+	<description>
+  Custom project file for Apama Ant Export Plugin.
+  </description>
+
+	<!-- This target will be called before framework injection -->
+	<target name="pre-custom" description="Main target for Apama adapters">
+		<echo message="Starting pre-custom ..." />
+
+		<!-- insert custom here -->
+
+		<echo message="Custom done." />
+	</target>
+
+	<!-- This target will be called after framework injection -->
+	<target name="post-custom" description="Main target for Apama adapters">
+		<echo message="Starting port-custom ..." />
+
+		<!-- insert custom here -->
+
+		<echo message="Custom done." />
+	</target>
+
+</project>
+
+

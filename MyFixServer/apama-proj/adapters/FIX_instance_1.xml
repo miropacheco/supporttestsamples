@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<!--
+	$Copyright (c) 2009-2010 Progress Software Corporation. All rights reserved. $
+
+	All use, reproduction, transfer, publication or disclosure is prohibited
+	except as expressly permitted in the applicable license agreement.
+-->
+
+<adapter-config xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<!-- FIX transport configuration -->
+	<transports>
+
+		<!-- Client Transport 1 -->
+		<transport name="@FIX_CONNECTION_NAME@" library="FIXTransport">
+			<!--
+			QuickFIX properties
+
+			These properties map directly to the equivalent QuickFix settings and
+			their names are therefore case sensitive.  Any valid QuickFIX setting can
+			be specified here as long as it is prefixed with "QuickFIX.".
+			-->
+			<property name="QuickFIX.ConnectionType" value="initiator" />
+			<property name="QuickFIX.SocketConnectHost" value="@FIX_HOST@"/>
+			<property name="QuickFIX.SocketConnectPort" value="@FIX_PORT@"/>
+			<property name="QuickFIX.ReconnectInterval" value="@RECONNECT_INT@" />
+			<property name="QuickFIX.StartTime" value="00:00:00" />
+			<property name="QuickFIX.EndTime" value="23:59:00" />
+			<property name="QuickFIX.BeginString" value="FIX.4.2" />
+			<property name="QuickFIX.TargetCompID" value="@FIX_TARGET_COMPID@" />
+			<property name="QuickFIX.SenderCompID" value="@FIX_SENDER_COMPID@" />
+			<property name="QuickFIX.HeartBtInt" value="30" />
+			<property name="QuickFIX.FileLogPath" value="FIX_Log" />
+			<property name="QuickFIX.FileStorePath" value="FIX_Log" />
+			<property name="QuickFIX.ResetOnLogon" value="Y" />
+			<property name="QuickFIX.DataDictionary" value="c:/program files/progress/apama 4.3/adapters/config/FIX42.xml" />
+			<property name="QuickFIX.ValidateFieldsHaveValues" value="N" />
+			<property name="QuickFIX.ValidateUserDefinedFields" value="N" />
+			<property name="QuickFIX.CheckLatency" value="N" />
+			<property name="QuickFIX.SocketNodelay" value="Y" />
+
+			<!-- If set to true, log FIX messages at INFO level -->
+			<property name="logFixMsgAtInfoLevel" value="@LOG_FIXMSG_AT_INFOLEVEL@" />
+
+			<!-- FIX repeating group definitions -->
+			<xi:include href="FIX-static-groups.xml" xpointer="xpointer(//property)" />
+		</transport>
+
+	</transports>
+
+
+	<!-- Standard FIX codec configuration -->
+	<codecs>
+		<xi:include href="FIX-static-codecs.xml" xpointer="xpointer(//codec)" />
+	</codecs>
+
+
+	<!-- Event mappings -->
+	<mapping>
+		<!-- FIX messages and adapter events used by all FIX configurations -->
+		<xi:include href="FIX-static-common.xml" xpointer="xpointer(//event)" />
+	</mapping>
+
+
+	<!-- Correlator connections -->
+	<apama>
+		<sinks>
+			<sink host="@CORRELATOR_HOST@" port="@CORRELATOR_PORT@" />
+		</sinks>
+		<sources>
+			<source host="@CORRELATOR_HOST@" port="@CORRELATOR_PORT@" channels="@FIX_CHANNEL@" />
+		</sources>
+	</apama>
+
+</adapter-config>

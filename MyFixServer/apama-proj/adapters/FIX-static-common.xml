@@ -1,0 +1,2571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This file contains the shared event mappings for all configurations of the
+Progress Apama FIX Adapter.  The events mappings defined here cover all of the
+standard FIX 4.2-4.4 messages supported by the adapter, as well as management
+and control events passwd between the adapter and the correlator.
+
+These elements can be included in an IAF configuration file using an XInclude
+directive as shown below:
+
+	<mapping>
+		<xi:include href="FIX-static-common.xml" xpointer="xpointer(//event)" />
+	</mapping>
+
+In order to comply with the configuration file DTD, the <adapter-config>
+element in the configuration file should else contain a "xmlns:xi" attribute
+as shown below:
+
+	<adapter-config xmlns:xi="http://www.w3.org/2001/XInclude">
+
+Note that these event mappings should not need to be modified and that any
+modified configurations will not be supported unless the changes have been
+approved by Progress Apama Technical Services.
+
+
+$Copyright (c) 2009-2010 Progress Software Corporation. All rights reserved. $
+
+All use, reproduction, transfer, publication or disclosure is prohibited
+except as expressly permitted in the applicable license agreement.
+-->
+
+<mapping xmlns:xi="http://www.w3.org/2001/XInclude" recordTimestamps="both" logTimestamps="downstream,upstream,roundtrip">
+
+	<!--
+	Adapter specific events
+	-->
+
+	<event name="LoggedOn" encoder="FilterCodec" direction="downstream" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="__type" test="~==" value="LOGGEDON" />
+			</downstream>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+		</mapping-rules>
+	</event>
+
+	<event name="LoggedOff" encoder="FilterCodec" direction="downstream" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="__type" test="~==" value="LOGGEDOFF" />
+			</downstream>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+		</mapping-rules>
+	</event>
+
+	<event name="HeartbeatRequest" encoder="FilterCodec" direction="upstream" package="com.apama.fix">
+		<id-rules>
+			<upstream />
+		</id-rules>
+		<mapping-rules>
+			<map transport="__type" type="string" default="HEARTBEATREQUEST" />
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="seqnum" transport="seqnum" type="integer" default="-1" />
+		</mapping-rules>
+	</event>
+
+	<event name="HeartbeatResponse" encoder="FilterCodec" direction="downstream" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="__type" test="~==" value="HEARTBEATRESPONSE" />
+			</downstream>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="seqnum" transport="seqnum" type="integer" default="-1" />
+			<map apama="connected" transport="connected" type="boolean" default="false"/>
+		</mapping-rules>
+	</event>
+
+	<event name="StartConnection" encoder="FilterCodec" direction="upstream" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<upstream />
+		</id-rules>
+		<mapping-rules>
+			<map transport="__type" type="string" default="STARTCONNECTION" />
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SessionID" type="string" default="" transport="SessionID"/>
+			<map apama="RequiresFIXConnection" type="boolean" default="true" transport="RequiresFIXConnection"/>
+			<map apama="HeartBeatTimeout" type="float" default="15.0" transport="HeartBeatTimeout"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AdapterStarted" encoder="FilterCodec" direction="downstream" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="__type" test="==" value="ADAPTERSTARTED" />
+			</downstream>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Login" encoder="FilterCodec" direction="upstream" package="com.apama.fix">
+		<id-rules>
+			<upstream />
+		</id-rules>
+		<mapping-rules>
+			<map transport="__type" type="string" default="LOGIN" />
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Logout" encoder="FilterCodec" direction="upstream" package="com.apama.fix">
+		<id-rules>
+			<upstream />
+		</id-rules>
+		<mapping-rules>
+			<map transport="__type" type="string" default="LOGOUT" />
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ResetSequenceNumbers" encoder="FilterCodec" direction="upstream" package="com.apama.fix">
+		<id-rules>
+			<upstream />
+		</id-rules>
+		<mapping-rules>
+			<map transport="__type" type="string" default="RESETSEQUENCENUMBERS" />
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+		</mapping-rules>
+	</event>
+
+	<event name="LogonAuthenticationStatus" encoder="FilterCodec" direction="upstream" package="com.apama.fix">
+		<id-rules>
+			<upstream />
+		</id-rules>
+		<mapping-rules>
+			<map transport="__type" type="string" default="LOGON_RESP" />
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="Status" transport="Status" type="boolean" default="false"/>
+			<map apama="Message" type="string" default="" transport="Message"/>
+		</mapping-rules>
+	</event>
+
+	<!--
+	FIX Message Mappings
+	-->
+
+	<!-- Level 2 Events -->
+
+	<event name="Logon" encoder="FilterCodec" direction="downstream" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="A"/>
+			</downstream>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="HeartBtInt" type="integer" default="0" transport="108"/>
+			<map apama="EncryptMethod" type="integer" default="0" transport="98"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MassQuote_QuoteSet_QuoteEntry" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_MassQuote_QuoteSet_QuoteEntry"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="QuoteEntryID" type="string" default="" transport="299"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_MassQuote_QuoteSet_QuoteEntry" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ExecutionReport_Party_SubParty" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_ExecutionReport_Party_SubParty"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="PartySubID" type="string" default="" transport="523"/>
+			<map apama="PartySubIDType" type="string" default="" transport="803"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_ExecutionReport_Party_SubParty" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<!-- Level 1 Events -->
+
+	<event name="News_LinesOfText" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_News_LinesOfText"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Text" type="string" default="" transport="58"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_News_LinesOfText" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Email_LinesOfText" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_Email_LinesOfText"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Text" type="string" default="" transport="58"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_Email_LinesOfText" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="QuoteRequest_RelatedSym" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_QuoteRequest_RelatedSym"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_QuoteRequest_RelatedSym" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="QuoteRequestReject_RelatedSym" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_QuoteRequestReject_RelatedSym"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_QuoteRequestReject_RelatedSym" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="RFQRequest_RelatedSym" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_RFQRequest_RelatedSym"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_RFQRequest_RelatedSym" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MassQuote_QuoteSet" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_MassQuote_QuoteSet"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="QuoteSetID" type="string" default="" transport="302"/>
+			<map apama="TotNoQuoteEntries" type="integer" default="0" transport="304"/>
+			<map apama="NoQuoteEntries" type="reference" referencetype="sequence &lt;MassQuote_QuoteSet_QuoteEntry&gt;" default="[]" transport="295"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_MassQuote_QuoteSet" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="QuoteCancel_QuoteEntry" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="false" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_QuoteCancel_QuoteEntry"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_QuoteCancel_QuoteEntry" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MarketDataRequest_MDEntryType" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_MarketDataRequest_MDEntryType"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="MDEntryType" type="string" default="" transport="269"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_MarketDataRequest_MDEntryType" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MarketDataRequest_RelatedSym" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_MarketDataRequest_RelatedSym"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_MarketDataRequest_RelatedSym" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MarketDataSnapshotFullRefresh_MDEntry" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_MarketDataSnapshotFullRefresh_MDEntry"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="MDEntryType" type="string" default="" transport="269"/>
+			<map apama="MDEntryPx" type="float" default="0.0" transport="270"/>
+			<map apama="MDEntrySize" type="float" default="0.0" transport="271"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_MarketDataSnapshotFullRefresh_MDEntry" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MarketDataIncrementalRefresh_MDEntry" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_MarketDataIncrementalRefresh_MDEntry"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="MDUpdateAction" type="string" default="" transport="279"/>
+			<map apama="MDEntryType" type="string" default="" transport="269"/>
+			<map apama="MDEntryID" type="string" default="" transport="278"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="MDEntryPx" type="float" default="0.0" transport="270"/>
+			<map apama="MDEntrySize" type="float" default="0.0" transport="271"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_MarketDataIncrementalRefresh_MDEntry" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="NewOrderCross_Side" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_NewOrderCross_Side"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_NewOrderCross_Side" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CrossOrderCancelReplaceRequest_Side" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_CrossOrderCancelReplaceRequest_Side"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="OrigClOrdID" type="string" default="" transport="41"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_CrossOrderCancelReplaceRequest_Side" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CrossOrderCancelRequest_Side" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_CrossOrderCancelRequest_Side"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="OrigClOrdID" type="string" default="" transport="41"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_CrossOrderCancelRequest_Side" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="NewOrderMultileg_Leg" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_NewOrderMultileg_Leg"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_NewOrderMultileg_Leg" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MultilegOrderCancelReplaceRequest_Leg" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_MultilegOrderCancelReplaceRequest_Leg"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_MultilegOrderCancelReplaceRequest_Leg" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="BidResponse_BidComponent" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_BidResponse_BidComponent"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_BidResponse_BidComponent" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="NewOrderList_Order" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_NewOrderList_Order"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="ListSeqNo" type="integer" default="0" transport="67"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="HandlInst" type="string" default="" transport="21"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_NewOrderList_Order" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ListStrikePrice_Strike" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_ListStrikePrice_Strike"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_ListStrikePrice_Strike" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ListStatus_Order" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_ListStatus_Order"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="CumQty" type="float" default="0.0" transport="14"/>
+			<map apama="OrdStatus" type="string" default="" transport="39"/>
+			<map apama="LeavesQty" type="float" default="0.0" transport="151"/>
+			<map apama="CxlQty" type="float" default="0.0" transport="84"/>
+			<map apama="AvgPx" type="float" default="0.0" transport="6"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_ListStatus_Order" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AllocationInstruction_Alloc" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_AllocationInstruction_Alloc"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="AllocAccount" type="string" default="" transport="79"/>
+			<map apama="AllocQty" type="float" default="0.0" transport="80"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_AllocationInstruction_Alloc" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AllocationInstruction_Order" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_Allocation_Order"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_Allocation_Order" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AllocationTrade_Order" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_AllocationTrade_Order"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="AllocAccount" type="string" default="" transport="79"/>
+			<map apama="AllocAcctIDSource" type="integer" default="0" transport="661"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_AllocationTrade_Order" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AllocationReport_Alloc" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_AllocationReport_Alloc"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="AllocAccount" type="string" default="" transport="79"/>
+			<map apama="AllocQty" type="float" default="0.0" transport="80"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_AllocationReport_Alloc" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AllocationReport_Order" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_Allocation_Order"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_Allocation_Order" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Confirmation_Underlying" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_Confirmation_Underlying"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_Confirmation_Underlying" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Confirmation_Leg" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_Confirmation_Leg"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_Confirmation_Leg" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Confirmation_Capacity" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_Confirmation_Capacity"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="OrderCapacity" type="string" default="" transport="528"/>
+			<map apama="OrderCapacityQty" type="float" default="0.0" transport="863"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_Confirmation_Capacity" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="TradeCaptureReport_Side" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_TradeCaptureReport_Side"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_TradeCaptureReport_Side" transport="35"/>
+		</mapping-rules>
+	</event>
+	<event name="TradeCaptureReport_RootPartySubIds" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_TradeCaptureReport_RootPartySubIds"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="RootPartySubId" type="string" default="" transport="1121"/>
+			<map apama="RootPartySubIdType" type="integer" default="0" transport="1122"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_TradeCaptureReport_RootPartySubIds" transport="35"/>
+		</mapping-rules>
+	</event>
+	
+	<event name="TradeCaptureReport_RootPartyIds" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_TradeCaptureReport_RootPartyIds"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="RootPartyId" type="string" default="" transport="1117"/>
+			<map apama="RootPartyIdSource" type="string" default="" transport="1118"/>
+			<map apama="RootPartyRole" type="integer" default="0" transport="1119"/>
+			<map apama="NoRootPartySubIds" type="reference" referencetype="sequence &lt;TradeCaptureReport_RootPartySubIds&gt;" default="[]" transport="1120"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_TradeCaptureReport_RootPartyIds" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="PositionMaintenanceRequest_Position" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_PositionMaintenanceRequest_Position"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+		</mapping-rules>
+	</event>
+
+	<event name="PositionMaintenanceReport_Position" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_PositionMaintenanceReport_Position"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+		</mapping-rules>
+	</event>
+
+	<event name="PositionMaintenanceReport_PosAmt" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_PositionMaintenanceReport_PosAmt"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="PosAmtType" type="string" default="" transport="707"/>
+			<map apama="PosAmt" type="string" default="" transport="708"/>
+		</mapping-rules>
+	</event>
+
+	<event name="PositionReport_Position" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_PositionReport_Position"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+		</mapping-rules>
+	</event>
+
+	<event name="PositionReport_PosAmt" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_PositionReport_PosAmt"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="PosAmtType" type="string" default="" transport="707"/>
+			<map apama="PosAmt" type="string" default="" transport="708"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AssignmentReport_Position" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_AssignmentReport_Position"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+		</mapping-rules>
+	</event>
+
+	<event name="AssignmentReport_PosAmt" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_AssignmentReport_PosAmt"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="PosAmtType" type="string" default="" transport="707"/>
+			<map apama="PosAmt" type="string" default="" transport="708"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SecurityDefinition_RelatedSym" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_SecurityDefinition_RelatedSym"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="UnderlyingSymbol" type="string" default="" transport="311"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_SecurityDefinition_RelatedSym" transport="35"/>
+		</mapping-rules>
+	</event>		
+
+	<event name="ExecutionReport_Party" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_ExecutionReport_Party"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="PartyID" type="string" default="" transport="448"/>
+			<map apama="PartyIDSource" type="string" default="" transport="447"/>
+			<map apama="PartyRole" type="string" default="" transport="452"/>
+			<map apama="NoPartySubIDs" type="reference" referencetype="sequence &lt;ExecutionReport_Party_SubParty &gt;" default="[]" transport="802"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_ExecutionReport_Party" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ExecutionReport_ContraBroker" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_ExecutionReport_ContraBroker"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="ContraBroker" type="string" default="" transport="375"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_ExecutionReport_ContraBroker" transport="35"/>
+		</mapping-rules>
+	</event>
+			
+	<event name="SecurityList_RelatedSym" encoder="FilterCodec" direction="both" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="_SecurityList_RelatedSym"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="SecurityID" type="string" default="" transport="48"/>
+			<map apama="SecurityIDSource" type="string" default="" transport="22"/>
+			<map apama="SecurityExchange" type="string" default="" transport="207"/>
+			<map apama="_extraParams" type="reference" referencetype="dictionary &lt;integer, string&gt;" default="{}"/>
+			<map type="string" default="_SecurityList_RelatedSym" transport="35"/>
+		</mapping-rules>
+	</event>
+	
+	<!-- Level 0 Events -->
+
+	<event name="BusinessMessageReject" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="j"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="RefSeqNum" type="integer" default="0" transport="45"/>
+			<map apama="RefMsgType" type="string" default="" transport="372"/>
+			<map apama="BusinessRejectReason" type="integer" default="0" transport="380"/>
+			<map type="string" default="j" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="UserRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="BE"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="UserRequestID" type="string" default="" transport="923"/>
+			<map apama="UserRequestType" type="integer" default="0" transport="924"/>
+			<map apama="Username" type="string" default="" transport="553"/>
+			<map type="string" default="BE" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="UserResponse" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="BF"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="UserRequestID" type="string" default="" transport="923"/>
+			<map apama="Username" type="string" default="" transport="553"/>
+			<map type="string" default="BF" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Advertisement" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="7"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="AdvId" type="string" default="" transport="2"/>
+			<map apama="AdvTransType" type="string" default="" transport="5"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="AdvSide" type="string" default="" transport="4"/>
+			<map apama="Quantity" type="float" default="0.0" transport="53"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="7" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="IndicationOfInterest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="6"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="IOIid" type="string" default="" transport="23"/>
+			<map apama="IOITransType" type="string" default="" transport="28"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="IOIQty" type="string" default="" transport="27"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="6" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="News" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="B"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="Headline" type="string" default="" transport="148"/>
+			<map apama="LinesOfText" type="reference" referencetype="sequence &lt;News_LinesOfText&gt;" default="[]" transport="33"/>
+			<map type="string" default="B" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Email" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="C"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="EmailThreadID" type="string" default="" transport="164"/>
+			<map apama="EmailType" type="string" default="" transport="94"/>
+			<map apama="Subject" type="string" default="" transport="147"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="LinesOfText" type="reference" referencetype="sequence &lt;Email_LinesOfText&gt;" default="[]" transport="33"/>
+			<map type="string" default="C" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="QuoteRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="R"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="QuoteReqID" type="string" default="" transport="131"/>
+			<map apama="NoRelatedSym" type="reference" referencetype="sequence &lt;QuoteRequest_RelatedSym&gt;" default="[]" transport="146"/>
+			<map type="string" default="R" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="QuoteResponse" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AJ"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="QuoteRespID" type="string" default="" transport="693"/>
+			<map apama="QuoteRespType" type="integer" default="0" transport="694"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="AJ" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="QuoteRequestReject" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AG"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="QuoteReqID" type="string" default="" transport="131"/>
+			<map apama="QuoteRequestRejectReason" type="integer" default="0" transport="658"/>
+			<map apama="NoRelatedSym" type="reference" referencetype="sequence &lt;QuoteRequestReject_RelatedSym&gt;" default="[]" transport="146"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="AG" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="RFQRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AH"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="RFQReqID" type="string" default="" transport="644"/>
+			<map apama="NoRelatedSym" type="reference" referencetype="sequence &lt;RFQRequest_RelatedSym&gt;" default="[]" transport="146"/>
+			<map type="string" default="AH" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Quote" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix" copyTimestamps="true">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="S"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="QuoteID" type="string" default="" transport="117"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map type="string" default="S" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="QuoteCancel" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="Z"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="QuoteID" type="string" default="" transport="117"/>
+			<map apama="QuoteCancelType" type="integer" default="0" transport="298"/>
+			<map apama="NoQuoteEntries" type="reference" referencetype="sequence &lt;QuoteCancel_QuoteEntry&gt;" default="[]" transport="295"/>
+			<map type="string" default="Z" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="QuoteStatusRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="a"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map type="string" default="a" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="QuoteStatusReport" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AI"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="QuoteID" type="string" default="" transport="117"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map type="string" default="AI" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MassQuote" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="i"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="QuoteID" type="string" default="" transport="117"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="NoQuoteSets" type="reference" referencetype="sequence &lt;MassQuote_QuoteSet&gt;" default="[]" transport="296"/>
+			<map type="string" default="i" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MassQuoteAcknowledgement" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="b"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="QuoteStatus" type="integer" default="0" transport="297"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map type="string" default="b" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<!-- Older (FIX 4.2) Quote Acknowledgement event - kept here in case we want to send one upstream -->
+	<event name="QuoteAcknowledgement" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="b"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="QuoteAckStatus" type="integer" default="0" transport="297"/>
+			<map type="string" default="b" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MarketDataRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="V"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="MDReqID" type="string" default="" transport="262"/>
+			<map apama="SubscriptionRequestType" type="string" default="" transport="263"/>
+			<map apama="MarketDepth" type="integer" default="0" transport="264"/>
+			<map apama="MDUpdateType" type="integer" default="0" transport="265"/>
+			<map apama="AggregatedBook" type="string" default="" transport="266"/>
+			<map apama="NoMDEntryTypes" type="reference" referencetype="sequence &lt;MarketDataRequest_MDEntryType&gt;" default="[]" transport="267"/>
+			<map apama="NoRelatedSym" type="reference" referencetype="sequence &lt;MarketDataRequest_RelatedSym&gt;" default="[]" transport="146"/>
+			<map type="string" default="V" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MarketDataSnapshotFullRefresh" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix" copyTimestamps="true">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="W"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="MDReqID" type="string" default="" transport="262"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="NoMDEntries" type="reference" referencetype="sequence &lt;MarketDataSnapshotFullRefresh_MDEntry&gt;" default="[]" transport="268"/>
+			<map type="string" default="W" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MarketDataIncrementalRefresh" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix" copyTimestamps="true">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="X"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="MDReqID" type="string" default="" transport="262"/>
+			<map apama="NoMDEntries" type="reference" referencetype="sequence &lt;MarketDataIncrementalRefresh_MDEntry&gt;" default="[]" transport="268"/>
+			<map type="string" default="X" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MarketDataRequestReject" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="Y"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="MDReqID" type="string" default="" transport="262"/>
+			<map apama="MDReqRejReason" type="string" default="" transport="281"/>
+			<map type="string" default="Y" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SecurityDefinitionRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="c"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SecurityReqID" type="string" default="" transport="320"/>
+			<map apama="SecurityRequestType" type="integer" default="0" transport="321"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map type="string" default="c" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SecurityDefinition" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="d"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SecurityReqID" type="string" default="" transport="320"/>
+			<map apama="SecurityResponseID" type="string" default="" transport="322"/>
+			<map apama="TotalNumSecurities" type="integer" default="0" transport="393"/>
+			<map apama="SecurityResponseType" type="integer" default="0" transport="323"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="NoRelatedSym" type="reference" referencetype="sequence &lt;SecurityDefinition_RelatedSym&gt;" default="[]" transport="146"/>
+			<map type="string" default="d" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SecurityTypeRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="v"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SecurityReqID" type="string" default="" transport="320"/>
+			<map type="string" default="v" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SecurityTypes" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="w"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SecurityReqID" type="string" default="" transport="320"/>
+			<map apama="SecurityResponseID" type="string" default="" transport="322"/>
+			<map apama="SecurityResponseType" type="integer" default="0" transport="323"/>
+			<map type="string" default="w" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SecurityListRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="x"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SecurityReqID" type="string" default="" transport="320"/>
+			<map apama="SecurityListRequestType" type="integer" default="0" transport="559"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map type="string" default="x" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SecurityList" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="y"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SecurityReqID" type="string" default="" transport="320"/>
+			<map apama="SecurityResponseID" type="string" default="" transport="322"/>
+			<map apama="SecurityRequestResult" type="integer" default="0" transport="560"/>
+			<map apama="TotNoRelatedSym" type="integer" default="0" transport="393"/>
+			<map apama="LastFragment" type="string" default="" transport="893"/>
+			<map apama="NoRelatedSym" type="reference" referencetype="sequence &lt;SecurityList_RelatedSym&gt;" default="[]" transport="146"/>
+			<map type="string" default="y" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="DerivativeSecurityListRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="z"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SecurityReqID" type="string" default="" transport="320"/>
+			<map apama="SecurityListRequestType" type="integer" default="0" transport="559"/>
+			<map type="string" default="z" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="DerivativeSecurityList" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AA"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SecurityReqID" type="string" default="" transport="320"/>
+			<map apama="SecurityResponseID" type="string" default="" transport="322"/>
+			<map apama="SecurityRequestResult" type="integer" default="0" transport="560"/>
+			<map type="string" default="AA" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SecurityStatusRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="e"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SecurityStatusReqID" type="string" default="" transport="324"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="SubscriptionRequestType" type="string" default="" transport="263"/>
+			<map type="string" default="e" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SecurityStatus" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="f"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="LastPx" type="float" default="0.0" transport="31"/>
+			<map type="string" default="f" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="TradingSessionStatusRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="g"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="TradSesReqID" type="string" default="" transport="335"/>
+			<map apama="SubscriptionRequestType" type="string" default="" transport="263"/>
+			<map type="string" default="g" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="TradingSessionStatus" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="h"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="TradingSessionID" type="string" default="" transport="336"/>
+			<map apama="TradSesStatus" type="integer" default="0" transport="340"/>
+			<map type="string" default="h" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="NewOrderSingle" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" copyTimestamps="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="D"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="HandlInst" type="string" default="" transport="21"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map apama="NoPartyIDs" type="reference" referencetype="sequence &lt;ExecutionReport_Party&gt;" default="[]" transport="453"/>
+			<map type="string" default="D" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ExecutionReport" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" copyTimestamps="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="8"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrigClOrdID" type="string" default="" transport="41"/>
+			<map apama="ExecID" type="string" default="" transport="17"/>
+			<map apama="ExecTransType" type="string" default="" transport="20"/>
+			<map apama="ExecType" type="string" default="" transport="150"/>
+			<map apama="OrdStatus" type="string" default="" transport="39"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map apama="LastShares" type="float" default="0.0" transport="32"/>
+			<map apama="LastPx" type="float" default="0.0" transport="31"/>
+			<map apama="LeavesQty" type="float" default="0.0" transport="151"/>
+			<map apama="CumQty" type="float" default="0.0" transport="14"/>
+			<map apama="AvgPx" type="float" default="0.0" transport="6"/>
+			<map apama="NoPartyIDs" type="reference" referencetype="sequence &lt;ExecutionReport_Party&gt;" default="[]" transport="453"/>
+			<map apama="NoContraBrokers" type="reference" referencetype="sequence &lt;ExecutionReport_ContraBroker&gt;" default="[]" transport="382"/>
+			<map type="string" default="8" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ExecutionReportAcknowledgement" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="BN"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="ExecAckStatus" type="string" default="" transport="1036"/>
+			<map apama="ExecID" type="string" default="" transport="17"/>
+			<map apama="DKReason" type="string" default="" transport="127"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="LastShares" type="float" default="0.0" transport="32"/>
+			<map apama="LastPx" type="float" default="0.0" transport="31"/>
+			<map apama="CumQty" type="float" default="0.0" transport="14"/>
+			<map apama="AvgPx" type="float" default="0.0" transport="6"/>
+			<map type="string" default="BN" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="DontKnowTrade" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="Q"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="ExecID" type="string" default="" transport="17"/>
+			<map apama="DKReason" type="string" default="" transport="127"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="LastQty" type="float" default="0.0" transport="32"/>
+			<map apama="LastPx" type="float" default="0.0" transport="31"/>
+			<map type="string" default="Q" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="OrderCancelReplaceRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" copyTimestamps="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="G"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="OrigClOrdID" type="string" default="" transport="41"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="HandlInst" type="string" default="" transport="21"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="G" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="OrderCancelRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" copyTimestamps="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="F"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrigClOrdID" type="string" default="" transport="41"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map type="string" default="F" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="OrderCancelReject" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="9"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrigClOrdID" type="string" default="" transport="41"/>
+			<map apama="OrdStatus" type="string" default="" transport="39"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="CxlRejResponseTo" type="string" default="" transport="434"/>
+			<map type="string" default="9" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="OrderStatusRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="H"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map type="string" default="H" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="OrderMassCancelRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="q"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="MassCancelRequestType" type="string" default="" transport="530"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map type="string" default="q" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="OrderMassCancelReport" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="r"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="MassCancelRequestType" type="string" default="" transport="530"/>
+			<map apama="MassCancelResponse" type="string" default="" transport="531"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map type="string" default="r" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="OrderMassStatusRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AF"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="MassStatusReqID" type="string" default="" transport="584"/>
+			<map apama="MassStatusReqType" type="integer" default="0" transport="585"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map type="string" default="AF" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="NewOrderCross" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="s"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="CrossID" type="string" default="" transport="548"/>
+			<map apama="CrossType" type="integer" default="0" transport="549"/>
+			<map apama="CrossPrioritization" type="integer" default="0" transport="550"/>
+			<map apama="NoSides" type="reference" referencetype="sequence &lt;NewOrderCross_Side&gt;" default="[]" transport="552"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="HandlInst" type="string" default="" transport="21"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="s" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CrossOrderCancelReplaceRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="t"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="CrossID" type="string" default="" transport="548"/>
+			<map apama="OrigCrossID" type="string" default="" transport="551"/>
+			<map apama="CrossType" type="integer" default="0" transport="549"/>
+			<map apama="CrossPrioritization" type="integer" default="0" transport="550"/>
+			<map apama="NoSides" type="reference" referencetype="sequence &lt;CrossOrderCancelReplaceRequest_Side&gt;" default="[]" transport="552"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="HandlInst" type="string" default="" transport="21"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="t" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CrossOrderCancelRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="u"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="CrossID" type="string" default="" transport="548"/>
+			<map apama="OrigCrossID" type="string" default="" transport="551"/>
+			<map apama="CrossType" type="integer" default="0" transport="549"/>
+			<map apama="CrossPrioritization" type="integer" default="0" transport="550"/>
+			<map apama="NoSides" type="reference" referencetype="sequence &lt;CrossOrderCancelRequest_Side&gt;" default="[]" transport="552"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map type="string" default="u" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="NewOrderMultileg" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AB"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="HandlInst" type="string" default="" transport="21"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="NoLegs" type="reference" referencetype="sequence &lt;NewOrderMultileg_Leg&gt;" default="[]" transport="555"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="AB" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="MultilegOrderCancelReplaceRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AC"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="OrigClOrdID" type="string" default="" transport="41"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="HandlInst" type="string" default="" transport="21"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="NoLegs" type="reference" referencetype="sequence &lt;MultilegOrderCancelReplaceRequest_Leg&gt;" default="[]" transport="555"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="OrdType" type="string" default="" transport="40"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="AC" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="BidRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="k"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ClientBidID" type="string" default="" transport="391"/>
+			<map apama="BidRequestTransType" type="string" default="" transport="374"/>
+			<map apama="TotNoRelatedSym" type="integer" default="0" transport="393"/>
+			<map apama="BidType" type="integer" default="0" transport="394"/>
+			<map apama="BidTradeType" type="string" default="" transport="418"/>
+			<map apama="BasisPxType" type="string" default="" transport="419"/>
+			<map type="string" default="k" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="BidResponse" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="l"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="NoBidComponents" type="reference" referencetype="sequence &lt;BidResponse_BidComponent&gt;" default="[]" transport="420"/>
+			<map type="string" default="l" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="NewOrderList" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="E"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ListID" type="string" default="" transport="66"/>
+			<map apama="BidType" type="integer" default="0" transport="394"/>
+			<map apama="TotNoOrders" type="integer" default="0" transport="68"/>
+			<map apama="NoOrders" type="reference" referencetype="sequence &lt;NewOrderList_Order&gt;" default="[]" transport="73"/>
+			<map type="string" default="E" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ListStrikePrice" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="m"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ListID" type="string" default="" transport="66"/>
+			<map apama="TotNoStrikes" type="integer" default="0" transport="422"/>
+			<map apama="NoStrikes" type="reference" referencetype="sequence &lt;ListStrikePrice_Strike&gt;" default="[]" transport="428"/>
+			<map type="string" default="m" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ListStatus" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="N"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ListID" type="string" default="" transport="66"/>
+			<map apama="ListStatusType" type="integer" default="0" transport="429"/>
+			<map apama="NoRpts" type="integer" default="0" transport="82"/>
+			<map apama="ListOrderStatus" type="integer" default="0" transport="431"/>
+			<map apama="RptSeq" type="integer" default="0" transport="83"/>
+			<map apama="TotNoOrders" type="integer" default="0" transport="68"/>
+			<map apama="NoOrders" type="reference" referencetype="sequence &lt;ListStatus_Order&gt;" default="[]" transport="73"/>
+			<map type="string" default="N" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ListExecute" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="L"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ListID" type="string" default="" transport="66"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map type="string" default="L" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ListCancelRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="K"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ListID" type="string" default="" transport="66"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map type="string" default="K" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ListStatusRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="M"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ListID" type="string" default="" transport="66"/>
+			<map type="string" default="M" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AllocationInstruction" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="J"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="AllocID" type="string" default="" transport="70"/>
+			<map apama="AllocTransType" type="string" default="" transport="71"/>
+			<map apama="AllocType" type="integer" default="0" transport="626"/>
+			<map apama="AllocNoOrdersType" type="integer" default="0" transport="857"/>
+			<map apama="NoOrders" type="reference" referencetype="sequence &lt;AllocationInstruction_Order&gt;" default="[]" transport="73"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Quantity" type="float" default="0.0" transport="53"/>
+			<map apama="AvgPx" type="float" default="0.0" transport="6"/>
+			<map apama="TradeDate" type="string" default="" transport="75"/>
+			<map apama="NoAllocs" type="reference" referencetype="sequence &lt;AllocationInstruction_Alloc&gt;" default="[]" transport="78"/>
+			<map type="string" default="J" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AllocationInstructionAck" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="P"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="AllocID" type="string" default="" transport="70"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="AllocStatus" type="integer" default="0" transport="87"/>
+			<map type="string" default="P" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AllocationReport" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AS"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="AllocReportID" type="string" default="" transport="755"/>
+			<map apama="AllocTransType" type="string" default="" transport="71"/>
+			<map apama="AllocReportType" type="integer" default="0" transport="794"/>
+			<map apama="AllocStatus" type="integer" default="0" transport="87"/>
+			<map apama="AllocNoOrdersType" type="integer" default="0" transport="857"/>
+			<map apama="NoOrders" type="reference" referencetype="sequence &lt;AllocationReport_Order&gt;" default="[]" transport="73"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Quantity" type="float" default="0.0" transport="53"/>
+			<map apama="AvgPx" type="float" default="0.0" transport="6"/>
+			<map apama="TradeDate" type="string" default="" transport="75"/>
+			<map apama="NoAllocs" type="reference" referencetype="sequence &lt;AllocationReport_Alloc&gt;" default="[]" transport="78"/>
+			<map type="string" default="AS" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AllocationReportAck" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AT"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="AllocReportID" type="string" default="" transport="755"/>
+			<map apama="AllocID" type="string" default="" transport="70"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="AllocStatus" type="integer" default="0" transport="87"/>
+			<map type="string" default="AT" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="Confirmation" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AK"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ConfirmID" type="string" default="" transport="664"/>
+			<map apama="ConfirmTransType" type="integer" default="0" transport="666"/>
+			<map apama="ConfirmType" type="integer" default="0" transport="773"/>
+			<map apama="ConfirmStatus" type="integer" default="0" transport="665"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="TradeDate" type="string" default="" transport="75"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="NoUnderlyings" type="reference" referencetype="sequence &lt;Confirmation_Underlying&gt;" default="[]" transport="711"/>
+			<map apama="NoLegs" type="reference" referencetype="sequence &lt;Confirmation_Leg&gt;" default="[]" transport="555"/>
+			<map apama="AllocQty" type="float" default="0.0" transport="80"/>
+			<map apama="Side" type="string" default="" transport="54"/>
+			<map apama="NoCapacities" type="reference" referencetype="sequence &lt;Confirmation_Capacity&gt;" default="[]" transport="862"/>
+			<map apama="AllocAccount" type="string" default="" transport="79"/>
+			<map apama="AvgPx" type="float" default="0.0" transport="6"/>
+			<map apama="GrossTradeAmt" type="string" default="" transport="381"/>
+			<map apama="NetMoney" type="string" default="" transport="118"/>
+			<map type="string" default="AK" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ConfirmationAck" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AU"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ConfirmID" type="string" default="" transport="664"/>
+			<map apama="TradeDate" type="string" default="" transport="75"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="AffirmStatus" type="integer" default="0" transport="940"/>
+			<map type="string" default="AU" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="ConfirmationRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="BH"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="ConfirmReqID" type="string" default="" transport="859"/>
+			<map apama="ConfirmType" type="integer" default="0" transport="773"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map type="string" default="BH" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SettlementInstructions" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="T"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SettlInstMsgID" type="string" default="" transport="777"/>
+			<map apama="SettlInstMode" type="string" default="" transport="160"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map type="string" default="T" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SettlementInstructionRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AV"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="SettlInstReqID" type="string" default="" transport="791"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map type="string" default="AV" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="TradeCaptureReportRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AD"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="TradeRequestID" type="string" default="" transport="568"/>
+			<map apama="TradeRequestType" type="integer" default="0" transport="569"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map type="string" default="AD" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="TradeCaptureReportRequestAck" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AQ"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="TradeRequestID" type="string" default="" transport="568"/>
+			<map apama="TradeRequestType" type="integer" default="0" transport="569"/>
+			<map apama="TradeRequestResult" type="integer" default="0" transport="749"/>
+			<map apama="TradeRequestStatus" type="integer" default="0" transport="750"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map type="string" default="AQ" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="TradeCaptureReport" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AE"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="TradeReportID" type="string" default="" transport="571"/>
+			<map apama="PreviouslyReported" type="string" default="" transport="570"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="OrderQty" type="float" default="0.0" transport="38"/>
+			<map apama="LastQty" type="float" default="0.0" transport="32"/>
+			<map apama="LastPx" type="float" default="0.0" transport="31"/>
+			<map apama="TradeDate" type="string" default="" transport="75"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="NoSides" type="reference" referencetype="sequence &lt;TradeCaptureReport_Side&gt;" default="[]" transport="552"/>
+			<map type="string" default="AE" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="TradeCaptureReportAck" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AR"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="TradeReportID" type="string" default="" transport="571"/>
+			<map apama="ExecType" type="string" default="" transport="150"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map type="string" default="AR" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="RegistrationInstructions" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="o"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="RegistID" type="string" default="" transport="513"/>
+			<map apama="RegistTransType" type="string" default="" transport="514"/>
+			<map apama="RegistRefID" type="string" default="" transport="508"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map type="string" default="o" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="RegistrationInstructionsResponse" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="p"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="RegistID" type="string" default="" transport="513"/>
+			<map apama="RegistTransType" type="string" default="" transport="514"/>
+			<map apama="RegistRefID" type="string" default="" transport="508"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="RegistStatus" type="string" default="" transport="506"/>
+			<map type="string" default="p" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="PositionMaintenanceRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AL"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="PosReqID" type="string" default="" transport="710"/>
+			<map apama="PosTransType" type="integer" default="0" transport="709"/>
+			<map apama="PosMaintAction" type="integer" default="0" transport="712"/>
+			<map apama="ClearingBusinessDate" type="string" default="" transport="715"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="AccountType" type="integer" default="0" transport="581"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="NoPositions" type="reference" referencetype="sequence &lt;PositionMaintenanceRequest_Position&gt;" default="[]" transport="702"/>
+			<map type="string" default="AL" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="PositionMaintenanceReport" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AM"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="PosMaintRptID" type="string" default="" transport="721"/>
+			<map apama="PosTransType" type="integer" default="0" transport="709"/>
+			<map apama="PosMaintAction" type="integer" default="0" transport="712"/>
+			<map apama="OrigPosReqRefID" type="string" default="" transport="713"/>
+			<map apama="PosMaintStatus" type="integer" default="0" transport="722"/>
+			<map apama="ClearingBusinessDate" type="string" default="" transport="715"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="AccountType" type="integer" default="0" transport="581"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="NoPositions" type="reference" referencetype="sequence &lt;PositionMaintenanceReport_Position&gt;" default="[]" transport="702"/>
+			<map apama="NoPosAmt" type="reference" referencetype="sequence &lt;PositionMaintenanceReport_PosAmt&gt;" default="[]" transport="753"/>
+			<map type="string" default="AM" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="RequestForPositions" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AN"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="PosReqID" type="string" default="" transport="710"/>
+			<map apama="PosReqType" type="integer" default="0" transport="724"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="AccountType" type="integer" default="0" transport="581"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="ClearingBusinessDate" type="string" default="" transport="715"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map type="string" default="AN" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="RequestForPositionsAck" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AO"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="PosMaintRptID" type="string" default="" transport="721"/>
+			<map apama="PosReqResult" type="integer" default="0" transport="728"/>
+			<map apama="PosReqStatus" type="integer" default="0" transport="729"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="AccountType" type="integer" default="0" transport="581"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map type="string" default="AO" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="PositionReport" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AP"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="PosMaintRptID" type="string" default="" transport="721"/>
+			<map apama="PosReqResult" type="integer" default="0" transport="728"/>
+			<map apama="ClearingBusinessDate" type="string" default="" transport="715"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="AccountType" type="integer" default="0" transport="581"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="SettlPrice" type="float" default="0.0" transport="730"/>
+			<map apama="SettlPriceType" type="integer" default="0" transport="731"/>
+			<map apama="PriorSettlPrice" type="float" default="0.0" transport="734"/>
+			<map apama="NoPositions" type="reference" referencetype="sequence &lt;PositionReport_Position&gt;" default="[]" transport="702"/>
+			<map apama="NoPosAmt" type="reference" referencetype="sequence &lt;PositionReport_PosAmt&gt;" default="[]" transport="753"/>
+			<map type="string" default="AP" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="AssignmentReport" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AW"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="AsgnRptID" type="string" default="" transport="833"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="AccountType" type="integer" default="0" transport="581"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="NoPositions" type="reference" referencetype="sequence &lt;AssignmentReport_Position&gt;" default="[]" transport="702"/>
+			<map apama="NoPosAmt" type="reference" referencetype="sequence &lt;AssignmentReport_PosAmt&gt;" default="[]" transport="753"/>
+			<map apama="SettlPrice" type="float" default="0.0" transport="730"/>
+			<map apama="SettlPriceType" type="integer" default="0" transport="731"/>
+			<map apama="UnderlyingSettlPrice" type="float" default="0.0" transport="732"/>
+			<map apama="AssignmentMethod" type="string" default="" transport="744"/>
+			<map apama="OpenInterest" type="string" default="" transport="746"/>
+			<map apama="ExerciseMethod" type="string" default="" transport="747"/>
+			<map apama="SettlSessID" type="string" default="" transport="716"/>
+			<map apama="SettlSessSubID" type="string" default="" transport="717"/>
+			<map apama="ClearingBusinessDate" type="string" default="" transport="715"/>
+			<map type="string" default="AW" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CollateralRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AX"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="CollReqID" type="string" default="" transport="894"/>
+			<map apama="CollAsgnReason" type="integer" default="0" transport="895"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="AX" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CollateralAssignment" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AY"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="CollAsgnID" type="string" default="" transport="902"/>
+			<map apama="CollAsgnReason" type="integer" default="0" transport="895"/>
+			<map apama="CollAsgnTransType" type="integer" default="0" transport="903"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="AY" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CollateralResponse" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="AZ"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="CollRespID" type="string" default="" transport="904"/>
+			<map apama="CollAsgnID" type="string" default="" transport="902"/>
+			<map apama="CollAsgnReason" type="integer" default="0" transport="895"/>
+			<map apama="CollAsgnRespType" type="integer" default="0" transport="905"/>
+			<map apama="TransactTime" type="string" default="" transport="60"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="AZ" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CollateralReport" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="BA"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="CollRptID" type="string" default="" transport="908"/>
+			<map apama="CollStatus" type="integer" default="0" transport="910"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="BA" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CollateralInquiry" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="BB"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map apama="Price" type="float" default="0.0" transport="44"/>
+			<map type="string" default="BB" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="CollateralInquiryAck" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="BG"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="CollInquiryID" type="string" default="" transport="909"/>
+			<map apama="CollInquiryStatus" type="integer" default="0" transport="945"/>
+			<map apama="Account" type="string" default="" transport="1"/>
+			<map apama="ClOrdID" type="string" default="" transport="11"/>
+			<map apama="OrderID" type="string" default="" transport="37"/>
+			<map apama="Symbol" type="string" default="" transport="55"/>
+			<map type="string" default="BG" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="UserDefinedTestMessage" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="U1"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="TestReqID" type="string" default="" transport="112"/>
+			<map type="string" default="U1" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="UserDefinedHeartBeat" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="U2"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="TestReqID" type="string" default="" transport="112"/>
+			<map type="string" default="U2" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="TestRequest" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="1"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="TestReqID" type="string" default="" transport="112"/>
+			<map type="string" default="1" transport="35"/>
+		</mapping-rules>
+	</event>
+
+	<event name="SequenceReset" encoder="FilterCodec" direction="both" copyUnmappedToDictionaryPayload="true" package="com.apama.fix">
+		<id-rules>
+			<downstream>
+				<id fields="35" test="==" value="4"/>
+			</downstream>
+			<upstream/>
+		</id-rules>
+		<mapping-rules>
+			<map apama="TRANSPORT" type="string" default="" transport="TRANSPORT"/>
+			<map apama="SESSION" type="string" default="" transport="SESSION"/>
+			<map apama="NewSeqNo" type="integer" default="0" transport="36"/>
+			<map apama="GapFillFlag" type="string" default="Y" transport="123"/>
+			<map type="string" default="4" transport="35"/>
+		</mapping-rules>
+	</event>
+
+</mapping>
