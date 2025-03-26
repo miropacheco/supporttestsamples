@@ -1,0 +1,2 @@
+Main-Class: ExecuteQuery
+Class-Path: . lib\ojdbc6.jar

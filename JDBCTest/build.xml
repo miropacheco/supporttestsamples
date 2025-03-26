@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="buildIt">
+	<target name="buildIt">	    
+		<javac  srcdir="src" destdir="bin" includes="**/*.java"/>
+		<jar basedir="bin" includes="**/*.class" whenempty="create" file="query.jar" manifest="MANIFEST.MF"/>
+	</target>
+</project>
