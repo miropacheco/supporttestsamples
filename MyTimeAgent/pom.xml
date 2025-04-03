@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>MyAgent</groupId>
+  <artifactId>MyTimeAgent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>FakeTimeAgent</name>
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version> <!-- Use a compatible version -->
+            <configuration>
+                <source>1.8</source>  <!-- Set Java source to 1.8 -->
+                <target>1.8</target>  <!-- Set Java target to 1.8 -->
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
+  <dependencies>
+  		<dependency>
+  		<groupId>net.bytebuddy</groupId>
+  		<artifactId>byte-buddy</artifactId>
+  		<version>LATEST</version>
+  	</dependency>
+  	<dependency>
+    <groupId>net.bytebuddy</groupId>
+    <artifactId>byte-buddy-agent</artifactId>
+    <version>LATEST</version>
+</dependency>
+  </dependencies>
+</project>
