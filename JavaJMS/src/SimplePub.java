@@ -24,6 +24,7 @@ import com.pcbsys.nirvana.client.nSessionNotConnectedException;
 import com.pcbsys.nirvana.client.nSessionPausedException;
 import com.pcbsys.nirvana.client.nTransaction;
 import com.pcbsys.nirvana.client.nTransactionAttributes;
+import com.pcbsys.nirvana.client.nTransactionException;
 import com.pcbsys.nirvana.client.nTransactionFactory;
 import com.pcbsys.nirvana.client.nUnexpectedResponseException;
 import com.pcbsys.nirvana.client.nUnknownRemoteRealmException;
@@ -47,8 +48,11 @@ public class SimplePub {
 		nChannel myChannel;
 		try {
 			myChannel = mySession.findChannel(cattrib);
-			
-			myChannel.publish(new nConsumeEvent("eventTag".getBytes(), p));
+			nTransactionAttributes tattrib=new nTransactionAttributes(myChannel);
+			nTransaction myTransaction=nTransactionFactory.create(tattrib);
+		
+			myTransaction.publish(new nConsumeEvent("eventTag".getBytes(), p));
+			myTransaction.commit();
 
 		} catch (nChannelNotFoundException | nSessionPausedException | nUnknownRemoteRealmException | nSecurityException
 				| nSessionNotConnectedException | nIllegalArgumentException | nUnexpectedResponseException
@@ -56,6 +60,9 @@ public class SimplePub {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (nMaxBufferSizeExceededException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (nTransactionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
