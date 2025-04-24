@@ -1,20 +1,14 @@
 import java.lang.management.ManagementFactory;
-import java.util.Hashtable;
 import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import javax.naming.AuthenticationException;
-import javax.naming.AuthenticationNotSupportedException;
-import javax.naming.Context;
-import javax.naming.NamingException;
-import javax.naming.directory.DirContext;
-import javax.naming.directory.InitialDirContext;
 
 import com.pcbsys.nirvana.client.nChannel;
 import com.pcbsys.nirvana.client.nChannelAttributes;
 import com.pcbsys.nirvana.client.nChannelNotFoundException;
 import com.pcbsys.nirvana.client.nConsumeEvent;
+import com.pcbsys.nirvana.client.nDurable;
+import com.pcbsys.nirvana.client.nDurableAttributes;
 import com.pcbsys.nirvana.client.nIllegalArgumentException;
 import com.pcbsys.nirvana.client.nIllegalChannelMode;
 import com.pcbsys.nirvana.client.nMaxBufferSizeExceededException;
@@ -33,6 +27,7 @@ import com.pcbsys.nirvana.client.nTransactionAttributes;
 import com.pcbsys.nirvana.client.nTransactionFactory;
 import com.pcbsys.nirvana.client.nUnexpectedResponseException;
 import com.pcbsys.nirvana.client.nUnknownRemoteRealmException;
+import com.pcbsys.nirvana.client.nDurableAttributes.nDurableType;
 
 public class SimplePub {
 
@@ -41,21 +36,20 @@ public class SimplePub {
 
 	public void doIt() {
 
-		long startTime = System.nanoTime();
-		byte[] p = new byte[100];
-		nConsumeEvent h = new nConsumeEvent("test".getBytes(), p);
+		byte[] p = new byte[10000];
 		nChannelAttributes cattrib = new nChannelAttributes();
 		try {
-			cattrib.setName("testACL");
+			cattrib.setName("TestChannel");
 		} catch (nIllegalArgumentException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		nQueue myQueue;
+		nChannel myChannel;
 		try {
-			myQueue = mySession.findQueue(cattrib);
-			System.out.println(myQueue.push(h));
+			myChannel = mySession.findChannel(cattrib);
 			
+			myChannel.publish(new nConsumeEvent("eventTag".getBytes(), p));
+
 		} catch (nChannelNotFoundException | nSessionPausedException | nUnknownRemoteRealmException | nSecurityException
 				| nSessionNotConnectedException | nIllegalArgumentException | nUnexpectedResponseException
 				| nRequestTimedOutException | nIllegalChannelMode e1) {
@@ -65,32 +59,16 @@ public class SimplePub {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		java.util.Arrays.fill(p, (byte) 'a');
-
-		try {
-
-			Vector messages = new Vector();
-			messages.addElement(h);
-			nTransactionAttributes tattrib = new nTransactionAttributes(myQueue);
-			nTransaction myTransaction = nTransactionFactory.create(tattrib);
-			myTransaction.publish(messages);
-			myTransaction.commit();
-		} catch (nSecurityException e) {
-			e.printStackTrace();
-		}
-
-		if ((System.nanoTime() - startTime) / 1000000 > 100)
-			System.out.println("Total time on thread:" + Thread.currentThread().getId() + "="
-					+ (System.nanoTime() - startTime) / 1000000);
 
 	}
 
 	public static void main(String[] args) throws nIllegalArgumentException, nRealmUnreachableException,
 			nSecurityException, nSessionNotConnectedException, nSessionAlreadyInitialisedException {
-		int TOTALREQUESTS = 1;
+		int TOTALREQUESTS = 25000;
 		int TOTALTHEADS = 1;
-		String[] RNAME = { System.getProperty("RNAME", "nsp://127.0.0.1:9050") };
+		String[] RNAME = { System.getProperty("RNAME", "nsp://127.0.0.1:9005") };
 
 		nsa = new nSessionAttributes(RNAME);
 
@@ -98,19 +76,53 @@ public class SimplePub {
 		mySession = nSessionFactory.create(nsa, "Administrator", "manage");
 
 		mySession.init();
+		nChannelAttributes cattrib = new nChannelAttributes();
+		try {
+			cattrib.setName("TestChannel");
+		} catch (nIllegalArgumentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		nChannel myChannel;
+		try {
+			myChannel = mySession.findChannel(cattrib);
+			nDurableAttributes durAttr = nDurableAttributes.create(nDurableType.Serial, "mysubscription");
+			nDurable named = null;
+			try {
+				named = myChannel.getDurableManager().add(durAttr);
+
+			} catch (com.pcbsys.nirvana.client.nNameAlreadyBoundException e) {
+				named = myChannel.getDurableManager().get("mysubscription");
+			}
+			
+
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 
 		System.out.println("PID of this process:" + ManagementFactory.getRuntimeMXBean().getName());
 		ExecutorService exec = Executors.newFixedThreadPool(TOTALTHEADS);
 		try {
 			while (true) {
 
-				for (int i = 0; i < TOTALREQUESTS; i++) {
+				for (int i = 0; i < TOTALTHEADS; i++) {
 
 					Runnable worker = new Runnable() {
 
 						public void run() {
-							// TODO Auto-generated method stub
-							new SimplePub().doIt();
+							long startTime = System.nanoTime();
+
+							for (int k = 0; k < TOTALREQUESTS; k++) {
+								// TODO Auto-generated method stub
+								new SimplePub().doIt();
+							}
+
+							System.out.println("Total time on thread:" + Thread.currentThread().getId() + "="
+									+ (System.nanoTime() - startTime) / 1000000);
 
 						}
 
